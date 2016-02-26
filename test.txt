@@ -1,3 +1,15 @@
+<<<<<<< HEAD
 je moeder is kapot dik 
 
 ALLUH AKBAR
+=======
+<<<<<<< HEAD
+<?php
+echo "hallo";
+
+?>
+=======
+test
+kasjfpewq;fkjawl;jf
+>>>>>>> origin/master
+>>>>>>> origin/master
