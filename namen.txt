@@ -1,10 +1,5 @@
-jor
-<<<<<<< HEAD
-<<<<<<< HEAD
-Lennard
-=======
-Kevin
->>>>>>> origin/master
-=======
-bart
->>>>>>> origin/master
+1 jor
+2 
+3
+4
+5
