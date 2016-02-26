@@ -7,3 +7,6 @@ echo "hallo";
 test
 kasjfpewq;fkjawl;jf
 >>>>>>> origin/master
+
+BONJOUR IK KAN HIER TYPEN
+
