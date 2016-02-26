@@ -1,2 +1,6 @@
 jor
+<<<<<<< HEAD
 Lennard
+=======
+bart
+>>>>>>> origin/master
