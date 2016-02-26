@@ -1,16 +1,5 @@
 jor
-<<<<<<< HEAD
-
-Kevin
-
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
 Lennard
-=======
 Kevin
->>>>>>> origin/master
-=======
->>>>>>> origin/master
 bart
 
