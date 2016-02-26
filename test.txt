@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <?php
 echo "hallo";
 
 ?>
+=======
+test
+kasjfpewq;fkjawl;jf
+>>>>>>> origin/master
