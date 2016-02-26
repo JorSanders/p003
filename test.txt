@@ -1,27 +1,2 @@
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-je moeder is kapot dik 
-
-ALLUH AKBAR
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
-<?php
-echo "hallo";
-
-?>
-<<<<<<< HEAD
-
-<script>alert("hallo");</script>
-=======
-=======
-test
-kasjfpewq;fkjawl;jf
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
-
-
-Dit is een nieuwe regel
+namen:
+jor
