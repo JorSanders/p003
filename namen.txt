@@ -1,2 +1,6 @@
 jor
+<<<<<<< HEAD
 lies
+=======
+bart
+>>>>>>> origin/master
