@@ -1,5 +1,24 @@
+<<<<<<< HEAD
 1 jor
 2 
 3
 4
 5
+=======
+jor
+<<<<<<< HEAD
+
+Kevin
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+Lennard
+=======
+Kevin
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
+bart
+
+>>>>>>> origin/master
