@@ -1,6 +1,10 @@
 jor
 <<<<<<< HEAD
+<<<<<<< HEAD
 lies
+=======
+Kevin
+>>>>>>> origin/master
 =======
 bart
 >>>>>>> origin/master
