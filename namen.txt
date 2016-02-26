@@ -1,6 +1,6 @@
 jor
-<<<<<<< HEAD
+
 Kevin
-=======
+
 bart
->>>>>>> origin/master
+
