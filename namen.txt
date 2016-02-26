@@ -6,19 +6,8 @@
 5
 =======
 jor
-<<<<<<< HEAD
-
-Kevin
-
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
 Lennard
-=======
 Kevin
->>>>>>> origin/master
-=======
->>>>>>> origin/master
 bart
 
 >>>>>>> origin/master
