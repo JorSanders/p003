@@ -1,0 +1,55 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<link rel="stylesheet" href="../includes/stylesheet.css">
+
+</head>
+<body>
+<ul>
+  <li><a class="active" href="index_admin.html">Home</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">Menu</a>
+    <div class="dropdown-content" id="myDropdown">
+      <a href="aanwezigheidsstatistieken_toevoegen.html">Aanwezigheidstabel toevoegen</a>
+	  <a href="student_toevoegen.html">Studenten toevoegen</a>
+	  <a href="docent_toevoegen.html">Docenten toevoegen</a>
+      <a href="wachtwoord_wijzigen_admin.html">Wachtwoord wijzigen</a>
+	  <a href="wachtwoord_wijzigen_van_student.html">Wachtwoord wijzigen van student</a>
+    </div>
+	<li><a class="active" href="admin_home.html">Uitloggen</a></li>
+  </li>
+</ul>
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var d = 0; d < dropdowns.length; d++) {
+      var openDropdown = dropdowns[d];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+<center>
+<div id="container"> 
+<div id="lettertype-kopje"><h2>Welkom Admin</h2></div>
+<div id="lettertype-rest">
+
+Dit is de Admin pagina.
+
+</div>
+</div>
+</center>
+</body>
+</html> 

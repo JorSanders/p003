@@ -1,10 +1,23 @@
 jor
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 lies
 =======
 Kevin
+=======
+
+Kevin
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+Lennard
+=======
+Kevin
+>>>>>>> origin/master
 >>>>>>> origin/master
 =======
-bart
 >>>>>>> origin/master
+bart
+
