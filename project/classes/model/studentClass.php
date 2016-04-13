@@ -1,6 +1,6 @@
 <?php
 
-include("../classes/model/userclass.php");
+include("../classes/model/userClass.php");
 
 	class Student extends User{
 		
