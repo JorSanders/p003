@@ -25,7 +25,7 @@ class MySQLConnection {
         	} 
             echo "het werkt";    
         return $this->connection;  
-        
+
     }        
     
         public function query($sql) {
