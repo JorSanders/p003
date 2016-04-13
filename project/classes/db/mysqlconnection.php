@@ -9,7 +9,7 @@ class MySQLConnection {
 
     private $connection;     
     
-    public function MySQLConnection() {
+    public function __construct() {
             $this->openConnection();           
     }
 
@@ -23,6 +23,7 @@ class MySQLConnection {
         if (!$this->connection) {
             die("Database connectie mislukte: " . mysqli_error($this->connection));
         	} 
+            
         return $this->connection;      
     }        
     
