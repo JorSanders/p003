@@ -1,4 +1,9 @@
 <?php
+
+require_once("mysqlconnection.php");
+require_once("../classes/model/?");
+require_once("../classes/model/?");
+
 class QueryManager {
    
     private $dbconn;
