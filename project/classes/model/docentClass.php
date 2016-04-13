@@ -1,6 +1,6 @@
 <?php
 
-include("../classes/model/userClass.php");
+include_once("../classes/model/userClass.php");
 
 	class Teacher extends User{
 		

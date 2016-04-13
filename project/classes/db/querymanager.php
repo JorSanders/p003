@@ -8,7 +8,7 @@ class QueryManager {
    
     private $dbconn;
     
-    public function QueryManager() {
+    public function __construct() {
       // OOP: instantieer een MySQLConnection-object en geef deze als resultaat 
       $this->dbconn = new MySQLConnection();     
     }
