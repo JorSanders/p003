@@ -3,7 +3,7 @@
 class MySQLConnection {
 
     private $dbhost = 'localhost';    
-    private $dbuser = 'jor';      
+    private $dbuser = 'team157_jor';      
     private $dbpassword = '0URTAeesrX';     
     private $dbname = 'team157_ars';      
 
@@ -23,8 +23,9 @@ class MySQLConnection {
         if (!$this->connection) {
             die("Database connectie mislukte: " . mysqli_error($this->connection));
         	} 
-            
-        return $this->connection;      
+            echo "het werkt";    
+        return $this->connection;  
+        
     }        
     
         public function query($sql) {
