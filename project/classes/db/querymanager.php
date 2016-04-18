@@ -18,10 +18,13 @@ class QueryManager {
     //delete user
     public function deleteUser($id) {
 		//gedaan
-		$this->dbconn->query("
-			DELETE FROM user
-			WHERE id=$id;");
+		$this->dbconn->query("DELETE FROM user WHERE id = $id");
     }
 	
+
 	//Hieronder staan alle queries voor de berichten:
+
+
+
+
     ?>
