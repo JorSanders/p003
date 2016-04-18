@@ -8,13 +8,17 @@
 	protected $profilepicture;
 	
 		
-		public function __construct($password, $name, $email, $profilepicture){
+		public function __construct($id, $password, $name, $email, $profilepicture){
 			
+			$this->id = $id;
 			$this->password = $password;
 			$this->name = $name;
 			$this->email = $email;
 			$this->profilepicture = $profilepicture;
 		}
+		public function getId() {
+			return $this->id;
+		}   
 		public function getPassword() {
 			return $this->password;
 		}
@@ -26,7 +30,7 @@
 		}   
 		public function getProfilePicture() {
 			return $this->profilepicture;
-		}   
+		} 
 	
 	}
 	
