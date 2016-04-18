@@ -1,8 +1,8 @@
 <?php
 
 require_once("mysqlconnection.php");
-require_once("../classes/model/?");
-require_once("../classes/model/?");
+require_once("../classes/model/studentClass.php");
+require_once("../classes/model/docentClass.php");
 
 class QueryManager {
    
