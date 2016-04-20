@@ -5,6 +5,8 @@
 
 	$q = new Querymanager();
 
+	echo"test";
+	
 	//delete user 
 	if (isset($_GET['id'])&&($_GET['action']=='JA')) {
 		$id = $_GET['id'];
