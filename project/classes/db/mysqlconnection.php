@@ -23,7 +23,6 @@ class MySQLConnection {
         if (!$this->connection) {
             die("Database connectie mislukte: " . mysqli_error($this->connection));
         	} 
-              echo "het werkt";  
         return $this->connection;  
 
     }        

@@ -1,13 +1,13 @@
 <?php
 
-include_once("../classes/model/userClass.php");
+include_once("userClass.php");
 
 	class Student extends User{
 		
 		protected $studentssupervisor;
 		protected $studentclass;
 	
-	}
+	
 		public function __construct($studentssupervisor, $studentclass){
 				
 				$this->studentssupervisor = $studentssupervisor;
@@ -20,5 +20,5 @@ include_once("../classes/model/userClass.php");
 				return $this->studentclass;
 			}   
 
-
+	}
 ?>

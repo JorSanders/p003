@@ -1,6 +1,6 @@
 <?php
 
-include_once("../classes/model/userClass.php");
+include_once("userClass.php");
 
 	class Teacher extends User{
 		
@@ -10,7 +10,7 @@ include_once("../classes/model/userClass.php");
 		protected $subject;
 		protected $classes;
 	
-	}
+	
 		public function __construct($abbrevation, $studentsupervisor, $admin, $subject, $classes){
 				
 				$this->abbrevation = $abbrevation;
@@ -34,6 +34,6 @@ include_once("../classes/model/userClass.php");
 			public function getClasses() {
 				return $this->classes;
 			}   
-
+	}
 
 ?>
