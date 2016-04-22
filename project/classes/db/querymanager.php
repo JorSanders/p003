@@ -2,10 +2,6 @@
 
 include_once("mysqlconnection.php");
 
-include_once("../classes/model/docentClass.php");
-include_once("../classes/model/lessonClass.php");
-include_once("../classes/model/studentClass.php");
-include_once("../classes/model/subjectClass.php");
 
 
 class QueryManager {
