@@ -2,21 +2,25 @@
 
 	// de code hieronder maaktt de class
 	class Lesson{
-		protected $absent;
-		protected $student;
+		protected $id;
+		protected $code;
+		protected $subjectId;
 		
 	
-		public function __construct($absent, $student){
-			$this->absent = $absent;
-			$this->student = $student;
+		public function __construct($id, $code, $subjectId){
+			$this->id = $id;
+			$this->code = $code;
+			$this->subjectId = $subjectId;
 		}
-		public function getAbsent() {
-			return $this->absent;
+		public function getId() {
+			return $this->id;
 		}	  
-		public function getStudent() {
-			return $this->student;
+		public function getCode() {
+			return $this->code;
 		} 
-	  
+		public function getSubjectId() {
+			return $this->subjectId;
+		} 	  
 	}
 	
 	?>
