@@ -42,6 +42,26 @@ class QueryManager {
 		(NULL, '$vaknaam', $docentCode);"); 
 	}
 
+	// Get all subjects from one teacher
+	public function getLessonsFromSubject($subjectId) {         
+        $result = $this->dbconn->query("
+			SELECT lesnummer, lesnaam, gegenereerde_code, vakcode
+			FROM les
+			WHERE vakcode = $subjectId
+			ORDER BY lesnummer DESC");
+			
+        while ($row = mysqli_fetch_array($result)) {
+			$lessonList[] = new Lesson($row['lesnummer'],$row['lesnaam'],$row['gegenereerde_code'],$row['vakcode']);
+        }
+        return $lessonList;
+    }
+	
+	// Add a subject
+	public function addLesson($lessonName, $subjectId){
+		$this->dbconn->query("INSERT into les (lesnummer, lesnaam, gegenereerde_code, vakcode) VALUES 
+		(NULL, '$lessonName', 0, $subjectId);"); 
+	}
+	
 }
 
 

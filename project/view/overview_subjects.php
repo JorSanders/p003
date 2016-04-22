@@ -17,7 +17,7 @@ $subjectList = $q->getSubjectsFromDocent(1);
 // allow teacher to input subjectname and send that too the subjectcontroller to addSubject()
 echo"Voeg nieuw vak toe: <br>
 <form action='../controller/subjectcontroller.php' method='POST'>
-	<input type='text' name='subjectName' value='vaknaam'>
+	<input type='text' name='subjectName' placeholder='vaknaam'>
 	<input type='submit' value='+'>
 	<input type='hidden' name='action' value='addSubject'>
 </form>
