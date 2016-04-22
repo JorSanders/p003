@@ -25,18 +25,29 @@ class QueryManager {
 		$this->dbconn->query("DELETE FROM user WHERE id = $id");
     }
 	
-	public function getSubjectsFromDocent($docentcode){
-		$result = $this->dbconn->query("
+	// Get all subjects from one teacher
+	public function getSubjectsFromDocent($docentcode) {         
+        $result = $this->dbconn->query("
 			SELECT vakcode, vaknaam, docentcode
 			FROM vak
-			WHERE docentcode = $docentcode");
-		
-		while ($row = mysqli_fetch_array($result)) {
-			$subjectList[] = new subject($row['vakcode'],$row['vaknaam'],$row['docentcode']);
+			WHERE docentcode = $docentcode
+			ORDER BY vakcode DESC");
+			
+        while ($row = mysqli_fetch_array($result)) {
+			$subjectList[] = new Subject($row['vakcode'],$row['vaknaam'],$row['docentcode']);
         }
+
         return $subjectList;
+    }
+	
+	// Add a subject
+	public function addSubject($vaknaam, $docentCode){
+		$this->dbconn->query("INSERT into vak (vakcode, vaknaam, docentcode) VALUES 
+		(NULL, '$vaknaam', $docentCode);"); 
 	}
 
 }
+
+
 
 ?>

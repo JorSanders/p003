@@ -27,7 +27,7 @@ class MySQLConnection {
 
     }        
     
-        public function query($sql) {
+    public function query($sql) {
         $this->last_query = $sql; 
         $result = mysqli_query($this->connection, $sql);
         return $result;

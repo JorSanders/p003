@@ -1,5 +1,5 @@
 <?php
 
-	header("location:project/view/docent_home.php");
+	header("location:project/view/overview_subjects.php");
 
 ?>
