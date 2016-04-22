@@ -39,7 +39,7 @@ class QueryManager {
 	// Add a subject
 	public function addSubject($vaknaam, $docentCode){
 		$this->dbconn->query("INSERT into vak (vakcode, vaknaam, docentcode) VALUES 
-		(NULL, '$vaknaam', $docentCode);"); 
+			(NULL, '$vaknaam', $docentCode);"); 
 	}
 
 	// Get all subjects from one teacher
@@ -59,9 +59,30 @@ class QueryManager {
 	// Add a subject
 	public function addLesson($lessonName, $subjectId){
 		$this->dbconn->query("INSERT into les (lesnummer, lesnaam, gegenereerde_code, vakcode) VALUES 
-		(NULL, '$lessonName', 0, $subjectId);"); 
+			(NULL, '$lessonName', 0, $subjectId);"); 
 	}
 	
+	// update lesson code
+	public function updateLessonCode($lessonId, $code){
+		$this->dbconn->query("UPDATE les
+		SET gegenereerde_code=$code
+		WHERE lesnummer = $lessonId;"); 
+	}
+	
+	// get all codes
+	public function getAllCodes(){
+		$result = $this->dbconn->query("
+			SELECT gegenereerde_code
+			FROM les
+			WHERE gegenereerde_code >= 10000 
+			AND gegenereerde_code <= 99999;");
+		
+		while ($row = mysqli_fetch_array($result)) {
+			$codeList[] = $row['gegenereerde_code'];
+        }
+		
+		return $codeList;
+	}
 }
 
 

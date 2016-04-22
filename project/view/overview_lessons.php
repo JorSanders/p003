@@ -29,12 +29,15 @@ foreach ($lessonList as $lesson) {
 	
 	
 	if ($lesson->getCode() == 0){
-		echo "<form action='subjectcontroller' method='POST'>
-		<input type='submit' value='creeer code'>
-		<input type='hidden' value='{$lesson->getId()}'> 		
-		</form>";		
+		echo "
+			<form style='display:inline-block' action='../controller/subjectcontroller.php' method='POST'>
+				<input type='submit' value='creeer code'>
+				<input type='hidden' name='lessonId' value='{$lesson->getId()}'> 	
+				<input type='hidden' name='subjectId' value='$subjectId'> 	
+				<input type='hidden' name='action' value='generate_code'>
+			</form>";		
 	}else if($lesson->getCode() == 1){
-		echo "les is al gesloten";
+		echo "les is gesloten";
 	}else{
 		echo $lesson->getCode();
 	}	
