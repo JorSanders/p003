@@ -14,7 +14,7 @@ $lessonList = $q->getLessonsFromSubject($subjectId);
 //allow teacher to input lesson name and send that too the subjectcontroller to addLesson()
 echo"Voeg nieuwe les toe: <br>
 <form action='../controller/subjectcontroller.php' method='POST'>
-	<input type='text' name='lessonName' placeholder='lesnaam'>
+	<input type='text' name='lessonName' placeholder='lesnaam' required>
 	<input type='submit' value='+'>
 	<input type='hidden' name='action' value='addLesson'>
 	<input type='hidden' name='subjectId' value='$subjectId'>
@@ -29,7 +29,10 @@ foreach ($lessonList as $lesson) {
 	
 	
 	if ($lesson->getCode() == 0){
-		echo "creeer code";
+		echo "<form action='subjectcontroller' method='POST'>
+		<input type='submit' value='creeer code'>
+		<input type='hidden' value='{$lesson->getId()}'> 		
+		</form>";		
 	}else if($lesson->getCode() == 1){
 		echo "les is al gesloten";
 	}else{
