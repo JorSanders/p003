@@ -79,7 +79,6 @@ class QueryManager {
 
 	// update lesson code
 	// TODO make PDO
-
 	public function updateLessonCode($lessonId, $code){
 		$this->dbconn->query("UPDATE les
 		SET gegenereerde_code=$code
