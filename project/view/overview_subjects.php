@@ -14,6 +14,8 @@ $q = new Querymanager();
 
 $subjectList = $q->getSubjectsFromDocent(1);
 
+
+/*
 // allow teacher to input subjectname and send that too the subjectcontroller to addSubject()
 echo"Voeg nieuw vak toe: <br>
 <form action='../controller/subjectcontroller.php' method='POST'>
@@ -23,10 +25,15 @@ echo"Voeg nieuw vak toe: <br>
 </form>
 
 ";
+*/
 
 //shows all subject names as links to show all the lessons from that subject
-foreach ($subjectList as $subject) {
-    echo "<a href='overview_lessons.php?vakcode={$subject->getVakcode()}'> ".$subject->getVaknaam() ."</a><br>";
+foreach ($subjectList as $value) {
+	foreach ($value as $value1){
+		   echo "$value1 ";
+	}
+	echo"<br>";
+    //echo "<a href='overview_lessons.php?vakcode={$subject->getVakcode()}'> ".$subject->getVaknaam() ."</a><br>";
 }   
 
 

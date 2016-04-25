@@ -1,9 +1,7 @@
 <?php
 
 include_once("mysqlconnection.php");
-include_once("../../includes/script/PDOModel.php")
-
-
+include_once("../includes/script/PDOModel.php");
 
 class QueryManager {
    
@@ -11,9 +9,13 @@ class QueryManager {
     
     public function __construct() {
       // OOP: instantieer een MySQLConnection-object en geef deze als resultaat 
-      $this->dbconn = new MySQLConnection();     
+		$this->dbconn = new MySQLConnection();  
+
+		$this->pdomodel = new PDOModel();
+		$this->pdomodel->connect("localhost", "team157_user", "0URTAeesrX", "team157_db");	  
     }
 	
+		
 	//Hieronder staan alle queries voor de users:
 		
     //delete user
@@ -24,29 +26,24 @@ class QueryManager {
     $pdomodel->delete("user");
     }
 
-     //Password check
+    //Password check
     public function check_password($studentnummer, $old_password) {  //checkuser
-     $result = $this->dbconn->query("SELECT * FROM user WHERE studentnummer ='$studentnummer' AND student_wachtwoord = '$old_password'");
-   $row = mysqli_num_rows($result);
-   return $row;
-}
+		$result = $this->dbconn->query("SELECT * FROM user WHERE studentnummer ='$studentnummer' AND student_wachtwoord = '$old_password'");
+		$row = mysqli_num_rows($result);
+		return $row;
+	}
     public function change_password($studentnummer, $new_password) {
-      $this->dbconn->query("UPDATE student SET student_wachtwoord='$new_password' WHERE studentnummer='$studentnummer'");
+		$this->dbconn->query("UPDATE student SET student_wachtwoord='$new_password' WHERE studentnummer='$studentnummer'");
     }  
 	
 	// Get all subjects from one teacher
-	public function getSubjectsFromDocent($docentcode) {         
-        $result = $this->dbconn->query("
-			SELECT vakcode, vaknaam, docentcode
-			FROM vak
-			WHERE docentcode = $docentcode
-			ORDER BY vakcode DESC");
-			
-        while ($row = mysqli_fetch_array($result)) {
-			$subjectList[] = new Subject($row['vakcode'],$row['vaknaam'],$row['docentcode']);
-        }
+	public function getSubjectsFromDocent($owner_id) {         
 
-        return $subjectList;
+		$this->pdomodel->where("owner_id",$owner_id,"=");
+		$result =  $this->pdomodel->select("subject");
+		
+
+        return $result;
     }
 	
 	// Add a subject
@@ -96,6 +93,7 @@ class QueryManager {
 		
 		return $codeList;
 	}
+	
 }
 
 

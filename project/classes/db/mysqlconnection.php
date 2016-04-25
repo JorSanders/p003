@@ -1,16 +1,18 @@
 <?php
-require_once '../../includes/script/PDOModel.php';
+
+
 class MySQLConnection {
 
     private $dbhost = 'localhost';    
-    private $dbuser = 'team157_jor';      
+    private $dbuser = 'team157_user';      
     private $dbpassword = '0URTAeesrX';     
     private $dbname = 'team157_db';      
 
     private $connection;     
     
     public function __construct() {
-            $this->openConnection();           
+        $this->openConnection(); 
+		
     }
 
     public function openConnection() {
@@ -34,8 +36,6 @@ class MySQLConnection {
     }     
 
 } 
-$pdomodel = new PDOModel();
 
-$pdomodel->connect("localhost", "team157_jor", "0URTAeesrX", "team157_db");
 
 ?>
