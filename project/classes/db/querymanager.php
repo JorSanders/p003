@@ -16,17 +16,16 @@ class QueryManager {
     }
 	
 		
-	//Hieronder staan alle queries voor de users:
-		
     //delete user
+	// TODO make PDO
     public function deleteUser($id) {
-		//gedaan
-		$this->dbconn->query("DELETE FROM user WHERE id = $id");
+	$this->dbconn->query("DELETE FROM user WHERE id = $id");
     $pdomodel->where("id", $id);
     $pdomodel->delete("user");
     }
 
     //Password check
+	// TODO make PDO
     public function check_password($studentnummer, $old_password) {  //checkuser
 		$result = $this->dbconn->query("SELECT * FROM user WHERE studentnummer ='$studentnummer' AND student_wachtwoord = '$old_password'");
 		$row = mysqli_num_rows($result);
@@ -37,16 +36,20 @@ class QueryManager {
     }  
 	
 	// Get all subjects from one teacher
-	public function getSubjectsFromDocent($owner_id) {         
-
+	public function getSubjectsFromDocent($owner_id) {   
 		$this->pdomodel->where("owner_id",$owner_id,"=");
 		$result =  $this->pdomodel->select("subject");
 		
-
-        return $result;
+		foreach($result as $dbItem){
+			$subjectList[] = new Subject($dbItem['lesnummer'],$dbItem['lesnaam'],$dbItem['gegenereerde_code'],$dbItem['vakcode']);
+		}
+		
+		echo "<br>--------- <br>";
+        return $subjectList;
     }
 	
 	// Add a subject
+	// TODO make PDO
 	public function addSubject($vaknaam, $docentCode){
 		$this->dbconn->query("INSERT into vak (vakcode, vaknaam, docentcode) VALUES 
 			(NULL, '$vaknaam', $docentCode);"); 
@@ -67,12 +70,15 @@ class QueryManager {
     }
 	
 	// Add a subject
+	// TODO make PDO
 	public function addLesson($lessonName, $subjectId){
 		$this->dbconn->query("INSERT into les (lesnummer, lesnaam, gegenereerde_code, vakcode) VALUES 
 			(NULL, '$lessonName', 0, $subjectId);"); 
 	}
 	
 	// update lesson code
+	// TODO make PDO
+
 	public function updateLessonCode($lessonId, $code){
 		$this->dbconn->query("UPDATE les
 		SET gegenereerde_code=$code
@@ -80,6 +86,7 @@ class QueryManager {
 	}
 	
 	// get all codes
+	// TODO make PDO
 	public function getAllCodes(){
 		$result = $this->dbconn->query("
 			SELECT gegenereerde_code
