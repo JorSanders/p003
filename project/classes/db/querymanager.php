@@ -20,6 +20,16 @@ class QueryManager {
 		//gedaan
 		$this->dbconn->query("DELETE FROM user WHERE id = $id");
     }
+
+     //Password check
+    public function check_password($studentnummer, $old_password) {  //checkuser
+     $result = $this->dbconn->query("SELECT * FROM user WHERE studentnummer ='$studentnummer' AND student_wachtwoord = '$old_password'");
+   $row = mysqli_num_rows($result);
+   return $row;
+}
+    public function change_password($studentnummer, $new_password) {
+      $this->dbconn->query("UPDATE student SET student_wachtwoord='$new_password' WHERE studentnummer='$studentnummer'");
+    }  
 	
 	// Get all subjects from one teacher
 	public function getSubjectsFromDocent($docentcode) {         
