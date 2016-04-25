@@ -6,13 +6,13 @@ include_once("../classes/db/querymanager.php");
 include_once("../classes/model/subjectClass.php"); 
 
 //change this when login function works
-$_SESSION['docentCode'] = 1;
+$_SESSION['userId'] = 1;
 
 
 $q = new Querymanager();
 
 
-$subjectList = $q->getSubjectsFromDocent(1);
+$subjectList = $q->getSubjectsFromDocent($_SESSION['userId']);
 
 
 /*
