@@ -52,7 +52,7 @@ class QueryManager {
 	// TODO make PDO
 	public function addSubject($vaknaam, $docentCode){
 		$this->dbconn->query("INSERT into vak (vakcode, vaknaam, docentcode) VALUES 
-			(NULL, '$vaknaam', $docentCode);"); 
+		(NULL, '$vaknaam', $docentCode);"); 
 	}
 
 	// Get all subjects from one teacher
@@ -73,9 +73,10 @@ class QueryManager {
 	// TODO make PDO
 	public function addLesson($lessonName, $subjectId){
 		$this->dbconn->query("INSERT into les (lesnummer, lesnaam, gegenereerde_code, vakcode) VALUES 
-			(NULL, '$lessonName', 0, $subjectId);"); 
+		(NULL, '$lessonName', 0, $subjectId);"); 
 	}
 	
+
 	// update lesson code
 	// TODO make PDO
 
@@ -101,8 +102,6 @@ class QueryManager {
 		return $codeList;
 	}
 	
-}
-
 
 
 ?>
