@@ -2,6 +2,7 @@
 
 	// de code hieronder maaktt de class
 	class Subject{
+		protected $id;
 		protected $vakcode;
 		protected $vaknaam;
 		protected $docentcode;
