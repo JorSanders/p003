@@ -5,7 +5,7 @@ class MySQLConnection {
     private $dbhost = 'localhost';    
     private $dbuser = 'team157_jor';      
     private $dbpassword = '0URTAeesrX';     
-    private $dbname = 'team157_ars';      
+    private $dbname = 'team157_db';      
 
     private $connection;     
     
