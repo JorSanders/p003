@@ -76,11 +76,5 @@ class QueryManager {
 		(NULL, '$lessonName', 0, $subjectId);"); 
 	}
 	
-
-
-
 }
-
-
-
 ?>
