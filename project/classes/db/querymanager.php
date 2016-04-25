@@ -77,33 +77,9 @@ class QueryManager {
 	}
 	
 
-	// update lesson code
-	// TODO make PDO
-	public function updateLessonCode($lessonId, $code){
-		$this->dbconn->query("UPDATE les
-		SET gegenereerde_code=$code
-		WHERE lesnummer = $lessonId;"); 
-	}
-	
-	// get all codes
-	// TODO make PDO
-	public function getAllCodes(){
-		$result = $this->dbconn->query("
-			SELECT gegenereerde_code
-			FROM les
-			WHERE gegenereerde_code >= 10000 
-			AND gegenereerde_code <= 99999;");
-		
-		while ($row = mysqli_fetch_array($result)) {
-			$codeList[] = $row['gegenereerde_code'];
-        }
-		
-		return $codeList;
-	}
-	
+
 
 }
-
 
 
 
