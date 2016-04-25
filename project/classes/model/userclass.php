@@ -9,12 +9,13 @@
 	protected $code;
 	protected $active;	
 		
-		public function __construct($id, $password, $name, $email, $profilepicture){
+		public function __construct($id, $name, $password, $email, $code, $active){
 			$this->id = $id;
-			$this->password = $password;
 			$this->name = $name;
+			$this->password = $password;
 			$this->email = $email;
-			$this->profilepicture = $profilepicture;
+			$this->code = $code;
+			$this->active = $active;
 		}
 		public function getId() {
 			return $this->id;
