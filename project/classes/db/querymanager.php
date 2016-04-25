@@ -20,6 +20,8 @@ class QueryManager {
     public function deleteUser($id) {
 		//gedaan
 		$this->dbconn->query("DELETE FROM user WHERE id = $id");
+    $pdomodel->where("id", $id);
+    $pdomodel->delete("user");
     }
 
      //Password check
