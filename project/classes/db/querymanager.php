@@ -1,7 +1,7 @@
 <?php
 
 include_once("mysqlconnection.php");
-include_once("../includes/script/PDOModel.php")
+include_once("../../includes/script/PDOModel.php")
 
 
 

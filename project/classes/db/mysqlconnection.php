@@ -1,5 +1,5 @@
 <?php
-
+require_once '../../includes/script/PDOModel.php';
 class MySQLConnection {
 
     private $dbhost = 'localhost';    
@@ -34,6 +34,8 @@ class MySQLConnection {
     }     
 
 } 
+$pdomodel = new PDOModel();
 
+$pdomodel->connect("localhost", "team157_jor", "0URTAeesrX", "team157_db");
 
 ?>
