@@ -76,6 +76,7 @@ class QueryManager {
 		(NULL, '$lessonName', 0, $subjectId);"); 
 	}
 	
+<<<<<<< HEAD
 
 	// update lesson code
 	// TODO make PDO
@@ -101,6 +102,10 @@ class QueryManager {
 		return $codeList;
 	}
 	
+=======
+}
+
+>>>>>>> parent of 1415ec5... makes sure random code is unique
 
 
 ?>
