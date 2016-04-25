@@ -77,6 +77,7 @@ class QueryManager {
 	}
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	// update lesson code
 	// TODO make PDO
@@ -103,6 +104,8 @@ class QueryManager {
 	}
 	
 =======
+=======
+>>>>>>> parent of 1415ec5... makes sure random code is unique
 }
 
 >>>>>>> parent of 1415ec5... makes sure random code is unique
