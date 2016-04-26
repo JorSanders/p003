@@ -86,5 +86,13 @@ class QueryManager {
 		$this->pdomodel->insert("lesson", $insertSubject);
 	}
 	
+	public function getAllCodes(){
+		
+	}
+	
+	public function updateLessonCode(){
+		$pdomodel->where("orderId", 7);//setting where condition
+		$pdomodel->update("order", array("orderNumber"=>"44", "customerName"=>"BKG", "address"=>"140 shakti nagar"));
+	}
 }
 ?>

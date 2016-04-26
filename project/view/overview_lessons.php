@@ -26,12 +26,14 @@ Voeg nieuwe les toe: <br>
 //shows all lesson names as links 
 if (isset($lessonList)){
 	foreach ($lessonList as $lesson) {
-		echo /*"<a href='overview_lessons.php?vakcode={$lesson->getId()}'> ".*/$lesson->getName() ."</a> ";
+		echo /*"<a href='overview_lessons.php?vakcode={$lesson->get_id()}'> ".*/$lesson->getName() ."</a> ";
 		
 		if ($lesson->getCode() == 0){
 			echo "<form action='../controller/subjectcontroller.php' method='POST'>
 			<input type='submit' value='creeer code'>
-			<input type='hidden' value='{$lesson->getId()}'> 		
+			<input type='hidden' name='lesson_id' value='{$lesson->getId()}'> 
+			<input type='hidden' name='subject_id' value='$subject_id'> 
+			<input type='hidden' name='action' value='generate_code'>
 			</form>";		
 		}else if($lesson->getCode() == 1){
 			echo "les is al gesloten";
