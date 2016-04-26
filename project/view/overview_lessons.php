@@ -27,9 +27,8 @@ Voeg nieuwe les toe: <br>
 if (isset($lessonList)){
 	foreach ($lessonList as $lesson) {
 		echo /*"<a href='overview_lessons.php?vakcode={$lesson->get_id()}'> ".*/$lesson->getName() ."</a> ";
-		
 		if ($lesson->getCode() == 0){
-			echo "<form action='../controller/subjectcontroller.php' method='POST'>
+			echo "<form style='display:inline-block;' action='../controller/subjectcontroller.php' method='POST'>
 			<input type='submit' value='creeer code'>
 			<input type='hidden' name='lesson_id' value='{$lesson->getId()}'> 
 			<input type='hidden' name='subject_id' value='$subject_id'> 
@@ -44,6 +43,9 @@ if (isset($lessonList)){
 	   echo "<br>";
 	}
 }
+
+echo "<br>
+	<a href='overview_subjects.php'>terug naar vak</a>";
 
 ?>
 

@@ -41,20 +41,23 @@ class QueryManager {
 		$this->pdomodel->orderByCols = array("subject_id DESC");
 		$result =  $this->pdomodel->select("subject");
 		
-		foreach($result as $dbItem){
-			$subjectList[] = new Subject($dbItem['subject_id'],$dbItem['subject_name'],$dbItem['owner_id'],$dbItem['active']);
+		if(!empty($result[0])){
+			foreach($result as $dbItem){
+				$subjectList[] = new Subject($dbItem['subject_id'],$dbItem['subject_name'],$dbItem['owner_id'],$dbItem['active']);
+			}
+			
+			return $subjectList;
 		}
-
-        return $subjectList;
     }
 	
 	// Add a subject
-	public function addSubject($subject_name, $onwer_id){
+	public function addSubject($subject_name, $owner_id){
 		$insertSubject["subject_id"] = "NULL"; 
 		$insertSubject["subject_name"] = "$subject_name";
-		$insertSubject["owner_id"] = "$onwer_id";
+		$insertSubject["owner_id"] = "$owner_id";
 		$insertSubject["active"] = "true";
 		$this->pdomodel->insert("subject", $insertSubject);
+		echo "name is $subject_name , and id is $owner_id <br>";
 	}
 
 	// Get all lessons from a subject
@@ -74,25 +77,32 @@ class QueryManager {
 	
 	// Add a lesson
 	public function addLesson($lesson_name, $subject_id){
-		//$this->dbconn->query("INSERT into les (lesnummer, lesnaam, gegenereerde_code, vakcode) VALUES 
-		//(NULL, '$lessonName', 0, $subjectId);"); 
-		echo $lesson_name;
-		echo $subject_id;
-		$insertSubject["lesson_id"] = "NULL"; 
-		$insertSubject["lesson_name"] = "$lesson_name";
-		$insertSubject["code"] = 0;
-		$insertSubject["subject_id"] = $subject_id;
-		$insertSubject["active"] = "true";
-		$this->pdomodel->insert("lesson", $insertSubject);
+		$insertLesson["lesson_id"] = "NULL"; 
+		$insertLesson["lesson_name"] = "$lesson_name";
+		$insertLesson["code"] = 0;
+		$insertLesson["subject_id"] = $subject_id;
+		$insertLesson["active"] = "true";
+		$this->pdomodel->insert("lesson", $insertLesson);
 	}
 	
+	// update lesson code
+	public function updateLessonCode($lesson_id, $code){
+		$updateLesson["code"] = "$code";
+		$this->pdomodel->where("lesson_id", $lesson_id);
+		$this->pdomodel->update("lesson", $updateLesson);
+	}
+	
+	// get all codes
 	public function getAllCodes(){
+		$this->pdomodel->columns = array("code");
+		$result =  $this->pdomodel->select("lesson");
 		
-	}
-	
-	public function updateLessonCode(){
-		$pdomodel->where("orderId", 7);//setting where condition
-		$pdomodel->update("order", array("orderNumber"=>"44", "customerName"=>"BKG", "address"=>"140 shakti nagar"));
+		foreach($result as $dbItem){
+			$codeList[] = $dbItem['code'];
+		}
+				
+		return $codeList;
+		
 	}
 }
 ?>
