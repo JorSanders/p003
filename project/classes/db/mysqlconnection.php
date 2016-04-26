@@ -3,7 +3,7 @@ require_once '../../includes/script/PDOModel.php';
 class MySQLConnection {
 
     private $dbhost = 'localhost';    
-    private $dbuser = 'team157_jor';      
+    private $dbuser = 'team157_user';      
     private $dbpassword = '0URTAeesrX';     
     private $dbname = 'team157_db';      
 
