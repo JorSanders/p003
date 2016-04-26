@@ -38,42 +38,52 @@ class QueryManager {
 	// Get all subjects from one teacher
 	public function getSubjectsFromDocent($owner_id) {   
 		$this->pdomodel->where("owner_id",$owner_id,"=");
+		$this->pdomodel->orderByCols = array("subject_id DESC");
 		$result =  $this->pdomodel->select("subject");
 		
 		foreach($result as $dbItem){
-			$subjectList[] = new Subject($dbItem['lesnummer'],$dbItem['lesnaam'],$dbItem['gegenereerde_code'],$dbItem['vakcode']);
+			$subjectList[] = new Subject($dbItem['subject_id'],$dbItem['subject_name'],$dbItem['owner_id'],$dbItem['active']);
 		}
-		
-		echo "<br>--------- <br>";
+
         return $subjectList;
     }
 	
 	// Add a subject
-	// TODO make PDO
-	public function addSubject($vaknaam, $docentCode){
-		$this->dbconn->query("INSERT into vak (vakcode, vaknaam, docentcode) VALUES 
-		(NULL, '$vaknaam', $docentCode);"); 
+	public function addSubject($subject_name, $onwer_id){
+		$insertSubject["subject_id"] = "NULL"; 
+		$insertSubject["subject_name"] = "$subject_name";
+		$insertSubject["owner_id"] = "$onwer_id";
+		$insertSubject["active"] = "true";
+		$this->pdomodel->insert("subject", $insertSubject);
 	}
 
-	// Get all subjects from one teacher
-	public function getLessonsFromSubject($subjectId) {         
-        $result = $this->dbconn->query("
-			SELECT lesnummer, lesnaam, gegenereerde_code, vakcode
-			FROM les
-			WHERE vakcode = $subjectId
-			ORDER BY lesnummer DESC");
-			
-        while ($row = mysqli_fetch_array($result)) {
-			$lessonList[] = new Lesson($row['lesnummer'],$row['lesnaam'],$row['gegenereerde_code'],$row['vakcode']);
-        }
-        return $lessonList;
+	// Get all lessons from a subject
+	public function getLessonsFromSubject($subject_id) {         
+		$this->pdomodel->where("subject_id",$subject_id,"=");
+		$this->pdomodel->orderByCols = array("lesson_id DESC");
+		$result =  $this->pdomodel->select("lesson");
+		
+		//checks if result if empty, if its not makes lesson objects of each lesson
+		if(!empty($result[0])){
+			foreach($result as $dbItem){
+				$lessonList[] = new Lesson($dbItem['lesson_id'],$dbItem['lesson_name'],$dbItem['code'],$dbItem['subject_id'], $dbItem['active']);
+			}
+		return $lessonList;
+		}
     }
 	
-	// Add a subject
-	// TODO make PDO
-	public function addLesson($lessonName, $subjectId){
-		$this->dbconn->query("INSERT into les (lesnummer, lesnaam, gegenereerde_code, vakcode) VALUES 
-		(NULL, '$lessonName', 0, $subjectId);"); 
+	// Add a lesson
+	public function addLesson($lesson_name, $subject_id){
+		//$this->dbconn->query("INSERT into les (lesnummer, lesnaam, gegenereerde_code, vakcode) VALUES 
+		//(NULL, '$lessonName', 0, $subjectId);"); 
+		echo $lesson_name;
+		echo $subject_id;
+		$insertSubject["lesson_id"] = "NULL"; 
+		$insertSubject["lesson_name"] = "$lesson_name";
+		$insertSubject["code"] = 0;
+		$insertSubject["subject_id"] = $subject_id;
+		$insertSubject["active"] = "true";
+		$this->pdomodel->insert("lesson", $insertSubject);
 	}
 	
 }
