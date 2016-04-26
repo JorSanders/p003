@@ -33,6 +33,17 @@ class QueryManager {
     public function change_password($studentnummer, $new_password) {
       $this->dbconn->query("UPDATE student SET student_wachtwoord='$new_password' WHERE studentnummer='$studentnummer'");
     }  
+
+      //om alle roles te vinden
+    public function findAllRole() {
+        $result = $this->dbconn->query("SELECT * FROM role");
+        
+        while ($row = mysqli_fetch_array($result)) {
+        $roleList[] = new Role($row['id'],$row['name'], $row['active']);
+        }
+        return $roleList;
+        
+    }
 	
 	// Get all subjects from one teacher
 	public function getSubjectsFromDocent($docentcode) {         
