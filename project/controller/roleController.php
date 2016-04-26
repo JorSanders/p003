@@ -12,10 +12,9 @@
     header('Location: ../view/new_user_form.php');
 		}
 
-    if ($_POST['action']=='addRole' && isset($_POST['rol'])){
-        $rol = $_POST['rol'];
+    if ($_GET['action']=='addRole' && isset($_GET['rol'])){
+        $rol = $_GET['rol'];
         $addRole = $q->addRole($id, $rol);
-        $_SESSION['addRole'] = serialize($addRole);
         header('location: ../view/index.php');
     }
 
