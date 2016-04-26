@@ -2,6 +2,7 @@
 
 	include_once("../classes/db/querymanager.php");
 	include_once("../classes/model/userclass.php");
+	include_once("../classes/model/roleClass.php");
    	include_once("../classes/model/userstudent.php");
    	include_once("../classes/model/userdocent.php");
 

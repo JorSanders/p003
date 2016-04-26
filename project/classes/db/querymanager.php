@@ -1,7 +1,7 @@
 <?php
 
 include_once("mysqlconnection.php");
-include_once("../../includes/script/PDOModel.php")
+
 
 
 
@@ -44,10 +44,11 @@ class QueryManager {
         return $roleList;
         
     }
-
-    public function addRole($rol) {
+    
+    //rol toevoegen aan een gebruiker
+    public function addRole($id, $rol) {
         $result = $this->dbconn->query("INSERT INTO role (id, name) VALUES (NULL, '$rol')");
-        
+
     }
 	
 	// Get all subjects from one teacher
