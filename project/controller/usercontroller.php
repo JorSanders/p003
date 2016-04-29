@@ -43,6 +43,32 @@
     		header('Location: ../change_password'); 
     	}
     }
+	
+	//User toevoegen
+	
+	if (($_POST['action']=='saveUser')) {        
+		
+
+		$name=$_POST['name'];
+		$password=$_POST['password'];
+		$email=$_POST['email'];
+		$code=$_POST['code'];
+
+
+		$q->saveUser($name, $password, $email, $code);
+		
+
+		
+		header('location: ../view/index.php');
+    }	
+
+
+
+
+
+
+
+?>
     	
 
 
