@@ -3,25 +3,28 @@
 	// de code hieronder maaktt de class
 	class Subject{
 		protected $id;
-		protected $vakcode;
-		protected $vaknaam;
-		protected $docentcode;
+		protected $name;
+		protected $owner_id;
+		protected $active;
 	
-		public function __construct( $vakcode, $vaknaam, $docentcode){
-
-			$this->vakcode = $vakcode;
-			$this->vaknaam = $vaknaam;
-			$this->docentcode = $docentcode;
+		public function __construct( $id, $name, $owner_id, $active){
+			$this->id = $id;
+			$this->name = $name;
+			$this->owner_id = $owner_id;
+			$this->active = $active;
 		}
-		public function getVakcode() {
-			return $this->vakcode;
+		public function getId() {
+			return $this->id;
 		}
-		public function getVaknaam() {
-			return $this->vaknaam;
+		public function getName() {
+			return $this->name;
 		}	 
-		public function getDocentcode() {
-			return $this->docentcode;
-		}   
+		public function getOwner_id() {
+			return $this->owner_id;
+		} 
+		public function getActive() {
+			return $this->active;
+		}		
 	}
 	
 ?>
