@@ -14,7 +14,6 @@ class QueryManager {
 		$this->pdomodel = new PDOModel();
 		$this->pdomodel->connect("localhost", "team157_user", "0URTAeesrX", "team157_db");	  
     }
-	
 		
     //delete user
 	// TODO make PDO
@@ -36,10 +35,13 @@ class QueryManager {
     }  
 	
 	// Get all subjects from one teacher
-	public function getSubjectsFromDocent($owner_id) {   
+	public function getSubjectsFromDocent($owner_id) {
+		$this->__construct();	
+	
 		$this->pdomodel->where("owner_id",$owner_id,"=");
 		$this->pdomodel->orderByCols = array("subject_id DESC");
 		$result =  $this->pdomodel->select("subject");
+		
 		
 		if(!empty($result[0])){
 			foreach($result as $dbItem){
@@ -52,6 +54,9 @@ class QueryManager {
 	
 	// Add a subject
 	public function addSubject($subject_name, $owner_id){
+		$this->__construct();	
+
+		
 		$insertSubject["subject_id"] = "NULL"; 
 		$insertSubject["subject_name"] = "$subject_name";
 		$insertSubject["owner_id"] = "$owner_id";
@@ -61,7 +66,9 @@ class QueryManager {
 	}
 
 	// Get all lessons from a subject
-	public function getLessonsFromSubject($subject_id) {         
+	public function getLessonsFromSubject($subject_id) { 
+		$this->__construct();	
+	
 		$this->pdomodel->where("subject_id",$subject_id,"=");
 		$this->pdomodel->orderByCols = array("lesson_id DESC");
 		$result =  $this->pdomodel->select("lesson");
@@ -77,6 +84,8 @@ class QueryManager {
 	
 	// Add a lesson
 	public function addLesson($lesson_name, $subject_id){
+		$this->__construct();	
+
 		$insertLesson["lesson_id"] = "NULL"; 
 		$insertLesson["lesson_name"] = "$lesson_name";
 		$insertLesson["code"] = 0;
@@ -87,6 +96,8 @@ class QueryManager {
 	
 	// update lesson code
 	public function updateLessonCode($lesson_id, $code){
+		$this->__construct();	
+
 		$updateLesson["code"] = "$code";
 		$this->pdomodel->where("lesson_id", $lesson_id);
 		$this->pdomodel->update("lesson", $updateLesson);
@@ -94,6 +105,8 @@ class QueryManager {
 	
 	// get all codes
 	public function getAllCodes(){
+		$this->__construct();	
+
 		$this->pdomodel->columns = array("code");
 		$result =  $this->pdomodel->select("lesson");
 		
@@ -120,5 +133,45 @@ class QueryManager {
         return $roleList;
     }
 	
+	// add a user to a class
+	public function addUser_Lesson($lesson_id, $user_id){
+		$this->__construct();	
+
+		$insertUser_lesson["lesson_id"] = $lesson_id; 
+		$insertUser_lesson["user_id"] = $user_id;
+		$insertUser_lesson["active"] = "true";
+		$this->pdomodel->insert("user_lesson", $insertUser_lesson);
+	}
+	
+	// gets the lesson id bases on the random code
+	public function getLessonIdByCode($code){
+		$this->__construct();	
+
+		$this->pdomodel->where("code", $code,"=");
+		$this->pdomodel->columns = array("lesson_id");
+		$result =  $this->pdomodel->select("lesson");	
+				
+		//gets the lesson id from the result array
+		foreach($result as $dbItem){
+			$lesson_id = $dbItem['lesson_id'];
+		}
+			
+		return $lesson_id;
+	}
+	
+	public function getLessonNameById($lesson_id){		
+		$this->__construct();	
+		
+		$this->pdomodel->where("lesson_id", $lesson_id,"=");
+		$this->pdomodel->columns = array("lesson_name");
+		$result =  $this->pdomodel->select("lesson");			
+
+		//gets the lesson id from the result array
+		foreach($result as $dbItem){
+			$lesson_name = $dbItem['lesson_name'];
+		}
+						
+		return $lesson_name;
+	}
 }
 ?>
