@@ -48,7 +48,8 @@
 				<input type="submit" name="submit">
             </form>
         </div>
-
-
+		<?php
+		include("menu.php");
+		?>
     </body>
 </html>

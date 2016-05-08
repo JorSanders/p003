@@ -44,8 +44,6 @@ if (isset($lessonList)){
 	}
 }
 
-echo "<br>
-	<a href='overview_subjects.php'>terug naar vak</a>";
-
+include("menu.php");
 ?>
 

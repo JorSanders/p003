@@ -26,4 +26,6 @@ if (isset($_SESSION['validCode'])){
 	}
 }
 
+include("menu.php");
+
 ?>
