@@ -196,6 +196,8 @@ class QueryManager {
 		return $user_roleList;
 	}
 
+
+
 }
 
 ?>
