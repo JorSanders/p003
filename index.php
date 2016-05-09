@@ -1,5 +1,5 @@
 <?php
 
-	header("location:project/view/overview_subjects.php");
+	header("location:project/view/menu.php");
 
 ?>
