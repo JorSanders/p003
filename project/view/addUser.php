@@ -22,32 +22,12 @@
                 <input type="text" name="email"  placeholder="emailadres" required/><br/>
 				<br>Code:<br/>
 				<input type="text" name="code" placeholder="Code" required/><br/><br>
-				<br>Rol:<br/>
-				<select name="role">
-					<?php
-					require_once("../classes/model/roleClass.php");
-					if (isset($_SESSION['roleList'])) {
-					$roleList = unserialize ($_SESSION['roleList']);
-					
-					foreach ($roleList as $role) {
-						echo "<option value = ' ";
-						echo $role->getName();
-						echo " '>";
-						echo $role->getName();
-						echo "</option>";
-						echo "<br>";
-					}
-					}
-					?> 
-				<br><br>
-				<br>Begin datum<br>
-				<input type="date" name="start_date"><br></br>
-				<br>Eind datum<br>
-				<input type="date" name="end_date"><br></br>
+
 
 				<input type="submit" name="submit">
             </form>
         </div>
+<<<<<<< HEAD:project/view/new_user_form.php
 <<<<<<< HEAD
 
 
@@ -56,5 +36,9 @@
 		include("menu.php");
 		?>
 >>>>>>> origin/master
+=======
+
+
+>>>>>>> c9102fc2a31b5dd015680d81646103e6798b4de8:project/view/addUser.php
     </body>
 </html>
