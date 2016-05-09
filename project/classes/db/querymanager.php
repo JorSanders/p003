@@ -90,6 +90,7 @@ class QueryManager {
 		$updateLesson["code"] = "$code";
 		$this->pdomodel->where("lesson_id", $lesson_id);
 		$this->pdomodel->update("lesson", $updateLesson);
+<<<<<<< HEAD
 	}
 	
 	// get all codes
@@ -103,6 +104,8 @@ class QueryManager {
 				
 		return $codeList;
 		
+=======
+>>>>>>> origin/master
 	}
 	 //alle rollen vinden
 		public function findAllRole() {
@@ -136,6 +139,7 @@ class QueryManager {
 		return $result2;
     }
 	
+<<<<<<< HEAD
 	//new user
     public function saveUser($name ,$password, $email, $code) {
 		$this->dbconn->query("INSERT into user (id, name, password, email, code, active) VALUES 
@@ -147,5 +151,19 @@ class QueryManager {
 		$this->dbconn->query("INSERT into user_role (id, user_id, role_id, start_date, end_date, active) VALUES 
 			(NULL, '$user_id', '$role_id', '$start_date', '$end_date', 'true');"); 
     }
+=======
+	// get all codes
+	public function getAllCodes(){
+		$this->pdomodel->columns = array("code");
+		$result =  $this->pdomodel->select("lesson");
+		
+		foreach($result as $dbItem){
+			$codeList[] = $dbItem['code'];
+		}
+				
+		return $codeList;
+		
+	}
+>>>>>>> origin/master
 }
 ?>

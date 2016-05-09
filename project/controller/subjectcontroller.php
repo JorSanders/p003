@@ -22,4 +22,26 @@ if ($_POST['action']=="addLesson" &&
 	header("location: ../view/overview_lessons.php?subject_id={$_POST['subject_id']}");
 }	
 
+if ($_POST['action']=="generate_code" && 
+	isset($_POST['lesson_id']) &&
+	isset($_POST['subject_id'])){
+
+	// Checks if the code doesnt exist yet
+	$codeList = $q->getAllCodes();
+	do{
+		$duplicate = false;
+		$code = rand(10000, 99999);
+
+		foreach($codeList as $existingCode){
+			if($code == $existingCode){
+				$duplicate = true;
+			}
+		}
+	}
+	while($duplicate);
+	$q->updateLessonCode($_POST['lesson_id'], $code);
+	header("location: ../view/overview_lessons.php?subject_id={$_POST['subject_id']}");			
+	
+}
+
 ?>
