@@ -19,6 +19,11 @@
                 <button class="submit" type="submit" name="action" value="NEE">Nee</button>
             </form>
                    
-        </div>    
+        </div> 
+
+		<?php
+		include("menu.php");
+		?>
+		
     </body>
 </html>
