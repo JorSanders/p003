@@ -48,7 +48,13 @@
 				<input type="submit" name="submit">
             </form>
         </div>
+<<<<<<< HEAD
 
 
+=======
+		<?php
+		include("menu.php");
+		?>
+>>>>>>> origin/master
     </body>
 </html>

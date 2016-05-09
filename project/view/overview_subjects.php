@@ -33,6 +33,6 @@ if (isset($subjectList)){
 }
 
 
-
+include("menu.php");
 
 ?>

@@ -19,6 +19,9 @@
 
 		</form>
 
+		<?php
+		include("menu.php");
+		?>
 
 	</body>
 
