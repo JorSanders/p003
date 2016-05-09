@@ -2,6 +2,7 @@
 
 include_once("mysqlconnection.php");
 include_once("../includes/script/PDOModel.php");
+include_once("../classes/model/roleClass.php");
 
 class QueryManager {
    
@@ -30,6 +31,7 @@ class QueryManager {
 		$row = mysqli_num_rows($result);
 		return $row;
 	}
+
     public function change_password($studentnummer, $new_password) {
 		$this->dbconn->query("UPDATE student SET student_wachtwoord='$new_password' WHERE studentnummer='$studentnummer'");
     }  
@@ -101,7 +103,6 @@ class QueryManager {
 		$updateLesson["code"] = "$code";
 		$this->pdomodel->where("lesson_id", $lesson_id);
 		$this->pdomodel->update("lesson", $updateLesson);
-<<<<<<< HEAD
 	}
 	
 	// get all codes
@@ -117,12 +118,7 @@ class QueryManager {
 				
 		return $codeList;
 		
-=======
->>>>>>> origin/master
 	}
-<<<<<<< HEAD
-	 //alle rollen vinden
-=======
 	
 		//new user
     public function saveUser($name ,$password, $email, $code) {
@@ -130,66 +126,15 @@ class QueryManager {
 			(NULL, '$name', '$password', '$email', '$code', 'true');"); 
 	}
 	
->>>>>>> origin/master
-		public function findAllRole() {
+	public function findAllRole() {
         $result = $this->dbconn->query("SELECT * FROM role");
         
         while ($row = mysqli_fetch_array($result)) {
-        $roleList[] = new Role($row['id'],$row['name'], $row['active']);
+       		$roleList[] = new Role($row['id'], $row['name'], $row['active']);
         }
         return $roleList;
     }
 	
-<<<<<<< HEAD
-	//rol toevoegen in database
-	public function addRole($id, $rol) {
-      $result = array("id"=>NULL, "name"=>"$rol", "active"=>"true");
-      $this->pdomodel->insert("role", $result);
-  }
-	
-	//rol zoeken op id
-	public function getRoleId($role) {
-        
-        // 1 rij uit de database
-        $result1 = $this->dbconn->query("SELECT id FROM role WHERE name='$role'");
-		return $result1;
-    }
-	
-	//id vinden van gebruiker
-	public function getUserId($name) {
-        
-        // 1 rij uit de database
-        $result2 = $this->dbconn->query("SELECT id FROM user WHERE email='$email'");
-		return $result2;
-    }
-	
-<<<<<<< HEAD
-	//new user
-    public function saveUser($name ,$password, $email, $code) {
-		$this->dbconn->query("INSERT into user (id, name, password, email, code, active) VALUES 
-			(NULL, '$name', '$password', '$email', '$code', 'true');"); 
-    }
-	
-	//new user_role
-    public function saveRoleUser($user_id ,$role_id, $start_date, $end_date) {
-		$this->dbconn->query("INSERT into user_role (id, user_id, role_id, start_date, end_date, active) VALUES 
-			(NULL, '$user_id', '$role_id', '$start_date', '$end_date', 'true');"); 
-    }
-=======
-	// get all codes
-	public function getAllCodes(){
-		$this->pdomodel->columns = array("code");
-		$result =  $this->pdomodel->select("lesson");
-		
-		foreach($result as $dbItem){
-			$codeList[] = $dbItem['code'];
-		}
-				
-		return $codeList;
-		
-	}
->>>>>>> origin/master
-=======
 	// add a user to a class
 	public function addUser_Lesson($lesson_id, $user_id){
 		$this->__construct();	
@@ -230,6 +175,27 @@ class QueryManager {
 						
 		return $lesson_name;
 	}
->>>>>>> origin/master
+
+	//User list opvragen
+	public function getUser_roleList(){
+
+		//$UserList = $this->dbconn->query("SELECT user_id, role_id FROM user_role");
+		$result = $this->dbconn->query("SELECT * FROM user_role");
+
+		$i = 0;
+		while ($row = mysqli_fetch_array($result)) {
+
+        	$user_roleList[$i][0] = $row['user_id'];
+        	$user_roleList[$i][1] = $row['role_id'];
+
+		$i++;	
+        }
+
+        print_r($user_roleList);
+
+		return $user_roleList;
+	}
+
 }
+
 ?>

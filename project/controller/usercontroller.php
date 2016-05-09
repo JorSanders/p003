@@ -2,9 +2,7 @@
 
 	include_once("../classes/db/querymanager.php");
 	include_once("../classes/model/userclass.php");
-	include_once("../classes/model/roleClass.php");
-   	include_once("../classes/model/userstudent.php");
-   	include_once("../classes/model/userdocent.php");
+   
 
 	$q = new Querymanager();
 
@@ -63,16 +61,11 @@
 		header('location: ../view/index.php');
     }	
 
-
-
-
-
-
-
-?>
-    	
-
-
+	if ($_GET['action']=='UserList') {
+        $user_roleList = $q->getUser_roleList();
+        $_SESSION['user_roleList'] = serialize($user_roleList);
+        header('Location: ../view/UserList.php');
+    }
 
 
 

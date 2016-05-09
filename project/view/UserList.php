@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 
 <head>
@@ -7,19 +10,16 @@
 	<body>
 	
 	<?php
+		if (isset($_SESSION['user_roleList'])) {
 
-		if (isset($_SESSION['UserList1'])) {
-			$UserList1 = unserialize ($_SESSION['UserList1']);
+			$user_roleList = unserialize ($_SESSION['user_roleList']);
 
-			foreach ($UserList1 as $List1) {
-						
-						echo $List1->getId();
-						
-						echo $List1->getName();
-						
-					}
-				}
-
+			for($i = 0; $i < count($user_roleList); $i++){
+				echo "user id = ". $user_roleList[$i][0];
+				echo "role id = ". $user_roleList[$i][1];
+				echo "<br>";
+			}
+		}
 	?>
 
 	</body>

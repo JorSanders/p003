@@ -14,7 +14,7 @@ $lessonList = $q->getLessonsFromSubject($subject_id);
 //allow teacher to input lesson name and send that too the subjectcontroller to addLesson()
 echo"
 Voeg nieuwe les toe: <br>
-<form action='../controller/subjectcontroller.php' method='POST'>
+<form action='../controller/subjectController.php' method='POST'>
 	<input type='text' name='lesson_name' placeholder='lesnaam' required>
 	<input type='submit' value='+'>
 	<input type='hidden' name='action' value='addLesson'>
@@ -28,7 +28,7 @@ if (isset($lessonList)){
 	foreach ($lessonList as $lesson) {
 		echo /*"<a href='overview_lessons.php?vakcode={$lesson->get_id()}'> ".*/$lesson->getName() ."</a> ";
 		if ($lesson->getCode() == 0){
-			echo "<form style='display:inline-block;' action='../controller/subjectcontroller.php' method='POST'>
+			echo "<form style='display:inline-block;' action='../controller/subjectController.php' method='POST'>
 			<input type='submit' value='creeer code'>
 			<input type='hidden' name='lesson_id' value='{$lesson->getId()}'> 
 			<input type='hidden' name='subject_id' value='$subject_id'> 
