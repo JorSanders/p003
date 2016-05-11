@@ -22,19 +22,19 @@
 	//Change user password
 	/*Wachtwoord van de user veranderen, new_password1 en 2 moeten met elkaar vergeleken worden en er moet gecontroleerd worden 
 	of het wachtwoord nog beschikbaar is */
- 	if (isset($_POST['studentnummer']) && isset($_POST['old_password']) && isset($_POST['new_password1'])&& isset($_POST['new_password2'])
+ 	if (isset($_POST['id']) && isset($_POST['old_password']) && isset($_POST['new_password1'])&& isset($_POST['new_password2'])
 		&&($_POST['action']=='change_password')) {
- 		$studentnummer = 1;
+ 		$id = $_POST['id'];
  		$old_password =	$_POST['old_password'];
- 		$check = $q->check_password($studentnummer,$old_password);
+ 		$check = $q->check_password($id,$old_password);
  		$_SESSION['check'] = serialize($check); 
  	}
- 		elseif ($row == 1){
+ 		elseif (isset($row){
 
 		if ($_POST['new_password1'] == $_POST['new_password2']){
- 		$studentnummer = 1;
+ 		$id = $_POST['id'];
     	$new_password = $_POST['new_password1'];
-		$user = $q->change_password($studentnummer,$new_password);
+		$user = $q->change_password($id,$new_password);
 		$_SESSION['user'] = serialize($user);    
 		header('Location: ../index.php');   
     	}
