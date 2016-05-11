@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+ session_start(); 
+ include("menu.php");
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,7 +51,7 @@
 						echo "<option value = ' ";
 						echo $role->getId();
 						echo " '>";
-						echo $role->getRole();
+						echo $role->getName();
 						echo "</option>";
 						echo "<br>";
 					}
@@ -67,7 +70,5 @@
 				<input type="submit" name="submit">
             </form>
         </div>
-
-		<?phpinclude("menu.php");?>
     </body>
 </html>

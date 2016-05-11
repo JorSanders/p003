@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+include("menu.php");
+?>
 <!DOCTYPE html>
 <html>
     <head>

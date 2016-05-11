@@ -13,7 +13,7 @@
 		
 		$userList = $q->findAllUser();
         $_SESSION['userList'] = serialize($userList);
-        header('Location: ../view/addUserRole.php');
+        header('Location: ../view/menu.php');
 		
 		
     }
@@ -21,7 +21,7 @@
     if ($_POST['action']=='insertRole' && isset($_POST['role'])){
         $rol = $_POST['role'];
         $addRole = $q->addRole($id, $rol);
-        header('location: ../view/index.php');
+        header('location: ../view/menu.php');
     }
 	
 	if (($_POST['action']=='saveUserRole')) {        

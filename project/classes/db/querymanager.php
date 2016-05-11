@@ -32,6 +32,7 @@ class QueryManager {
 		return $row;
 	}
 
+	// change password
     public function change_password($studentnummer, $new_password) {
 		$this->dbconn->query("UPDATE student SET student_wachtwoord='$new_password' WHERE studentnummer='$studentnummer'");
     }  
@@ -126,6 +127,7 @@ class QueryManager {
 			(NULL, '$name', '$password', '$email', '$code', 'true');"); 
 	}
 	
+	//fin all roles
 	public function findAllRole() {
         $result = $this->dbconn->query("SELECT * FROM role");
         
@@ -133,6 +135,22 @@ class QueryManager {
        		$roleList[] = new Role($row['id'], $row['name'], $row['active']);
         }
         return $roleList;
+    }
+	
+	//find all users
+			public function findAllUser() {
+        $result = $this->dbconn->query("SELECT * FROM user");
+        
+        while ($row = mysqli_fetch_array($result)) {
+        $userList[] = new User($row['id'],$row['name'],$row['password'],$row['email'],$row['code'],$row['active']);
+        }
+        return $userList;
+    }
+	
+		//new user_role
+    public function saveRoleUser($user_id ,$role_id, $start_date, $end_date) {
+		$this->dbconn->query("INSERT into user_role (id, user_id, role_id, start_date, end_date, active) VALUES 
+			(NULL, '$user_id', '$role_id', '$start_date', '$end_date', 'true');"); 
     }
 	
 	// add a user to a class
