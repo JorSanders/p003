@@ -184,9 +184,9 @@ class QueryManager {
 
 		$i = 0;
 		while ($row = mysqli_fetch_array($result)) {
-
-        	$user_roleList[$i][0] = $row['user_id'];
-        	$user_roleList[$i][1] = $row['role_id'];
+			$user_roleList[$i][0] = $row['id'];
+        	$user_roleList[$i][1] = $row['user_id'];
+        	$user_roleList[$i][2] = $row['role_id'];
 
 		$i++;	
         }
