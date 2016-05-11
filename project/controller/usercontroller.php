@@ -1,9 +1,6 @@
 <?php session_start();
 
 	include_once("../classes/db/querymanager.php");
-	include_once("../classes/model/userclass.php");
-   	include_once("../classes/model/userstudent.php");
-   	include_once("../classes/model/userdocent.php");
 
 	$q = new Querymanager();
 
@@ -62,17 +59,39 @@
 		header('location: ../view/index.php');
     }	
 
+	if($_GET['action'] == "test"){
+		$userIdList = $q->getAllFromOneCollum("id", "user");
+		$lessonIdList = $q->getAllFromOneCollum("lesson_id", "lesson");
 
+		//user name list
+		foreach ($userIdList as $userId){
+			$userNameList[] = $q->getAbyBfromTable("name", $userId, "id", "user");
+		}
 
+		//lesson name list
+		foreach ($lessonIdList as $lessonId){
+			$lessonNameList[] = $q->getAbyBfromTable("lesson_name", $lessonId, "lesson_id", "lesson");
+		}
+		
+		//user id name list
+		foreach ($userIdList as $i => $val) {
+			$userIdNameList[] = array($val, $userNameList[$i]);
+		}
+		
+		//lesson id name list
+		foreach ($lessonIdList as $i => $val) {
+			$lessonIdNameList[] = array($val, $lessonNameList[$i]);
+		}
+	
+		print_r ($lessonIdNameList);
+		echo "<br><br>";
+		print_r ($userIdNameList);
+	
+		$_SESSION['userIdNameList'] 	= serialize($userIdNameList); 
+		$_SESSION['lessonIdNameList'] 	= serialize($lessonIdNameList); 
+		
+		header ("Location: ../view/addUserLesson.php");
 
-
-
-
-?>
-    	
-
-
-
-
+	}
 
 ?>

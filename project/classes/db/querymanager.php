@@ -173,5 +173,36 @@ class QueryManager {
 						
 		return $lesson_name;
 	}
+	
+	// get all codes
+	public function getAllFromOneCollum($column, $table){
+		$this->__construct();	
+
+		$this->pdomodel->columns = array("$column");
+		$result =  $this->pdomodel->select("$table");
+		
+		foreach($result as $dbItem){
+			$list[] = $dbItem[$column];
+		}
+				
+		return $list;
+		
+	}
+	
+	public function getAbyBfromTable ($aName, $b, $bName, $table){
+		$this->__construct();	
+		
+		$this->pdomodel->where("$bName", $b, "=");
+		$this->pdomodel->columns = array("$aName");
+		$result =  $this->pdomodel->select("$table");			
+
+		//gets a form b the result array
+		foreach($result as $dbItem){
+			$a = $dbItem[$aName];
+		}
+						
+		return $a;
+	}
+
 }
 ?>

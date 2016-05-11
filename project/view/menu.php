@@ -5,6 +5,7 @@
 		<li><a href="input_code.php">Aanwezig melden</a></li>
 		<li><a href="delete_user.php">Gebruikers verwijderen</a></li>
 		<li><a href="change_password.php">Wachtwoord veranderen</a></li>
+		<li><a href="addUserLesson.php">user aan les koppelen</a></li>
 	</ol>
 </div>
 
