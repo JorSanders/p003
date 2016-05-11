@@ -6,6 +6,7 @@
 		<li><a href="input_code.php">Aanwezig melden</a></li>
 		<li><a href="delete_user.php">Gebruikers verwijderen</a></li>
 		<li><a href="change_password.php">Wachtwoord veranderen</a></li>
+		<li><a href="../controller/usercontroller.php?action=UserList">Rol lijst en Rol id</a></li>
 	</ol>
 </div>
 
