@@ -13,7 +13,7 @@
 		
 		$userList = $q->findAllUser();
         $_SESSION['userList'] = serialize($userList);
-        header('Location: ../view/menu.php');
+        header('Location: ../view/addUserRole.php');
 		
 		
     }
