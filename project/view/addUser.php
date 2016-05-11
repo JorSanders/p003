@@ -7,7 +7,6 @@
     <body>
 
 
-
         <div id="content">
             <h3>Nieuwe gebruiker: </h3>
               <br><br>
@@ -28,6 +27,7 @@
             </form>
         </div>
 
-
+		
+		<?phpinclude("menu.php");?>
     </body>
 </html>

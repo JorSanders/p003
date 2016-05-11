@@ -68,6 +68,6 @@
             </form>
         </div>
 
-
+		<?phpinclude("menu.php");?>
     </body>
 </html>
