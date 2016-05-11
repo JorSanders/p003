@@ -176,7 +176,7 @@ class QueryManager {
 		return $lesson_name;
 	}
 
-	//User list opvragen
+		//User list opvragen
 	public function getUser_roleList(){
 
 		//$UserList = $this->dbconn->query("SELECT user_id, role_id FROM user_role");
@@ -196,7 +196,85 @@ class QueryManager {
 		return $user_roleList;
 	}
 
+		public function getUserList(){
+		$result = $this->dbconn->query("SELECT * FROM user");
 
+		$i = 0;
+		while ($row = mysqli_fetch_array($result)) {
+			$userList[$i][0] = $row['id'];
+        	$userList[$i][1] = $row['name'];
+        	
+		$i++;	
+        }
+
+        print_r($userList);
+
+		return $userList;
+	}
+
+		public function getRole(){
+		$result = $this->dbconn->query("SELECT * FROM role");
+
+		$i = 0;
+		while ($row = mysqli_fetch_array($result)) {
+			$role[$i][0] = $row['id'];
+        	$role[$i][1] = $row['name'];
+        	
+		$i++;	
+        }
+
+        print_r($role);
+
+		return $role;
+	}
+
+		public function getLesson(){
+		$result = $this->dbconn->query("SELECT * FROM lesson");
+
+		$i = 0;
+		while ($row = mysqli_fetch_array($result)) {
+			$lesson[$i][0] = $row['lesson_id'];
+        	$lesson[$i][1] = $row['lesson_name'];
+        	
+		$i++;	
+        }
+
+        print_r($lesson);
+
+		return $lesson;
+	}
+
+		public function getSubject(){
+		$result = $this->dbconn->query("SELECT * FROM subject");
+
+		$i = 0;
+		while ($row = mysqli_fetch_array($result)) {
+			$subject[$i][0] = $row['subject_id'];
+        	$subject[$i][1] = $row['subject_name'];
+        	
+		$i++;	
+        }
+
+        print_r($subject);
+
+		return $subject;
+	}
+
+		public function getUser_lesson(){
+		$result = $this->dbconn->query("SELECT * FROM user_lesson");
+
+		$i = 0;
+		while ($row = mysqli_fetch_array($result)) {
+			$user_lesson[$i][0] = $row['lesson_id'];
+        	$user_lesson[$i][1] = $row['user_id'];
+        	
+		$i++;	
+        }
+
+        print_r($userlesson);
+
+		return $userlesson;
+	}
 
 }
 

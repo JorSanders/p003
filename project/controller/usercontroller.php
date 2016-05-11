@@ -63,7 +63,17 @@
 
 	if ($_GET['action']=='UserList') {
         $user_roleList = $q->getUser_roleList();
+        $user = $q ->getUserList();
+        $role = $q ->getRole();
+        $lesson = $q ->getLesson();
+        $subject = $q ->getSubject();
+        $user_lesson = $q ->getUser_lesson();
         $_SESSION['user_roleList'] = serialize($user_roleList);
+        $_SESSION['userList'] = serialize($user);
+        $_SESSION['roleList'] = serialize($role);
+        $_SESSION['lesson'] = serialize($lesson);
+        $_SESSION['subject'] = serialize($subject);
+        $_SESSION['user_lesson'] = serialize($user_lesson);
         header('Location: ../view/UserList.php');
     }
 
