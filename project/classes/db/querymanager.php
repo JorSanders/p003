@@ -2,7 +2,6 @@
 
 include_once("mysqlconnection.php");
 include_once("../includes/script/PDOModel.php");
-include_once("../classes/model/roleClass.php");
 
 class QueryManager {
    
@@ -31,8 +30,6 @@ class QueryManager {
 		$row = mysqli_num_rows($result);
 		return $row;
 	}
-
-	// change password
     public function change_password($studentnummer, $new_password) {
 		$this->dbconn->query("UPDATE student SET student_wachtwoord='$new_password' WHERE studentnummer='$studentnummer'");
     }  
@@ -127,30 +124,13 @@ class QueryManager {
 			(NULL, '$name', '$password', '$email', '$code', 'true');"); 
 	}
 	
-	//fin all roles
-	public function findAllRole() {
+		public function findAllRole() {
         $result = $this->dbconn->query("SELECT * FROM role");
         
         while ($row = mysqli_fetch_array($result)) {
-       		$roleList[] = new Role($row['id'], $row['name'], $row['active']);
+        $roleList[] = new Role($row['id'],$row['name'], $row['active']);
         }
         return $roleList;
-    }
-	
-	//find all users
-			public function findAllUser() {
-        $result = $this->dbconn->query("SELECT * FROM user");
-        
-        while ($row = mysqli_fetch_array($result)) {
-        $userList[] = new User($row['id'],$row['name'],$row['password'],$row['email'],$row['code'],$row['active']);
-        }
-        return $userList;
-    }
-	
-		//new user_role
-    public function saveRoleUser($user_id ,$role_id, $start_date, $end_date) {
-		$this->dbconn->query("INSERT into user_role (id, user_id, role_id, start_date, end_date, active) VALUES 
-			(NULL, '$user_id', '$role_id', '$start_date', '$end_date', 'true');"); 
     }
 	
 	// add a user to a class
@@ -193,107 +173,36 @@ class QueryManager {
 						
 		return $lesson_name;
 	}
+	
+	// get all codes
+	public function getAllFromOneCollum($column, $table){
+		$this->__construct();	
 
-		//User list opvragen
-	public function getUser_roleList(){
-
-		//$UserList = $this->dbconn->query("SELECT user_id, role_id FROM user_role");
-		$result = $this->dbconn->query("SELECT * FROM user_role");
-
-		$i = 0;
-		while ($row = mysqli_fetch_array($result)) {
-			$user_roleList[$i][0] = $row['id'];
-        	$user_roleList[$i][1] = $row['user_id'];
-        	$user_roleList[$i][2] = $row['role_id'];
-
-		$i++;	
-        }
-
-        print_r($user_roleList);
-
-		return $user_roleList;
+		$this->pdomodel->columns = array("$column");
+		$result =  $this->pdomodel->select("$table");
+		
+		foreach($result as $dbItem){
+			$list[] = $dbItem[$column];
+		}
+				
+		return $list;
+		
 	}
+	
+	public function getAbyBfromTable ($aName, $b, $bName, $table){
+		$this->__construct();	
+		
+		$this->pdomodel->where("$bName", $b, "=");
+		$this->pdomodel->columns = array("$aName");
+		$result =  $this->pdomodel->select("$table");			
 
-		public function getUserList(){
-		$result = $this->dbconn->query("SELECT * FROM user");
-
-		$i = 0;
-		while ($row = mysqli_fetch_array($result)) {
-			$userList[$i][0] = $row['id'];
-        	$userList[$i][1] = $row['name'];
-        	
-		$i++;	
-        }
-
-        print_r($userList);
-
-		return $userList;
-	}
-
-		public function getRole(){
-		$result = $this->dbconn->query("SELECT * FROM role");
-
-		$i = 0;
-		while ($row = mysqli_fetch_array($result)) {
-			$role[$i][0] = $row['id'];
-        	$role[$i][1] = $row['name'];
-        	
-		$i++;	
-        }
-
-        print_r($role);
-
-		return $role;
-	}
-
-		public function getLesson(){
-		$result = $this->dbconn->query("SELECT * FROM lesson");
-
-		$i = 0;
-		while ($row = mysqli_fetch_array($result)) {
-			$lesson[$i][0] = $row['lesson_id'];
-        	$lesson[$i][1] = $row['lesson_name'];
-        	
-		$i++;	
-        }
-
-        print_r($lesson);
-
-		return $lesson;
-	}
-
-		public function getSubject(){
-		$result = $this->dbconn->query("SELECT * FROM subject");
-
-		$i = 0;
-		while ($row = mysqli_fetch_array($result)) {
-			$subject[$i][0] = $row['subject_id'];
-        	$subject[$i][1] = $row['subject_name'];
-        	
-		$i++;	
-        }
-
-        print_r($subject);
-
-		return $subject;
-	}
-
-		public function getUser_lesson(){
-		$result = $this->dbconn->query("SELECT * FROM user_lesson");
-
-		$i = 0;
-		while ($row = mysqli_fetch_array($result)) {
-			$user_lesson[$i][0] = $row['lesson_id'];
-        	$user_lesson[$i][1] = $row['user_id'];
-        	
-		$i++;	
-        }
-
-        print_r($userlesson);
-
-		return $userlesson;
+		//gets a form b the result array
+		foreach($result as $dbItem){
+			$a = $dbItem[$aName];
+		}
+						
+		return $a;
 	}
 
 }
-
 ?>

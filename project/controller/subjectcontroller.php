@@ -78,4 +78,13 @@ if ($_POST['action']=="add_user_lesson" &&
 		header("location: ../view/input_code.php");	
 	}
 }
+
+	// add a user to a lesson
+if ($_POST['action']=="add_user_lesson_manual" && 
+	isset($_POST['user_id']) &&
+	isset($_POST['lesson_id'])){
+	
+	$q->addUser_Lesson($_POST['lesson_id'], $_POST['user_id']);
+	header("location: ../view/addUserLesson.php");		
+}
 ?>
