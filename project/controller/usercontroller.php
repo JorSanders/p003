@@ -1,6 +1,7 @@
 <?php session_start();
 
 	include_once("../classes/db/querymanager.php");
+	include_once("../classes/model/userclass.php");
 
 	$q = new Querymanager();
 
@@ -92,6 +93,14 @@
 		
 		header ("Location: ../view/addUserLesson.php");
 
+	}
+	
+		//AllUsersList
+	
+	if ($_GET['action']=='findAllUsers') {
+		$AllUsersList = $q->findAllUsers();
+		$_SESSION['AllUsersList'] = serialize($AllUsersList);
+		header('Location: ../view/AllUsersList.php');
 	}
 
 ?>

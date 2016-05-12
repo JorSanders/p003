@@ -87,4 +87,12 @@ if ($_POST['action']=="add_user_lesson_manual" &&
 	$q->addUser_Lesson($_POST['lesson_id'], $_POST['user_id']);
 	header("location: ../view/addUserLesson.php");		
 }
+
+	//AllSubjectsList
+	if ($_GET['action']=='findAllSubjects') {
+		echo "test";
+		$AllSubjectsList = $q->findAllSubjects();
+		$_SESSION['AllSubjectsList'] = serialize($AllSubjectsList);
+		header('Location: ../view/AllSubjectsList.php');
+	}
 ?>

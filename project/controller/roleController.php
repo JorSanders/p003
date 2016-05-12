@@ -40,6 +40,12 @@
 		header('location: ../controller/roleController.php?action=findAllRole');
     }	
 
+	//AllRolesList
+	if ($_GET['action']=='findAllRoles') {
+		$AllRolesList = $q->findAllRoles();
+		$_SESSION['AllRolesList'] = serialize($AllRolesList);
+		header('Location: ../view/AllRolesList.php');
+	}
 
 
 
