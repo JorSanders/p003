@@ -19,8 +19,8 @@
     }
 
     if ($_POST['action']=='insertRole' && isset($_POST['role'])){
-        $rol = $_POST['role'];
-        $addRole = $q->addRole($id, $rol);
+        $role = $_POST['role'];
+        $addRole = $q->addRole($role);
         header('location: ../view/menu.php');
     }
 	
