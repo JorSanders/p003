@@ -6,7 +6,7 @@ $_SESSION['user_id']=3;
 ?>
 
 
-<form action="../controller/subjectController.php" method="POST">
+<form action="../controller/subjectcontroller.php" method="POST">
 Vul hieronder de code die je docent je heeft gegeven in.<br>
 <input type="number" placeholder="Code" name="code">
 <input type="hidden" name="action" value="add_user_lesson">

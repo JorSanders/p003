@@ -7,7 +7,7 @@
 		<li><a href="../controller/usercontroller.php?action=UserList">Rol lijst en Rol id</a></li>
 		<li><a href="input_code.php">Aanwezig melden</a></li>
 		<li><a href="addUserLesson.php">user aan les koppelen</a></li>
-		<li><a href="addRole.php">rol toevoegen</a></li>
+		<li><a href="AddRole.php">rol toevoegen</a></li>
 		<li><a href="AllRolesList.php">rol lijst</a></li>
 		<li><a href="AllSubjectsList.php">les lijst</a></li>
 		<li><a href="AllUsersList.php">user lijst</a></li>
