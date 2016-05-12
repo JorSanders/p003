@@ -22,17 +22,7 @@ class QueryManager {
     $pdomodel->where("id", $id);
     $pdomodel->delete("user");
     }
-
-    //Password check
-	// TODO make PDO
-    public function check_password($studentnummer, $old_password) {  //checkuser
-		$result = $this->dbconn->query("SELECT * FROM user WHERE studentnummer ='$studentnummer' AND student_wachtwoord = '$old_password'");
-		$row = mysqli_num_rows($result);
-		return $row;
-	}
-    public function change_password($studentnummer, $new_password) {
-		$this->dbconn->query("UPDATE student SET student_wachtwoord='$new_password' WHERE studentnummer='$studentnummer'");
-    }  
+ 
 	
 	// Get all subjects from one teacher
 	public function getSubjectsFromDocent($owner_id) {
@@ -258,5 +248,119 @@ class QueryManager {
         }
 		return $AllRolesList;
 	}
+	
+	//Password check
+	// TODO make PDO
+    public function check_password($id, $old_password) {  //checkuser
+		$result = $this->dbconn->query("SELECT * FROM user WHERE id ='$id' AND password = '$old_password'");
+		$row = mysqli_num_rows($result);
+		return $row;
+	}
+
+    public function change_password($id, $new_password) {
+		$this->dbconn->query("UPDATE user SET password='$new_password' WHERE id='$id'");
+    }  
+	
+	//User list opvragen
+	public function getUser_roleList(){
+
+		//$UserList = $this->dbconn->query("SELECT user_id, role_id FROM user_role");
+		$result = $this->dbconn->query("SELECT * FROM user_role");
+
+		$i = 0;
+		while ($row = mysqli_fetch_array($result)) {
+			$user_roleList[$i][0] = $row['id'];
+        	$user_roleList[$i][1] = $row['user_id'];
+        	$user_roleList[$i][2] = $row['role_id'];
+
+		$i++;	
+        }
+
+        print_r($user_roleList);
+
+		return $user_roleList;
+	}
+
+		public function getUserList(){
+		$result = $this->dbconn->query("SELECT * FROM user");
+
+		$i = 0;
+		while ($row = mysqli_fetch_array($result)) {
+			$userList[$i][0] = $row['id'];
+        	$userList[$i][1] = $row['name'];
+        	
+		$i++;	
+        }
+
+        print_r($userList);
+
+		return $userList;
+	}
+
+		public function getRole(){
+		$result = $this->dbconn->query("SELECT * FROM role");
+
+		$i = 0;
+		while ($row = mysqli_fetch_array($result)) {
+			$role[$i][0] = $row['id'];
+        	$role[$i][1] = $row['name'];
+        	
+		$i++;	
+        }
+
+        print_r($role);
+
+		return $role;
+	}
+
+		public function getLesson(){
+		$result = $this->dbconn->query("SELECT * FROM lesson");
+
+		$i = 0;
+		while ($row = mysqli_fetch_array($result)) {
+			$lesson[$i][0] = $row['lesson_id'];
+        	$lesson[$i][1] = $row['lesson_name'];
+        	
+		$i++;	
+        }
+
+        print_r($lesson);
+
+		return $lesson;
+	}
+
+		public function getSubject(){
+		$result = $this->dbconn->query("SELECT * FROM subject");
+
+		$i = 0;
+		while ($row = mysqli_fetch_array($result)) {
+			$subject[$i][0] = $row['subject_id'];
+        	$subject[$i][1] = $row['subject_name'];
+        	
+		$i++;	
+        }
+
+        print_r($subject);
+
+		return $subject;
+	}
+
+		public function getUser_lesson(){
+		$result = $this->dbconn->query("SELECT * FROM user_lesson");
+
+		$i = 0;
+		while ($row = mysqli_fetch_array($result)) {
+			$user_lesson[$i][0] = $row['lesson_id'];
+        	$user_lesson[$i][1] = $row['user_id'];
+        	
+		$i++;	
+        }
+
+		return $user_lesson;
+	}
+
 }
+
+	
+
 ?>

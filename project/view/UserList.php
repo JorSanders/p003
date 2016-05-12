@@ -5,73 +5,74 @@ session_start();
 
 <head>
 	<title>User List</title>
-	<link type="text/css" rel="stylesheet" href="../includes/stylesheet.css">
 </head>
 
 	<body>
 	
 	<?php
-		include("menu.php");
+		//include("menu.php");
 
 
 		// Role id ophalen uit database
-		echo "<div id='table_List1'>";
-		if (isset($_SESSION['user_roleList'])) {
+		echo "<div style='border: 1px solid black;'>";
+			if (isset($_SESSION['user_roleList'])) {
 
-			$user_roleList = unserialize ($_SESSION['user_roleList']);
+				$user_roleList = unserialize ($_SESSION['user_roleList']);
 
-			echo "<table> <tr><th>RoleId</th>
-			<tr><td>ID</td>";
-			for($i = 0; $i < count($user_roleList); $i++){
-				echo "<td>" . $user_roleList[$i][0] . "</td>";
-				
-			}
-		
-			echo "</tr>";
+			echo "<table> 
+				<tr><th>RoleId</th></tr>
+				<tr>
+					<td>ID</td>";
+					for($i = 0; $i < count($user_roleList); $i++){
+						echo "<td>" . $user_roleList[$i][0] . "</td>";
+						
+					}			
+				echo "</tr>";
 
-			echo "<tr><td>UserId</td>";
-			for($i = 0; $i < count($user_roleList); $i++){
-				echo "<td>". $user_roleList[$i][1] . "</td>";
-				
-			}
-		
-			echo "</tr>";
+				echo "<tr><td>UserId</td>";
+					for($i = 0; $i < count($user_roleList); $i++){
+						echo "<td>". $user_roleList[$i][1] . "</td>";
+						
+					}			
+				echo "</tr>";
 
-			echo "<tr><td>RoleId</td>";
-			for($i = 0; $i < count($user_roleList); $i++){
-				echo "<td>" . $user_roleList[$i][2] . "</td>";
-				
-			}
-		
-			echo "</tr></table>";
+				echo "<tr>
+					<td>RoleId</td>";
+					for($i = 0; $i < count($user_roleList); $i++){
+						echo "<td>" . $user_roleList[$i][2] . "</td>";
+						
+					}			
+				echo "</tr>
+			</table>";
 
 			echo "</div>";		
 		
 
 
 		// Users ophalen uit database
-		echo "<div id='table_List2'>";
-		$userList = unserialize ($_SESSION['userList']);
+		echo "<div style='border: 1px solid black;'>";
+			$userList = unserialize ($_SESSION['userList']);
 
-		echo "<table> <tr><th>Users</th>
-			<tr><td>ID</td>";
-		for($i = 0; $i < count($userList); $i++){
-			echo "<td>" . $userList[$i][0] . "</td>";
+			echo "<table> 
+				<tr><th>Users</th></tr>
+				<tr>
+					<td>ID</td>";
+					for($i = 0; $i < count($userList); $i++){
+						echo "<td>" . $userList[$i][0] . "</td>";
 
-		}
+					}
+				echo "</tr>";
 
-		echo "</tr>";
-
-			echo "<tr><td>Name</td>";
-			for($i = 0; $i < count($userList); $i++){
-				echo "<td>". $userList[$i][1] . "</td>";
-			}
-			echo "</tr></table>";
-				
+				echo "<tr><td>Name</td>";
+				for($i = 0; $i < count($userList); $i++){
+					echo "<td>". $userList[$i][1] . "</td>";
+				}
+				echo "</tr></table>";
+					
 			echo "</div>";
 
 		// Role
-		echo "<div id='table_List3'>";
+		echo "<div style='border: 1px solid black;'>";
 		$role = unserialize ($_SESSION['roleList']);
 
 		echo "<table> <tr><th>Role</th>
@@ -93,7 +94,7 @@ session_start();
 
 
 		// Lesson
-		echo "<div id='table_List4'>";
+		echo "<div style='border: 1px solid black;'>";
 		$lesson = unserialize ($_SESSION['lesson']);
 
 		echo "<table> <tr><th>Lesson</th>
@@ -114,13 +115,14 @@ session_start();
 			echo "</div>";
 
 
-	}
+
+		
 
 		// Subject
-		echo "<div id='table_List5'>";
+		echo "<div style='border: 1px solid black;'>";
 		$subject = unserialize ($_SESSION['subject']);
 
-		echo "<table> <tr><th>Subject</th>
+		echo "<table> <tr><th>Subject</th></tr>
 			<tr><td>LessonId</td>";
 		for($i = 0; $i < count($subject); $i++){
 			echo "<td>" . $subject[$i][0] . "</td>";
@@ -138,10 +140,10 @@ session_start();
 			echo "</div>";
 
 		// user_lesson
-		echo "<div id='table_List6'>";
+		echo "<div style='border: 1px solid black;'>";
 		$lesson = unserialize ($_SESSION['lesson']);
 
-		echo "<table> <tr><th>user lesson</th>
+		echo "<table > <tr><th>user lesson</th>
 			<tr><td>LessonId</td>";
 		for($i = 0; $i < count($lesson); $i++){
 			echo "<td>" . $lesson[$i][0] . "</td>";
@@ -160,7 +162,9 @@ session_start();
 	
 
 
-
+	}else{
+		header ("Location: ../controller/usercontroller.php?action=UserList");
+	}
 
 
 	?>

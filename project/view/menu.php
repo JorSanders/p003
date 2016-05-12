@@ -11,6 +11,7 @@
 		<li><a href="AllRolesList.php">rol lijst</a></li>
 		<li><a href="AllSubjectsList.php">les lijst</a></li>
 		<li><a href="AllUsersList.php">user lijst</a></li>
+		<li><a href="UserList.php">rol en gebruiker lijst</a></li>
 	</ul>
 </div>
 
