@@ -117,21 +117,7 @@ class QueryManager {
 		return $codeList;
 		
 	}
-	
-		//new user
-    public function saveUser($name ,$password, $email, $code) {
-		$this->dbconn->query("INSERT into user (id, name, password, email, code, active) VALUES 
-			(NULL, '$name', '$password', '$email', '$code', 'true');"); 
-	}
-	
-		public function findAllRole() {
-        $result = $this->dbconn->query("SELECT * FROM role");
-        
-        while ($row = mysqli_fetch_array($result)) {
-        $roleList[] = new Role($row['id'],$row['name'], $row['active']);
-        }
-        return $roleList;
-    }
+
 	
 	// add a user to a class
 	public function addUser_Lesson($lesson_id, $user_id){
