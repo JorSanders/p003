@@ -203,6 +203,39 @@ class QueryManager {
 						
 		return $a;
 	}
+	
+	
+		//new user
+    public function saveUser($name ,$password, $email, $code) {
+		$this->dbconn->query("INSERT into user (id, name, password, email, code, active) VALUES 
+			(NULL, '$name', '$password', '$email', '$code', 'true');"); 
+	}
+	
+	//fin all roles
+	public function findAllRole() {
+        $result = $this->dbconn->query("SELECT * FROM role");
+        
+        while ($row = mysqli_fetch_array($result)) {
+       		$roleList[] = new Role($row['id'], $row['name'], $row['active']);
+        }
+        return $roleList;
+    }
+	
+	//find all users
+			public function findAllUser() {
+        $result = $this->dbconn->query("SELECT * FROM user");
+        
+        while ($row = mysqli_fetch_array($result)) {
+        $userList[] = new User($row['id'],$row['name'],$row['password'],$row['email'],$row['code'],$row['active']);
+        }
+        return $userList;
+    }
+	
+		//new user_role
+    public function saveRoleUser($user_id ,$role_id, $start_date, $end_date) {
+		$this->dbconn->query("INSERT into user_role (id, user_id, role_id, start_date, end_date, active) VALUES 
+			(NULL, '$user_id', '$role_id', '$start_date', '$end_date', 'true');"); 
+    }
 
 }
 ?>
