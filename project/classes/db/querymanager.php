@@ -225,7 +225,7 @@ class QueryManager {
 	
 		//new role
     public function addRole($role) {
-		$this->dbconn->query("INSERT into role (id, role, active) VALUES 
+		$this->dbconn->query("INSERT into role (id, name, active) VALUES 
 			(NULL, '$role', 'true');"); 
     }
 
