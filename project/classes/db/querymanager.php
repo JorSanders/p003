@@ -222,6 +222,12 @@ class QueryManager {
 		$this->dbconn->query("INSERT into user_role (id, user_id, role_id, start_date, end_date, active) VALUES 
 			(NULL, '$user_id', '$role_id', '$start_date', '$end_date', 'true');"); 
     }
+	
+		//new role
+    public function addRole($role) {
+		$this->dbconn->query("INSERT into role (id, role, active) VALUES 
+			(NULL, '$role', 'true');"); 
+    }
 
 }
 ?>
