@@ -12,6 +12,8 @@
 		<li><a href="AllSubjectsList.php">les lijst</a></li>
 		<li><a href="AllUsersList.php">user lijst</a></li>
 		<li><a href="UserList.php">rol en gebruiker lijst</a></li>
+		<li><a href="style_example.php">voorbeeld css</a></li>
+		
 	</ul>
 </div>
 
