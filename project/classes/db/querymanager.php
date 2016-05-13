@@ -52,7 +52,8 @@ class QueryManager {
 		$insertSubject["owner_id"] = "$owner_id";
 		$insertSubject["active"] = "true";
 		$this->pdomodel->insert("subject", $insertSubject);
-		echo "name is $subject_name , and id is $owner_id <br>";
+		//echo $this->pdomodel->getLastQuery()	."<br>";
+		//print_r ($insertSubject);
 	}
 
 	// Get all lessons from a subject
