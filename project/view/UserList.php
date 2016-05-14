@@ -52,7 +52,7 @@ session_start();
 		// Users ophalen uit database
 		echo "<div style='border: 1px solid black;'>";
 			$userList = unserialize ($_SESSION['userList']);
-
+			print_r($userList);
 			echo "<table> 
 				<tr><th>Users</th></tr>
 				<tr>
