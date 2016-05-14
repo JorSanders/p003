@@ -90,9 +90,110 @@ if ($_POST['action']=="add_user_lesson_manual" &&
 
 	//AllSubjectsList
 	if ($_GET['action']=='findAllSubjects') {
-		echo "test";
 		$AllSubjectsList = $q->findAllSubjects();
 		$_SESSION['AllSubjectsList'] = serialize($AllSubjectsList);
 		header('Location: ../view/AllSubjectsList.php');
 	}
+	
+	//find combinations in the database
+	if ($_POST["action"] == "find_combinations"){
+		
+		if($_POST["tableOrigin"] == "user"){
+			$idName = "id";
+		}else if($_POST["tableOrigin"] == "role"){
+			$idName = "id";
+		}else if($_POST["tableOrigin"] == "lesson"){
+			$idName = "lesson_id";
+		}
+
+		// get id from the origin table
+		$idList = $q->getListAbyBfromTable(
+			$idName,					//column a name
+			$_POST["value"],			//variable b
+			$_POST["column"],		//column b
+			$_POST["tableOrigin"]	//table
+		);
+		
+		//check how many results
+		if(count($idList) == 0){
+			//empty
+			echo"empty<br>";
+		}else if(count($idList) == 1){
+			//er bestaat er 1
+			echo "id = ". $idList[0] ."<br>";
+		}else{
+			//return meerdere results
+			foreach ($idList as $id){
+				echo "id = $id <br>";
+			}
+		}
+		
+		
+		//find inbetween table name
+		if ($_POST["tableOrigin"] == $_POST["tableGoal"]){
+			//same table
+			$inbetween_table = $_POST["tableOrigin"];
+			$idOrigin = $idList[0];
+			$idGoal = $idList[0];
+		}else if(
+			$_POST["tableOrigin"] == "user" && $_POST["tableGoal"]== "role" 
+			){
+			//user into role
+			$inbetween_table = "user_role";
+			$idOrigin = "user_id";
+			$idGoal = "role_id";
+		}else if(
+			$_POST["tableOrigin"] == "user" && $_POST["tableGoal"]== "lesson" 
+			){
+			//user into lesson	
+			$inbetween_table = "user_lesson";
+			$idOrigin = "user_id";
+			$idGoal = "lesson_id";	
+		}else if(
+			$_POST["tableOrigin"] == "lesson" && $_POST["tableGoal"]== "user" 
+			){
+			//lesson into user	
+			$inbetween_table = "user_lesson";
+			$idOrigin = "lesson_id";
+			$idGoal = "user_id";
+		}else if(
+			$_POST["tableOrigin"] == "role" && $_POST["tableGoal"]== "user" 
+			){
+			//role into user
+			$inbetween_table = "user_role";
+			$idOrigin = "role_id";
+			$idGoal = "user_id";
+		}
+			
+					
+		//get ids from the goal table
+		$idList = $q->getListAbyBfromTable(
+			$idGoal,					//column a name
+			$idList[0],					//variable b
+			$idOrigin,					//column b
+			$inbetween_table 			//table
+		);
+		
+		if($_POST["tableGoal"] == "user"){
+			$idName = "id";
+		}else if($_POST["tableGoal"] == "role"){
+			$idName = "id";
+		}else if($_POST["tableGoal"] == "lesson"){
+			$idName = "lesson_id";
+		}
+		
+		foreach($idList as $id){
+		$result[] = $q->getAllWithValue($id, $idName, $_POST["tableGoal"]);
+		}
+
+		
+		$_SESSION['result'] = serialize($result);
+		header("Location: ../view/overview_combination.php?tableGoal={$_POST["tableGoal"]}&tableOrigin={$_POST["tableOrigin"]}&column={$_POST["column"]}&value={$_POST["value"]}");
+	}
+	
+	
+	
+	
+	
+	
 ?>
