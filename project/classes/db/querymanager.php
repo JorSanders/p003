@@ -52,7 +52,6 @@ class QueryManager {
 		$insertSubject["owner_id"] = "$owner_id";
 		$insertSubject["active"] = "true";
 		$this->pdomodel->insert("subject", $insertSubject);
-		echo "name is $subject_name , and id is $owner_id <br>";
 	}
 
 	// Get all lessons from a subject
@@ -178,6 +177,33 @@ class QueryManager {
 		}
 						
 		return $a;
+	}
+	
+	public function getListAbyBfromTable ($aName, $b, $bName, $table){
+		$this->__construct();	
+		
+		
+		$this->pdomodel->where($bName, $b, "=");
+		$this->pdomodel->columns = array("$aName");
+		$result =  $this->pdomodel->select("$table");	
+		
+		//gets a form b the result array
+		foreach($result as $dbItem){
+			$a[] = $dbItem[$aName];
+		}
+
+		
+		return $a;
+	}
+	
+	public function getAllWithValue ($value, $column, $table){
+		$this->__construct();	
+		
+		
+		$this->pdomodel->where($column, $value, "=");
+		$result =  $this->pdomodel->select("$table");	
+		$result = $result[0];
+		return $result;
 	}
 	
 	
@@ -358,6 +384,8 @@ class QueryManager {
 
 		return $user_lesson;
 	}
+	
+	
 
 }
 
