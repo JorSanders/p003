@@ -121,6 +121,14 @@
         header('Location: ../view/UserList.php');
     }
 
+	//Update Role
+    if ($_POST['action']=='updateRole'){
+    	$id = $_POST['id'];
+    	$Role = $_POST['Role'];
+    	$updateRole = $q ->updateRole($id,$Role);
+    	$_SESSION['updateRole'] = serialize($updateRole);
+    	header('location: ../view/userList.php?action=UserList');
+    }
 
 
 

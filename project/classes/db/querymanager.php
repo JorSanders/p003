@@ -359,6 +359,19 @@ class QueryManager {
 		return $user_lesson;
 	}
 
+
+	//Update Role
+	public function updateRole($id,$role){
+		$result = $this->dbconn->query("UPDATE role SET name='$role' WHERE id='$id'");
+			/*
+		$this->__construct();
+
+		$updateRole['role'] = "$role";
+		$this->pdomodel->where("id", $id);
+		$this->pdomodel->update("name", $updateRole);*/
+	}
+
+
 }
 
 	
