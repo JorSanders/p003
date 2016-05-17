@@ -10,11 +10,11 @@ include("menu.php");
 
 
         <div id="content">
-            <h3>Gebruiker is aan rol gekoppeld </h3>
+            <h3>De gebruiker is toegevoegd </h3>
               <br><br>
 
-            <form method="post" action='../view/addUserRole.php' >
-                Klik hier om nog een gebruiker aan een rol te koppelen:<br>
+            <form method="post" action='../view/addUser.php' >
+                Klik hier om nog een gebruiker toe te voegen:<br>
 				<input type="submit" name="Go">
             </form>
 			
