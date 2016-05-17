@@ -34,6 +34,9 @@
 						echo "<br>";
 					}
 					}
+					else {
+						header('location: ../controller/roleController.php?action=findAllRole');
+					}
 					?> 
 				</select>
 				<br>
@@ -68,7 +71,7 @@
 				<input type="date" name="end_date"><br></br>
 
 				<input type="submit" name="submit">
-            </form>
+            </form> 
         </div>
     </body>
 </html>
