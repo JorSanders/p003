@@ -4,15 +4,20 @@ session_start();
 <html>
 
 <head>
-	<title>User List</title>
+	<title>Rol en gebruikers lijst</title>
+	<?php include_once("../includes/head_bootstrap.html"); ?> 
 </head>
 
-	<body>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h3> Rol en gebruikers lijst </h3>
+		</div>
+			
+
+			<?php
+			include_once("../includes/navbar_bootstrap.html");
 	
-	<?php
-		//include("menu.php");
-
-
 		// Role id ophalen uit database
 		echo "<div style='border: 1px solid black;'>";
 			if (isset($_SESSION['user_roleList'])) {
@@ -168,9 +173,14 @@ session_start();
 
 
 	?>
+			
+	</div>
 
 	
-
+	<footer>
+	<?php include_once("../includes/footer_bootstrap.html"); ?> 
+    </footer>
+	<?php include_once("../includes/test_bootstrap.html"); ?> 
 
 	</body>
 

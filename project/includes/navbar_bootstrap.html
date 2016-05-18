@@ -2,8 +2,9 @@
 
 		<!-- Fixed navbar -->
 		<nav class="navbar navbar-default navbar-fixed-top">
-		<a href="#" class="pull-right"><img src="../includes/WindesheimFlevoland.jpg"></a>
+		
 		<div class="container">
+		<a href="index.php" class="pull-right"><img class="img-responsive" src="../includes/windesheimflevoland-logo.png"></a>
 			<div class="navbar-header">
 			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 				<span class="sr-only">Toggle navigation</span>
@@ -11,19 +12,29 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			  <a class="navbar-brand" href="#">Present-IT</a>
+			  
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 			  <ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
+				
+				<li><a href="index.php">Present-IT</a></li>
+				<li><a href="#">Home</a></li>
 				<li><a href="#about">About</a></li>
 				<li><a href="#contact">Contact</a></li>
 				<li class="dropdown">
-				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Overzicht <span class="caret"></span></a>
 				  <ul class="dropdown-menu">
-					<li><a href="#">Action</a></li>
-					<li><a href="#">Another action</a></li>
-					<li><a href="#">Something else here</a></li>
+						<li><a href="overview_subjects.php">Vakken en lessen toevoegen (overview_subjects.php)</a></li>
+						<li><a href="addUser.php">Gebruikers toevoegen (addUser.php)</a></li>
+						<li><a href="../controller/roleController.php?action=findAllRole">Gebruiker aan rol toevoegen (/controller/roleController.php)</a></li>
+						<li><a href="input_code.php">Aanwezig melden (input_code.php)</a></li>
+						<li><a href="../controller/usercontroller.php?action=UserList">Rol lijst en Rol id (/controller/usercontroller.php)</a></li>
+						<li><a href="addUserLesson.php">user aan les koppelen (addUserLesson.php)</a></li>
+						<li><a href="AddRole.php">rol toevoegen (AddRole.php)</a></li>
+						<li><a href="AllRolesList.php">rol lijst (AllRolesList.php)</a></li>
+						<li><a href="AllSubjectsList.php">les lijst (AllSubjectsList.php)</a></li>
+						<li><a href="AllUsersList.php">user lijst (AllUsersList.php)</a></li>
+						<li><a href="UserList.php">rol en gebruiker lijst (is hetzelfde als "Rol lijst en Rol id")</a></li>
 					<li role="separator" class="divider"></li>
 					<li class="dropdown-header">Nav header</li>
 					<li><a href="#">Separated link</a></li>

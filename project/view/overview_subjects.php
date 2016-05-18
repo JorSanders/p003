@@ -1,4 +1,23 @@
+<html lang="en">
+
+<head>
+<title> Vakken en lessen </title> 
+<?php include_once("../includes/head_bootstrap.html"); ?> 
+</head>
+
+
+<body>
+
+	<div class="container">
+		<div class="page-header">
+			<h3> Vakken en lessen </h3>
+		</div>
+			
+			
+
 <?php
+
+include_once("../includes/navbar_bootstrap.html");
 session_start();
 
 
@@ -33,6 +52,11 @@ if (isset($subjectList)){
 }
 
 
-include("menu.php");
-
 ?>
+			 </div>
+	
+</body>
+<footer>
+	<?php include_once("../includes/footer_bootstrap.html"); ?> 
+    </footer>
+	<?php include_once("../includes/test_bootstrap.html"); ?> 
