@@ -43,7 +43,7 @@ echo"<br>
 		</div>
 	</div>
 		<div class='form-group has-feedback'>
-        	<div class='col-sm-4'>
+        	<div class='col-sm-8'>
 				<button class='btn btn-default glyphicon glyphicon-plus' type='submit' value='+'>Toevoegen</button>
 			</div>
 		</div>

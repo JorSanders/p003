@@ -20,14 +20,15 @@ $q = new Querymanager();
 $lessonList = $q->getLessonsFromSubject($subject_id);
 ?>
 
-        <div id="content">
+        
         	<div class="container">
-        		<br></br>
-            	<h2>Voeg nieuwe les toe: </h2>
+        		<div class="page-header">
+            		<h3>Voeg nieuwe les toe: </h3>
+            	</div>
            		<form class="form-horizontal" role="form" action="../controller/subjectcontroller.php" method="post">
                 	<div class="form-group">
                     	<div class="col-sm-6">
-              <br><br>
+              
 <?php
 //allow teacher to input lesson name and send that too the subjectcontroller to addLesson()
 echo"
@@ -38,7 +39,7 @@ echo"
 		</div>
 	</div>
 	<div class='form-group has-feedback'>
-        <div class='col-sm-4'>
+        <div class='col-sm-6'>
 			<button class='btn btn-default glyphicon glyphicon-plus pull-right' type='submit' value='+'>Toevoegen</button>
 		</div>
 	</div>
@@ -62,7 +63,7 @@ if (isset($lessonList)){
 		}else if($lesson->getCode() == 1){
 			echo "les is al gesloten";
 		}else{
-			echo $lesson->getCode();
+			echo "Dit is de les code: ". $lesson->getCode();
 		}	
 		
 	   echo "<br>";

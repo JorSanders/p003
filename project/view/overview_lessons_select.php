@@ -1,7 +1,21 @@
 <?php
 session_start();
+?>
+<html>
 
+<head>
+<?php include_once("../includes/head_bootstrap.html"); ?> 
+</head>
 
+<body>
+
+	<div class="container">
+			<div class="page-header">
+				<h3>Lijst lessen</h3>
+			</div>
+<?php include_once("../includes/navbar_bootstrap.html"); ?> 
+
+<?php
 include_once("../classes/db/querymanager.php");  
 include_once("../classes/model/subjectClass.php"); 
 
@@ -24,6 +38,16 @@ if (isset($subjectList)){
 }
 
 
-include("menu.php");
+
 
 ?>
+</div>
+	<footer>
+	<?php include_once("../includes/footer_bootstrap.html"); ?> 
+    </footer>
+	<?php include_once("../includes/test_bootstrap.html"); ?> 
+
+</div>
+</body>
+
+</html>
