@@ -23,19 +23,16 @@
 				<?php
 				require_once("../classes/model/userclass.php");
 					if (isset($_SESSION['userList'])) {
-						$userList = unserialize ($_SESSION['userList']);
-						
-						foreach ($userList as $user) {
-							echo "<option value = ' ";
-							echo $user->getId();
-							echo " '>";
-							echo $user->getName();
-							echo "</option>";
-							echo "<br>";
-						}
-					}else
-					{
-						header ("Location: ../controller/roleController.php?action=findAllRole");
+					$userList = unserialize ($_SESSION['userList']);
+					
+					foreach ($userList as $user) {
+						echo "<option value = ' ";
+						echo $user->getId();
+						echo " '>";
+						echo $user->getName();
+						echo "</option>";
+						echo "<br>";
+					}
 					}
 					?> 
 				</select>
