@@ -384,8 +384,24 @@ class QueryManager {
 
 		return $user_lesson;
 	}
+
+	// VAN MIJ
+	
+	public function getUser($id) {
+        
+        // 1 rij uit de database
+        $result = $this->dbconn->query("SELECT * FROM user WHERE id=$id");
+        $row = mysqli_fetch_array($result);
+        // OOP: instantieer een Userobject en geef deze als resultaat
+        return (new User($row['id'], $row['name'],$row['password'], $row['email'], $row['code'], $row['active']));
+    }
 	
 	
+	//update user
+	public function updateUser($id, $name, $password, $email, $code, $active) {
+		echo "$id, $name, $password, $email, $code, $active";
+		$this->dbconn->query("UPDATE user SET name='$name', password='$password', email='$email', code='$code', active='$active' WHERE id=$id"); 
+    }   
 
 }
 
