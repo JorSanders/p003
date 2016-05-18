@@ -37,7 +37,7 @@
 		
 
 		
-		header('location: ../controller/roleController.php?action=findAllRole');
+		header('location: ../view/addUserRoleDone.php');
     }	
 
 	//AllRolesList
