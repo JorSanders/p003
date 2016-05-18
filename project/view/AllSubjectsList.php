@@ -1,28 +1,46 @@
 <html>
-    <head></head>
+    <head>
+        <?php include_once("../includes/head_bootstrap.html"); ?> 
+    </head>
 	
     <body>
+        <?php include_once("../includes/navbar_bootstrap.html"); ?>
         <div id="content">
             <?php
             session_start();
-			include("menu.php");
+			
             require_once("../classes/model/subjectClass.php");
 
             if (isset($_SESSION['AllSubjectsList'])) { 
                 
                 $AllSubjectsList = unserialize($_SESSION['AllSubjectsList']);
-
+                ?>
+                <div id="content">
+                    <div class="container">
+                        <br></br>
+                        <h2>Rol lijst </h2>
+                            <div class="col-sm-8">
+                                <br></br>
+                                <table class='table table-striped'> 
+                <?php
                 foreach ($AllSubjectsList as $Subject) {
-                    echo $Subject->getId() . "<br>";
-                    echo $Subject->getName() . "<br>";
-					echo $Subject->getOwner_id() . "<br>";
-					echo $Subject->getActive() . "<br>";
-                    echo "<br/><br/>";
+                    echo "<tr><td>".$Subject->getId() . "</td>";
+                    echo "<td>".$Subject->getName() . "</td>";
+					echo "<td>".$Subject->getOwner_id() . "</td>";
+					echo "<td>".$Subject->getActive() . "</td></tr>";
+                    
                 }    
             } else {
 				header('Location: ../controller/subjectcontroller.php?action=findAllSubjects');				
             }
             ?>
-      </div>    
+        </table>
+      </div>   
+  </div>
+</div>
+    <footer>
+    <?php include_once("../includes/footer_bootstrap.html"); ?> 
+    </footer>
+    <?php include_once("../includes/test_bootstrap.html"); ?>  
     </body>
 </html>

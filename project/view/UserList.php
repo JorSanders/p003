@@ -6,13 +6,23 @@ session_start();
 <head>
 	<title>User List</title>
 	<link type="text/css" rel="stylesheet" href="../includes/stylesheet.css">
+	<?php include_once("../includes/head_bootstrap.html"); ?> 
 </head>
 
 	<body>
-	
+	<?php include_once("../includes/navbar_bootstrap.html"); ?>
 	<?php
-		include("menu.php");
-
+		
+		?>
+		 
+                <div id="content">
+                    <div class="container">
+                    	<br></br>
+                        <h2>Gebruikers lijst </h2>
+                                <div class="col-sm-8">
+              <br><br>
+              
+		<?php
 
 		// Role id ophalen uit database
 		echo "<div id='table_List1'>";
@@ -20,7 +30,7 @@ session_start();
 
 			$user_roleList = unserialize ($_SESSION['user_roleList']);
 
-			echo "<table> <tr><th>RoleId</th>
+			echo "<table class='table table-striped'> <tr><th>RoleId</th>
 			<tr><td>ID</td>";
 			for($i = 0; $i < count($user_roleList); $i++){
 				echo "<td>" . $user_roleList[$i][0] . "</td>";
@@ -53,7 +63,7 @@ session_start();
 		echo "<div id='table_List2'>";
 		$userList = unserialize ($_SESSION['userList']);
 
-		echo "<table> <tr><th>Users</th>
+		echo "<table class='table table-striped'> <tr><th>Users</th>
 			<tr><td>ID</td>";
 		for($i = 0; $i < count($userList); $i++){
 			echo "<td>" . $userList[$i][0] . "</td>";
@@ -74,7 +84,7 @@ session_start();
 		echo "<div id='table_List3'>";
 		$role = unserialize ($_SESSION['roleList']);
 
-		echo "<table> <tr><th>Role</th>
+		echo "<table class='table table-striped'> <tr><th>Role</th>
 			<tr><td>ID</td>";
 		for($i = 0; $i < count($role); $i++){
 			echo "<td>" . $role[$i][0] . "</td>";
@@ -96,7 +106,7 @@ session_start();
 		echo "<div id='table_List4'>";
 		$lesson = unserialize ($_SESSION['lesson']);
 
-		echo "<table> <tr><th>Lesson</th>
+		echo "<table class='table table-striped'> <tr><th>Lesson</th>
 			<tr><td>LessonId</td>";
 		for($i = 0; $i < count($lesson); $i++){
 			echo "<td>" . $lesson[$i][0] . "</td>";
@@ -120,7 +130,7 @@ session_start();
 		echo "<div id='table_List5'>";
 		$subject = unserialize ($_SESSION['subject']);
 
-		echo "<table> <tr><th>Subject</th>
+		echo "<table class='table table-striped'> <tr><th>Subject</th>
 			<tr><td>LessonId</td>";
 		for($i = 0; $i < count($subject); $i++){
 			echo "<td>" . $subject[$i][0] . "</td>";
@@ -141,7 +151,7 @@ session_start();
 		echo "<div id='table_List6'>";
 		$lesson = unserialize ($_SESSION['lesson']);
 
-		echo "<table> <tr><th>user lesson</th>
+		echo "<table class='table table-striped'> <tr><th>user lesson</th>
 			<tr><td>LessonId</td>";
 		for($i = 0; $i < count($lesson); $i++){
 			echo "<td>" . $lesson[$i][0] . "</td>";
@@ -165,8 +175,15 @@ session_start();
 
 	?>
 
-	
+	</table>
+</div>
+</div>
+</div>
 
+	<footer>
+	<?php include_once("../includes/footer_bootstrap.html"); ?> 
+    </footer>
+	<?php include_once("../includes/test_bootstrap.html"); ?> 
 
 	</body>
 

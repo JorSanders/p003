@@ -1,36 +1,74 @@
 <?php 
 session_start(); 
-include("menu.php");
+
 ?>
 <!DOCTYPE html>
 <html>
     <head>
+        <?php include_once("../includes/head_bootstrap.html"); ?> 
     </head>
 
     <body>
-
-
+        <?php include_once("../includes/navbar_bootstrap.html"); ?>
+        
         <div id="content">
-            <h3>Nieuwe gebruiker: </h3>
+        <div class="container">
+            <br></br>
+            <h2>Nieuwe gebruiker: </h2>
+            <form class="form-horizontal" role="form" action="../controller/usercontroller.php" method="post">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-6">
+
+        
+            
               <br><br>
 
-            <form method="post" action='../controller/usercontroller.php' >
+            
                     <input name="action" type="hidden" value="saveUser" />
-                Naam:<br>
-				<input type="text" name="name" placeholder="naam" required/><br/>
-				<br>wachtwoord:<br/>
-                <input type="password" name="password"  placeholder="wachtwoord" required/><br/>
-				<br>email:<br/>
-                <input type="text" name="email"  placeholder="emailadres" required/><br/>
-				<br>Code:<br/>
-				<input type="text" name="code" placeholder="Code" required/><br/><br>
+                <br>
+                <div class="form-group has-feedback">
+                    <label class="col-sm-4 control-label">Naam:</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="focusedInput" type="text" name="Role" placeholder="Naam" required /><br>
+                    </div>
+                </div>
+				<div class="form-group has-feedback">
+                    <label class="col-sm-4 control-label">Wachtwoord:</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="focusedInput" type="password" name="password"  placeholder="wachtwoord" required/>
+                    </div>
+                </div>
+				<div class="form-group has-feedback">
+                    <label class="col-sm-4 control-label">Email:</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="focusedInput" type="text" name="email"  placeholder="emailadres" required/>
+                    </div>
+                </div>
+				<div class="form-group has-feedback">
+                    <label class="col-sm-4 control-label">Code:</label>
+                    <div class="col-sm-4">
+				        <input class="form-control" id="focusedInput" type="text" name="code" placeholder="Code" required/>
+                    </div>
+                </div>
+                
+                <div class="form-group has-feedback">
+                    <div class="col-sm-8">
+                <button type="submit" class="btn btn-default pull-right">Account aanmaken</button>
+                    </div>
+                </div>
 
-
-				<input type="submit" name="submit">
+				
             </form>
         </div>
+    </div>
+</div>
 
+    <footer>
+    <?php include_once("../includes/footer_bootstrap.html"); ?> 
+    </footer>
+    <?php include_once("../includes/test_bootstrap.html"); ?> 
 		
-		<?phpinclude("menu.php");?>
+		
     </body>
 </html>
