@@ -1,24 +1,25 @@
 <?php
  session_start(); 
- include("menu.php");
+ // deze gevens laten we nergens zien nergens naar toe
 ?>
 <!DOCTYPE html>
 <html>
     <head>
+	   <?php include_once("../includes/head_bootstrap.html"); ?> 
     </head>
 
     <body>
+		<?php include_once("../includes/navbar_bootstrap.html"); ?> 
 
-
-
-        <div id="content">
-            <h3>Rol aan gebruiker toevoegen: </h3>
-              <br><br>
-
-            <form method="post" action='../controller/roleController.php' >
+        <div class="container">
+			<div class= "page-header">
+				<h3>Rol aan gebruiker toevoegen: </h3>
+            </div>  
+				
+					<form method="post" action='../controller/roleController.php' >
                     <input name="action" type="hidden" value="saveUserRole" />
 
-					   Gebruiker:<br>
+				   Gebruiker:<br>
 				<select name="userId">
 				<?php
 				require_once("../classes/model/userclass.php");
@@ -73,5 +74,9 @@
 				<input type="submit" name="submit">
             </form> 
         </div>
-    </body>
+	</body>
+	<footer>
+	<?php include_once("../includes/footer_bootstrap.html"); ?> 
+    </footer>
+	<?php include_once("../includes/test_bootstrap.html"); ?>
 </html>

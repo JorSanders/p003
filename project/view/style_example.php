@@ -16,10 +16,10 @@
       <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
     </div>
 
-    <footer>
+<footer>
 	<?php include_once("../includes/footer_bootstrap.html"); ?> 
-    </footer>
-	<?php include_once("../includes/test_bootstrap.html"); ?> 
+    <?php include_once("../includes/test_bootstrap.html"); ?> 
+</footer>
 
   </body>
 </html>

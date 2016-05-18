@@ -14,6 +14,7 @@ include("menu.php");
               <br><br>
 
             <form method="post" action='../view/addUserRole.php' >
+
                 Klik hier om nog een gebruiker aan een rol te koppelen:<br>
 				<input type="submit" name="Go">
             </form>
