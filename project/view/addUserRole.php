@@ -44,6 +44,7 @@
 						echo "<br>";
 					}
 					}
+					else header ('location: ../controller/roleController.php?action=findAllRole');
 					?> 
 				</select>
 				</div>
