@@ -5,7 +5,7 @@
 	
     <body>
         <?php include_once("../includes/navbar_bootstrap.html"); ?>
-        <div id="content">
+        
             <?php
 			
             session_start();
@@ -17,12 +17,13 @@
 				?>
 
              
-                <div id="content">
+                
                     <div class="container">
-                        <br></br>
-                        <h2>Gebruikers lijst </h2>
+                        <div class="page-header">
+                            <h3>Gebruikers lijst </h3>
+                        </div>
                                 <div class="col-sm-8">
-              <br><br>
+             
 
                 <table class='table table-striped'> 
                 <?php

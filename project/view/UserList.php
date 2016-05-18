@@ -15,13 +15,13 @@ session_start();
 		
 		?>
 		 
-                <div id="content">
+                
                     <div class="container">
-                    	<br></br>
-                        <h2>Gebruikers lijst </h2>
+                    	<div class="page-header">
+                        <h3>Gebruikers lijst </h3>
+                    	</div>
                                 <div class="col-sm-8">
-              <br><br>
-              
+             
 		<?php
 
 		// Role id ophalen uit database

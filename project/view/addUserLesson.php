@@ -12,12 +12,13 @@ session_start();
 
 
 <div class="container">
-	<br></br>
-    <h2>Les toevoegen bij gebruikers</h2><br>
+	<div class="page-header">
+    	<h3>Les toevoegen bij gebruikers</h3>
+	</div>
     <form class="form-horizontal" role="form" action="../controller/subjectcontroller.php" method="post">
         <div class="form-group">
-            <label class="col-sm-2 control-label"></label>
-            <div class="col-sm-6">
+            <label class="col-sm-0 control-label"></label>
+            <div class="col-sm-4">
 
 <?php
 if ( 	isset($_SESSION['userIdNameList']) &&
@@ -30,7 +31,7 @@ if ( 	isset($_SESSION['userIdNameList']) &&
 		//dropdown users
         echo "<div class='form-group'>";
 		echo "<select class='form-control' name='user_id'>";
-		echo "<div class='col-sm-4'>";
+		echo "<div class='col-sm-0'>";
 		for ($i=0;$i<count($userIdNameList);$i++){
 			echo "<option value='{$userIdNameList[$i][0]}'>". $userIdNameList[$i][1] ."</option>";
 		}

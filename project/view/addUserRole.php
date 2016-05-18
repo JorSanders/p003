@@ -12,20 +12,21 @@
     	<?php include_once("../includes/navbar_bootstrap.html"); ?>
 		
 
-		<div id="content">
+		
 		<div class="container">
-		<br></br>
-		<h2>Rol aan gebruiker toevoegen:</h2>
+		<div class="page-header">
+			<h3>Rol aan gebruiker toevoegen:</h3>
+		</div>
 		<form class="form-horizontal" role="form" action="../controller/roleController.php" method="post">
 	    		<div class="form-group">
-	      			<label class="col-sm-2 control-label"></label>
+	      			<label class="col-sm-0 control-label"></label>
 	      			<div class="col-sm-6">
-	      			<br><br>
+	      			
         	
             
                     <input name="action" type="hidden" value="saveUserRole" />
                     <div class="form-group has-feedback">
-                   		<label class="col-sm-4 control-label">Gebruiker:</label>
+                   		<label class="col-sm-3 control-label">Gebruiker:</label>
                    		<div class="col-sm-4">
 					   
 				<select name="userId" class="form-control" id="focusedInput">
@@ -49,7 +50,7 @@
 				</div>
 					
                    	<div class="form-group has-feedback">	
-                   	 	<label class="col-sm-4 control-label">Rol:</label>
+                   	 	<label class="col-sm-3 control-label">Rol:</label>
                    		<div class="col-sm-4">
 				<select name="roleId" class="form-control" id="focusedInput">
 					<?php
@@ -72,21 +73,21 @@
 					</div>
              				
 				<div class="form-group has-feedback">
-                   	<label class="col-sm-4 control-label">Begin datum:</label>
+                   	<label class="col-sm-3 control-label">Begin datum:</label>
                    	<div class="col-sm-4">
 						<input class="form-control" id="focusedInput" type="date" name="start_date">
 					</div>
 				</div>
 
 				<div class="form-group has-feedback">	
-                   	<label class="col-sm-4 control-label">Eind datum:</label>
+                   	<label class="col-sm-3 control-label">Eind datum:</label>
                    	<div class="col-sm-4">
 						<input class="form-control" id="focusedInput" type="date" name="end_date">
 					</div>
 				</div>
                 
                 <div class="form-group has-feedback">
-                	<div class="col-sm-8">
+                	<div class="col-sm-7">
                 		<button type="submit" class="btn btn-default pull-right">Rol toevoegen</button>
             		</div>
         		</div>

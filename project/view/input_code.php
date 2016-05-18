@@ -15,17 +15,19 @@ $_SESSION['user_id']=3;
 <?php include_once("../includes/navbar_bootstrap.html"); ?>
 
 <div class="container">
-	<br></br>
-	<h2>Aanwezigheidscode</h2>
+	
+	<div class="page-header">
+		<h3>Aanwezigheidscode</h3>
+	</div>
 	<form class="form-horizontal" role="form" action="../controller/subjectcontroller.php" method="post">
 	    		<div class="form-group">
-	      			<label class="col-sm-2 control-label"></label>
+	      			<label class="col-sm-0 control-label"></label>
 	      			<div class="col-sm-6">
 	
 	
 	<span class="col-sm-12">Vul hieronder de code die je docent je heeft gegeven in.</span><br></br>
 	<div class="form-group has-feedback">
-		<label class="col-sm-4 control-label">Voer code in:</label>
+		<label class="col-sm-3 control-label">Voer code in:</label>
 		<div class="col-sm-4">
 			<input class="form-control" id="focusedInput" type="number" placeholder="Code" name="code">
 		</div>
@@ -34,7 +36,7 @@ $_SESSION['user_id']=3;
 	<input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
 
 	<div class="form-group has-feedback">
-        <div class="col-sm-8">
+        <div class="col-sm-7">
 			<input class="btn btn-default pull-right" type="submit" value="versturen">
 		</div>
 	</div>

@@ -8,7 +8,7 @@
         
             <?php
             session_start();
-			include("menu.php");
+			
             require_once("../classes/model/roleClass.php");
 
             if (isset($_SESSION['AllRolesList'])) { 
@@ -16,12 +16,13 @@
                 $AllRolesList = unserialize($_SESSION['AllRolesList']);
                 ?>
                 
-                    <div id="content">
+                    
                         <div class="container">
-                            <br></br>
-                            <h2>Rol lijst </h2>
+                            <div class="page-header">
+                                <h3>Rol lijst </h3>
+                            </div>
                                     <div class="col-sm-8">
-              <br><br>
+              
 
                 <table class='table table-striped'> 
                 <?php

@@ -24,14 +24,15 @@ $q = new Querymanager();
 $subjectList = $q->getSubjectsFromDocent($_SESSION['user_id']);
 ?>
  
-        <div id="content">
+       
         	<div class="container">
-        		<br></br>
-            	<h2>Voeg nieuw vak toe: </h2>
-           		<form class="form-horizontal" role="form" action="../controller/subjectcontroller.php" method="post">
+        		<div class="page-header">
+            	<h3>Voeg nieuw vak toe: </h3>
+           		</div>
+				<form class="form-horizontal" role="form" action="../controller/subjectcontroller.php" method="post">
                 	<div class="form-group">
                     	<div class="col-sm-6">
-              <br><br>
+              
 
 <?php
 // allow teacher to input subjectname and send that too the subjectcontroller to addSubject()
@@ -68,7 +69,7 @@ if (isset($subjectList)){
 </div>
 </div>
 </div>
-</div>
+
 	<footer>
 	<?php include_once("../includes/footer_bootstrap.html"); ?> 
     </footer>
