@@ -21,7 +21,7 @@
     if ($_POST['action']=='insertRole' && isset($_POST['role'])){
         $role = $_POST['role'];
         $addRole = $q->addRole($role);
-        header('location: ../view/menu.php');
+        header('location: ../view/AddRole.php');
     }
 	
 	if (($_POST['action']=='saveUserRole')) {        
