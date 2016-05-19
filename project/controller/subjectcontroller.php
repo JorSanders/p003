@@ -190,8 +190,8 @@ if ($_POST['action']=="add_user_lesson_manual" &&
 		$_SESSION['result'] = serialize($result);
 		header("Location: ../view/overview_combination.php?tableGoal={$_POST["tableGoal"]}&tableOrigin={$_POST["tableOrigin"]}&column={$_POST["column"]}&value={$_POST["value"]}");
 	}
-	
-	
+
+
 	
 	
 	

@@ -29,6 +29,7 @@
                     echo "<td>".$Subject->getName() . "</td>";
 					echo "<td>".$Subject->getOwner_id() . "</td>";
 					echo "<td>".$Subject->getActive() . "</td></tr>";
+					
                     
                 }    
             } else {
@@ -36,9 +37,12 @@
             }
             ?>
         </table>
-      </div>   
+      </div>
+	  
+	<a class="btn btn-default" href="../view/SubjectCSV.php" role="button">CSV file</a>
   </div>
 </div>
+
     <footer>
     <?php include_once("../includes/footer_bootstrap.html"); ?> 
     </footer>
