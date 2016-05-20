@@ -25,6 +25,7 @@
 		&&($_POST['action']=='change_password')) {
  		$studentnummer = 1;
  		$old_password =	$_POST['old_password'];
+		$old_password = md5($old_password_);
  		$check = $q->check_password($studentnummer,$old_password);
  		$_SESSION['check'] = serialize($check); 
  	}
@@ -33,6 +34,7 @@
 		if ($_POST['new_password1'] == $_POST['new_password2']){
  		$studentnummer = 1;
     	$new_password = $_POST['new_password1'];
+		$new_password = md5($new_password);
 		$user = $q->change_password($studentnummer,$new_password);
 		$_SESSION['user'] = serialize($user);    
 		header('Location: ../index.php');   
@@ -49,6 +51,7 @@
 
 		$name=$_POST['name'];
 		$password=$_POST['password'];
+		$password = md5($password);
 		$email=$_POST['email'];
 		$code=$_POST['code'];
 

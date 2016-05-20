@@ -35,7 +35,7 @@ session_start();
                 <div class="form-group has-feedback">
                     <label class="col-sm-1 control-label">Naam:</label>
                     <div class="col-sm-2">
-                        <input class="form-control" id="focusedInput" type="text" name="Role" placeholder="Naam" required /><br>
+                        <input class="form-control" id="focusedInput" type="text" name="name" placeholder="Naam" required /><br>
                     </div>
                 </div>
 				<div class="form-group has-feedback">
