@@ -26,11 +26,10 @@
              
 
                 <table class='table table-striped'> 
+				<tr><th>Naam</th><th>E-mail</th><th>Identificatiecode</th><th>Actief</th></tr>
                 <?php
                 foreach ($AllUsersList as $User) {
-                    echo "<tr><td>". $User->getId() . "</td>";
-                    echo "<td>".$User->getName() . "</td>";
-					echo "<td>".$User->getPassword() . "</td>";
+                    echo "<tr><td>".$User->getName() . "</td>";
 					echo "<td>".$User->getEmail() . "</td>";
 					echo "<td>".$User->getCode() . "</td>";
 					echo "<td>".$User->getActive() . "</td></tr>";
