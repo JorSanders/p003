@@ -14,6 +14,7 @@
             if (isset($_SESSION['AllUsersList'])) { 
                 
                 $AllUsersList = unserialize($_SESSION['AllUsersList']);
+				unset($_SESSION["AllUsersList"]);
 				?>
 
              
@@ -29,11 +30,10 @@
 				<tr><th>Naam</th><th>E-mail</th><th>Identificatiecode</th><th>Actief</th></tr>
                 <?php
                 foreach ($AllUsersList as $User) {
-					echo "<td><a href='../view/updateUser.php?id=".$User->getId()."'>".$User->getName()."</a></td>";
+					echo "<tr><td><a href='../view/updateUser.php?id=".$User->getId()."'>".$User->getName()."</a></td>";
 					echo "<td>".$User->getEmail() . "</td>";
 					echo "<td>".$User->getCode() . "</td>";
 					echo "<td>".$User->getActive() . "</td></tr>";
-                    
                 }              
             } else {
 				header('Location: ../controller/usercontroller.php?action=findAllUsers');

@@ -14,6 +14,7 @@
             if (isset($_SESSION['AllRolesList'])) { 
                 
                 $AllRolesList = unserialize($_SESSION['AllRolesList']);
+				print_r($_SESSION);
                 ?>
                 
                     

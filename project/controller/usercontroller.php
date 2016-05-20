@@ -128,6 +128,7 @@
 	$id = $_POST['id'];
 	$name = $_POST['name'];
 	$password = $_POST['password'];
+	$password = md5($password);
 	$email = $_POST['email'];
 	$code= $_POST['code'];
 	$active= $_POST['active'];
