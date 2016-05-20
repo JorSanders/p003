@@ -10,8 +10,9 @@
 		<?php include_once("../includes/navbar_bootstrap.html"); ?>
 		
 		<div class="container">
-			<br></br>
-			<h2>Rol wijzigen</h2>
+			<div class="page-header">
+				<h3>Rol wijzigen</h3>
+			</div>
 			<form class="form-horizontal" role="form" action="../controller/usercontroller.php" method="post">
     			<div class="form-group">
       				<div class="col-sm-6">
@@ -22,13 +23,13 @@
 					<input type="hidden" name="id" value=" <?php echo $id; ?> "/>
 					<input type="hidden" name="action" value="updateRole"/>
 					<div class="form-group has-feedback">
-						<label class="col-sm-4 control-label">Rol wijzigen:</label>
+						<label class="col-sm-3 control-label">Rol wijzigen:</label>
 						<div class="col-sm-4">
 							<input class="form-control" id="focusedInput" type="text" name="Role" placeholder="Rol wijzigen" required /><br>
 						</div>
 					</div>
 					<div class="form-group has-feedback">
-						<div class="col-sm-8">
+						<div class="col-sm-7">
 							<button type="submit" class="btn btn-default pull-right">Rol wijzigen</button>
 						</div>
 					</div>

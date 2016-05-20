@@ -57,7 +57,7 @@
 		
 
 		
-		header('location: ../view/index.php');
+		header('location: ../view/addUserDone.php');
     }	
 
 	if($_GET['action'] == "test"){
