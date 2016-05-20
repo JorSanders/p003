@@ -370,7 +370,10 @@ class QueryManager {
 		$this->pdomodel->where("id", $id);
 		$this->pdomodel->update("name", $updateRole);*/
 	}
+	
 
+	
+	
 
 }
 
