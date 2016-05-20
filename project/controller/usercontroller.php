@@ -121,4 +121,28 @@
     	$_SESSION['updateRole'] = serialize($updateRole);
     	header('location: ../view/userList.php?action=UserList');
     }
+
+	//update user Lisanne
+	if (isset($_POST['id'])&&($_POST['action']=='update')) {
+
+	$id = $_POST['id'];
+	$name = $_POST['name'];
+	$password = $_POST['password'];
+	$email = $_POST['email'];
+	$code= $_POST['code'];
+	$active= $_POST['active'];
+	$q->updateUser($id, $name, $password, $email, $code, $active);
+	$User = $q->getUser($id);
+	$_SESSION['User'] =serialize($User);
+	header('Location: ../view/AllUsersList.php');
+
+	}	
+
+	//haal een user op uit de database
+	if ($_GET['action']=='getUser') {
+	$id = $_GET['id'];
+	$User = $q->getUser($id);
+	$_SESSION['User'] =serialize($User);
+	header('Location: ../view/updateUser.php'); 
+	}
 ?>
