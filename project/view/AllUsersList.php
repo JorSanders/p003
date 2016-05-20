@@ -30,7 +30,7 @@
                 foreach ($AllUsersList as $User) {
                     echo "<tr><td>". $User->getId() . "</td>";
                     //echo "<td>".$User->getName() . "</td>";
-					echo "<td>"" <a href='../view/updateUser.php?id=".$User->getId()."'>".$User->getName()."</a></td>";
+					echo "<td> <a href='../view/updateUser.php?id=".$User->getId()."'>".$User->getName()."</a></td>";
 					echo "<td>".$User->getPassword() . "</td>";
 					echo "<td>".$User->getEmail() . "</td>";
 					echo "<td>".$User->getCode() . "</td>";
