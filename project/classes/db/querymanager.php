@@ -377,7 +377,7 @@ class QueryManager {
 										 FROM user_role
 										 WHERE role_id = '29'");
 		
-		$result2 = $this->
+		//$result2 = $this->
         
         while ($row = mysqli_fetch_array($result)) {
         $docentList[] = new User($row['id'],$row['name'],$row['password'],$row['email'],$row['code'],$row['active']);
