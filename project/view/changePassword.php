@@ -10,8 +10,9 @@
 		
 		<?php include_once("../includes/navbar_bootstrap.html"); ?>
 		<div class="container">
-			<br></br>
-			<h2>Wachtwoord wijzigen</h2>
+			<div class="page-header">
+			<h3>Wachtwoord wijzigen</h3>
+		</div>
 			<form class="form-horizontal" role="form" action="../controller/usercontroller.php" method="post">
     			<div class="form-group">
       				<div class="col-sm-6">

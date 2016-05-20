@@ -50,7 +50,13 @@
 
 		$q->saveUser($name, $password, $email, $code);
 		
+<<<<<<< HEAD
 		header('location: ../view/index.php');
+=======
+
+		
+		header('location: ../view/addUserDone.php');
+>>>>>>> Bart!
     }	
 
 	if($_GET['action'] == "test"){

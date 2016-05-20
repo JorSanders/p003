@@ -69,6 +69,8 @@ if ( 	isset($_SESSION['userIdNameList']) &&
 ?>
 </div>
 </div>
+</div>
+</div>
 	<footer>
 	<?php include_once("../includes/footer_bootstrap.html"); ?> 
     </footer>

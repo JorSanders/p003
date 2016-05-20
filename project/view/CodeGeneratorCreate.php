@@ -1,6 +1,27 @@
 <?php
 session_start();
+?>
 
+<!doctype html>
+
+<html>
+
+<head>
+<?php include_once("../includes/head_bootstrap.html"); ?> 
+</head>
+
+<body>
+
+	<div class="container">
+			<div class="page-header">
+				<h3>Les en code</h3>
+			</div>
+			<div class="form-group">
+      				<div class="col-sm-6">
+<?php include_once("../includes/navbar_bootstrap.html"); ?> 
+
+
+<?php
 $subject_id = $_GET['subject_id'];	
 
 include_once("../classes/db/querymanager.php");  
@@ -34,6 +55,16 @@ if (isset($lessonList)){
 	echo "U heeft voor dit vak nog geen lessen aangemaakt.";
 }
 
-include("menu.php");
+
 ?>
 
+	</div>
+	<footer>
+	<?php include_once("../includes/footer_bootstrap.html"); ?> 
+    </footer>
+	<?php include_once("../includes/test_bootstrap.html"); ?> 
+</div>
+
+</body>
+
+</html>
