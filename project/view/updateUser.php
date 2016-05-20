@@ -8,19 +8,28 @@ session_start();
     </head>
 
     <body>
-            
+            <?php include_once("../includes/navbar_bootstrap.html"); ?>
         <div class="container">
 			<div class="page-header">
 				<h3>Les en code</h3>
 			</div>
 			<div class="form-group">
       				<div class="col-sm-6">
-				<?php include_once("../includes/navbar_bootstrap.html"); ?> 
+				 
 			
 			<form action="../controller/usercontroller.php" method="post">
 			
              <?php 
-			
+				echo require_once("../classes/model/userclass.php");
+				//als in de sessie de user is gezet haal dan de user op
+				if (isset($_SESSION['User'])){
+					$User = unserialize($_SESSION['User']);
+					//unset de user uit de session zodat als de pagina word gerefreshed de gegevens opnieuw worden opgehaald
+					unset($_SESSION['User']);				
+
+				}	else { //zo niet stuur door naar de controller om de user op te halen
+					header("Location: ../controller/usercontroller.php?action=getUser&id={$_GET['id']}");
+				}
 			 ?>			     
 
                   <input type="hidden" name="id" value="<?php echo $User->getId(); ?>">
@@ -59,9 +68,8 @@ session_start();
             </form>
 			
         </div>
-    </div>
-	</div>
-
+</div>
+</div>
 	</div>
 	<footer>
 	<?php include_once("../includes/footer_bootstrap.html"); ?> 
