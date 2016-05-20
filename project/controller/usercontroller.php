@@ -14,8 +14,7 @@
 	
 	//delete user fail
 	if (isset($_GET['id'])&&($_GET['action']=='NEE')) {
-		header('Location: ../index.php'); 
-       	
+		header('Location: ../index.php');      	
 	}
 
 	//Change user password
@@ -25,37 +24,31 @@
 		&&($_POST['action']=='change_password')) {
  		$studentnummer = 1;
  		$old_password =	$_POST['old_password'];
+		$old_password = md5($old_password_);
  		$check = $q->check_password($studentnummer,$old_password);
  		$_SESSION['check'] = serialize($check); 
- 	}
- 		elseif ($row == 1){
-
+ 	} elseif ($row == 1){
 		if ($_POST['new_password1'] == $_POST['new_password2']){
- 		$studentnummer = 1;
-    	$new_password = $_POST['new_password1'];
-		$user = $q->change_password($studentnummer,$new_password);
-		$_SESSION['user'] = serialize($user);    
-		header('Location: ../index.php');   
-    	}
-    	else {
-    		header('Location: ../change_password'); 
-    	}
+			$studentnummer = 1;
+			$new_password = $_POST['new_password1'];
+			$new_password = md5($new_password);
+			$user = $q->change_password($studentnummer,$new_password);
+			$_SESSION['user'] = serialize($user);    
+			header('Location: ../index.php');   
+		} else {
+			header('Location: ../change_password'); 
+		}
     }
 	
-	//User toevoegen
-	
-	if (($_POST['action']=='saveUser')) {        
-		
-
+	//User toevoegen	
+	if (($_POST['action']=='saveUser')) {
 		$name=$_POST['name'];
 		$password=$_POST['password'];
+		$password = md5($password);
 		$email=$_POST['email'];
 		$code=$_POST['code'];
 
-
 		$q->saveUser($name, $password, $email, $code);
-		
-
 		
 		header('location: ../view/index.php');
     }	
@@ -95,8 +88,7 @@
 
 	}
 	
-		//AllUsersList
-	
+	//AllUsersList
 	if ($_GET['action']=='findAllUsers') {
 		$AllUsersList = $q->findAllUsers();
 		$_SESSION['AllUsersList'] = serialize($AllUsersList);
@@ -129,6 +121,7 @@
     	$_SESSION['updateRole'] = serialize($updateRole);
     	header('location: ../view/userList.php?action=UserList');
     }
+
 	//update user Lisanne
 	if (isset($_POST['id'])&&($_POST['action']=='update')) {
 
@@ -152,7 +145,4 @@
 	$_SESSION['User'] =serialize($User);
 	header('Location: ../view/updateUser.php'); 
 	}
-
-
-
 ?>

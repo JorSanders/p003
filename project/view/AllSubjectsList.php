@@ -22,12 +22,11 @@
                         </div>
                             <div class="col-sm-8">
                                 
-                                <table class='table table-striped'> 
+                <table class='table table-striped'> 
+				<tr><th>Vak</th><th>Actief</th></tr>
                 <?php
                 foreach ($AllSubjectsList as $Subject) {
-                    echo "<tr><td>".$Subject->getId() . "</td>";
-                    echo "<td>".$Subject->getName() . "</td>";
-					echo "<td>".$Subject->getOwner_id() . "</td>";
+                    echo "<tr><td>".$Subject->getName() . "</td>";
 					echo "<td>".$Subject->getActive() . "</td></tr>";
 					
                     

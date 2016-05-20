@@ -25,12 +25,12 @@
               
 
                 <table class='table table-striped'> 
+				<tr><th>Rol</th><th>Actief</th></tr>
                 <?php
 				
                 foreach ($AllRolesList as $Role) {
-                    echo "<tr><td>".$Role->getId() . "</td>";
-                    echo "<td>".$Role->getName() . "</td>";
-					echo "<td>".$Role->getActive() . "</td>";
+                    echo "<tr><td>".$Role->getName() . "</td>";
+					echo "<td>".$Role->getActive() . "</td></tr>";
                 
                 }    
             } else {

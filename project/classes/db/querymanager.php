@@ -224,7 +224,7 @@ class QueryManager {
         $result = $this->dbconn->query("SELECT * FROM user");
         
         while ($row = mysqli_fetch_array($result)) {
-        $AllUsersList[] = new User($row['id'],$row['name'], $row['password'], $row['email'], $row['code'], $row['active']);
+        $AllUsersList[] = new User($row['name'], $row['email'], $row['code'], $row['active']);
         }
 		return $AllUsersList;
     } 
@@ -234,7 +234,7 @@ class QueryManager {
         $result = $this->dbconn->query("SELECT * FROM subject");
         
         while ($row = mysqli_fetch_array($result)) {
-        $AllSubjectsList[] = new Subject($row['subject_id'], $row['subject_name'], $row['owner_id'], $row['active']);
+        $AllSubjectsList[] = new Subject($row['subject_name'], $row['active']);
         }
 		return $AllSubjectsList;
     } 
@@ -244,7 +244,7 @@ class QueryManager {
         $result = $this->dbconn->query("SELECT * FROM role");
         
         while ($row = mysqli_fetch_array($result)) {
-        $AllRolesList[] = new Role($row['id'], $row['name'], $row['active']);
+        $AllRolesList[] = new Role($row['name'], $row['active']);
         }
 		return $AllRolesList;
 	}
