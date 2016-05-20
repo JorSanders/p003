@@ -129,6 +129,16 @@
     	$_SESSION['updateRole'] = serialize($updateRole);
     	header('location: ../view/userList.php?action=UserList');
     }
+	
+	    if ($_GET['action']=='findAllDocent') {
+        $docentList = $q->findAllDocent();
+        $_SESSION['docentList'] = serialize($docentList);
+
+        //header('Location: ../view/overview_subjects.php');
+		
+		
+    }
+	
 
 
 

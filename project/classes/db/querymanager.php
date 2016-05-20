@@ -371,8 +371,20 @@ class QueryManager {
 		$this->pdomodel->update("name", $updateRole);*/
 	}
 	
-
-	
+	//find all users
+			public function findAllDocent() {
+        $result = $this->dbconn->query("SELECT user_id 
+										 FROM user_role
+										 WHERE role_id = '29'");
+		
+		$result2 = $this->
+        
+        while ($row = mysqli_fetch_array($result)) {
+        $docentList[] = new User($row['id'],$row['name'],$row['password'],$row['email'],$row['code'],$row['active']);
+        }
+		print_r($docentList);
+        return $docentList;
+    }
 	
 
 }

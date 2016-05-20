@@ -49,13 +49,39 @@ echo"<br>
 		</div>
 		
 
-	<input type='hidden' name='action' value='addSubject'>
-	<input type='hidden' name='owner_id' value='{$_SESSION['user_id']}'>
+	<input type='hidden' name='action' value='addSubject'>";
+	
+	?>
+	
+	<div class="form-group has-feedback">
+                   		<label class="col-sm-3 control-label">Gebruiker:</label>
+                   		<div class="col-sm-4">
+					   
+				<select name="userId" class="form-control" id="focusedInput">
+				<?php
+				require_once("../classes/model/userclass.php");
+					if (isset($_SESSION['docentList'])) {
+					$docentList = unserialize ($_SESSION['docentList']);
+					
+					foreach ($docentList as $user) {
+						echo "<option value = ' ";
+						echo $user->getId();
+						echo " '>";
+						echo $user->getName();
+						echo "</option>";
+						echo "<br>";
+					}
+					}
+					else header ('location: ../controller/usercontroller.php?action=findAllDocent');
+					?> 
+				</select>
+				</div>
+				</div>
+
 </form>
 
-";
 
-?>
+
 </div>
 </div>
 </div>
