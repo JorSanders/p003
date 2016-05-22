@@ -14,7 +14,7 @@
             if (isset($_SESSION['AllRolesList'])) { 
                 
                 $AllRolesList = unserialize($_SESSION['AllRolesList']);
-				print_r($_SESSION);
+				unset ($_SESSION['AllRolesList']);
                 ?>
                 
                     
@@ -30,7 +30,7 @@
                 <?php
 				
                 foreach ($AllRolesList as $Role) {
-                    echo "<tr><td>".$Role->getName() . "</td>";
+                    echo "<tr><td><a href='../controller/roleController.php?action=findOneRole&id=".$Role->getId()."'>".$Role->getName() . "</a></td>";
 					echo "<td>".$Role->getActive() . "</td></tr>";
                 
                 }    

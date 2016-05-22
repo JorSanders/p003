@@ -26,7 +26,7 @@
 				<tr><th>Vak</th><th>Actief</th></tr>
                 <?php
                 foreach ($AllSubjectsList as $Subject) {
-                    echo "<tr><td>".$Subject->getName() . "</td>";
+                    echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneSubject&id=".$Subject->getId()."'>".$Subject->getName() . "</a></td>";
 					echo "<td>".$Subject->getActive() . "</td></tr>";
 					
                     

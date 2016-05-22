@@ -146,4 +146,27 @@
 	$_SESSION['User'] =serialize($User);
 	header('Location: ../view/updateUser.php'); 
 	}
+	
+	//one user and its subjects and roles and its lessons
+	if($_GET['action'] == 'findOneUser'){
+		$userList = $q->findAllFromTableWhere("id",$_GET['id'],"user");
+		$_SESSION['userList'] = serialize($userList);
+		
+		$roleList = $q->findRolesByUserId($_GET['id']);
+		$_SESSION['roleList'] = serialize($roleList);
+		
+		$subjectList = $q->findSubjectsByUserId($_GET['id']);
+		$_SESSION['subjectList'] = serialize($subjectList);
+		
+		$lessonList = $q->findLessonsByUserId($_GET['id']);
+		for ($i = 0; $i < count($lessonList); $i++){
+			$subject = $q->findAllFromTableWhere("subject_id",$lessonList[$i]["subject_id"],"subject");
+			$lessonList[$i]['subject_name'] = $subject[0]["subject_name"];
+		}
+		$_SESSION['lessonList'] = serialize($lessonList);
+
+		
+		header('Location: ../view/oneuser.php');
+	}
+
 ?>
