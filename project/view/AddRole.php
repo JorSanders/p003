@@ -17,15 +17,15 @@
       				<div class="col-sm-6">
 	
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Rol toevoegen:</label>
+					<label class="col-sm-3 control-label">Rol naam:</label>
 					<div class="col-sm-6">
-						<input class="form-control" id="focusedInput" type="text" name="role" placeholder="Rol toevoegen" required/>
+						<input class="form-control" id="focusedInput" type="text" name="role" placeholder="Projectmanager" required/>
 					</div>
 				</div>
 				<input name="action" type="hidden" value="insertRole">
 				<div class="form-group has-feedback">
 					<div class="col-sm-9">
-						<input class="btn btn-default pull-right" name="submit" type="submit" value="Rol toevoegen">
+						<button class="btn btn-default glyphicon glyphicon-plus pull-right " name="submit" type="submit">Toevoegen</button>
 					</div>
 				</div>
 			</form>

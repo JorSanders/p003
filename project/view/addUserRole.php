@@ -15,7 +15,7 @@
 		
 		<div class="container">
 		<div class="page-header">
-			<h3>Rol aan gebruiker toevoegen:</h3>
+			<h3>Gebruiker aan rol koppelen</h3>
 		</div>
 		<form class="form-horizontal" role="form" action="../controller/roleController.php" method="post">
 	    		<div class="form-group">
@@ -89,7 +89,7 @@
                 
                 <div class="form-group has-feedback">
                 	<div class="col-sm-7">
-                		<button type="submit" class="btn btn-default pull-right">Rol toevoegen</button>
+                		<button type="submit" class="btn btn-default pull-right">Koppelen</button>
             		</div>
         		</div>
 				

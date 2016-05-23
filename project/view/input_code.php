@@ -16,7 +16,7 @@ session_start();
 <div class="container">
 	
 	<div class="page-header">
-		<h3>Aanwezigheidscode</h3>
+		<h3>Aanwezig melden</h3>
 	</div>
 	<form class="form-horizontal" role="form" action="../controller/subjectcontroller.php" method="post">
 	    		<div class="form-group">
@@ -24,31 +24,39 @@ session_start();
 	      			<div class="col-sm-6">
 	
 	
-	<span class="col-sm-12">Vul hieronder de code die je docent je heeft gegeven in.</span><br></br>
+	<span class="col-sm-12">Vul hieronder de benodigde gegevens in om jezelf aanwezig te melden.</span><br></br>
 	<div class="form-group has-feedback">
-		<label class="col-sm-3 control-label">Voer code in:</label>
-		<div class="col-sm-4">
-			<input class="form-control" id="focusedInput" type="number" placeholder="Code" name="code">
+		<label class="col-sm-6 control-label">Voer lescode in:</label>
+		<div class="col-sm-6">
+			<input class="form-control" id="focusedInput" type="number" placeholder="Bijvoorbeeld: 12345" name="code">
 		</div>
 	</div>
-	<br>
-	Wat vul je in om je aan te melden:
-	<select name="search">
-		<option value = "name">naam</option>
-		<option value = "email">emailadres</option>
-		<option value = "code">code</option>
-	</select>
-	<br><br>
 	
-	Typ het hier:
-	<input type = "text" name = "name" >
-	<br><br>
+	<div class="form-group has-feedback">
+	<label class="col-sm-6 control-label">Aanmelden met uw:</label>
+	    <div class="col-sm-6">
+	
+	<select name="search" class="form-control" id="focusedInput">
+		<option value = "name">Naam</option>
+		<option value = "email">E-mailadres</option>
+		<option value = "code">Identificatiecode</option>
+	</select>
+</div>
+</div>
+
+	<div class="form-group has-feedback">
+		<label class="col-sm-6 control-label">Typ uw bijbehorende gegeven bij de bovenstaande keuze in:</label>
+	   		<div class="col-sm-6">
+				<input type = "text" name = "name" class="form-control" id="focusedInput">
+			</div>
+	</div>
+
 	
 	<input type="hidden" name="action" value="add_user_lesson">
 
 	<div class="form-group has-feedback">
-        <div class="col-sm-7">
-			<input class="btn btn-default pull-right" type="submit" value="versturen">
+        <div class="col-sm-12">
+			<input class="btn btn-default pull-right" type="submit" value="Aanwezig melden">
 		</div>
 	</div>
 	</form>

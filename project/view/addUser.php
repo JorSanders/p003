@@ -17,7 +17,7 @@ session_start();
 		
             
            <div class="page-header">
-		   <h3>Nieuwe gebruiker: </h3>
+		   <h3>Gebruiker toevoegen</h3>
             </div>
 			
 			<form class="form-horizontal" role="form" action="../controller/usercontroller.php" method="post">
@@ -33,33 +33,33 @@ session_start();
                     <input name="action" type="hidden" value="saveUser" />
                 <br>
                 <div class="form-group has-feedback">
-                    <label class="col-sm-1 control-label">Naam:</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" id="focusedInput" type="text" name="name" placeholder="Naam" required /><br>
+                    <label class="col-sm-2 control-label">Naam:</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="focusedInput" type="text" name="name" placeholder="Bert" required /><br>
                     </div>
                 </div>
 				<div class="form-group has-feedback">
-                    <label class="col-sm-1 control-label">Wachtwoord:</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" id="focusedInput" type="password" name="password"  placeholder="wachtwoord" required/>
+                    <label class="col-sm-2 control-label">Wachtwoord:</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="focusedInput" type="password" name="password"  placeholder="******" required/>
                     </div>
                 </div>
 				<div class="form-group has-feedback">
-                    <label class="col-sm-1 control-label">Email:</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" id="focusedInput" type="text" name="email"  placeholder="emailadres" required/>
+                    <label class="col-sm-2 control-label">E-mail:</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="focusedInput" type="text" name="email"  placeholder="bert@windesheimflevoland.nl" required/>
                     </div>
                 </div>
 				<div class="form-group has-feedback">
-                    <label class="col-sm-1 control-label">Code:</label>
-                    <div class="col-sm-2">
-				        <input class="form-control" id="focusedInput" type="text" name="code" placeholder="Code" required/>
+                    <label class="col-sm-2 control-label">Identificatiecode:</label>
+                    <div class="col-sm-3">
+				        <input class="form-control" id="focusedInput" type="text" name="code" placeholder="S1091199" required/>
                     </div>
                 </div>
                 
                 <div class="form-group has-feedback">
-                    <div class="col-sm-3">
-                <button type="submit" class="btn btn-default pull-right">Account aanmaken</button>
+                    <div class="col-sm-5">
+                <button type="submit" class="btn btn-default pull-right glyphicon glyphicon-plus">Toevoegen</button>
                     </div>
                 </div>
 
