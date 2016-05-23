@@ -26,7 +26,8 @@ if ( 	isset($_SESSION['userIdNameList']) &&
 	){
 		$userIdNameList 	= unserialize ($_SESSION['userIdNameList']); 
 		$lessonIdNameList	= unserialize ($_SESSION['lessonIdNameList']);
-	
+		unset ($_SESSION['userIdNameList']);
+		unset ($_SESSION['lessonIdNameList']);
 		
 		//dropdown users
         echo "<div class='form-group'>";
