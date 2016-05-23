@@ -1,5 +1,3 @@
-
-
 		<!-- Fixed navbar -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 		<a href="index.php" class="pull-left"><img class="img-responsive" src="../includes/windesheimflevoland-logo.png"></a>
@@ -69,9 +67,9 @@
 					</li>
 					
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle pull-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['username']; ?> <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle pull-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">kevin <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="<a href='../controller/usercontroller.php?action=findOneUser&id=".$_SESSION['id'].>Profiel</a></li>
+							<li><a href='../controller/usercontroller.php?action=findOneUser&id=5'>Profiel</a></li>
 							<li><a href="changePassword.php">Wachtwoord wijzigen</a></li>
 							<li><a href="logout.php">Uitloggen</a></li>
 							<li role="separator" class="divider"></li>
@@ -88,5 +86,3 @@
 
 			</div>
 		</nav>
-	
-	
