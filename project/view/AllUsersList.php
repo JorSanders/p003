@@ -41,6 +41,7 @@
 			}
             ?>
         </table>
+		<a class="btn btn-default" href="../view/CSV/UserCSV.php" role="button">CSV file</a>
       </div>  
     </div>
 </div>  
