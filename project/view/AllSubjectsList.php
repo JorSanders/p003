@@ -18,7 +18,7 @@
         ?>
         <div class="container">
             <div class="page-header">
-                <h3>Module lijst</h3>
+                <h3>Modulesoverzicht</h3>
             </div>
             <div class="col-sm-8">                        
 				<table class='table table-striped'> 
@@ -30,7 +30,7 @@
 					}    
 				?>
 				</table>
-				<a class="btn btn-default" href="../view/CSV/SubjectCSV.php" role="button">CSV file</a>
+				<a class="btn btn-default" href="../view/CSV/SubjectCSV.php" role="button">CSV bestand exporteren</a>
 			</div>
 		</div>
 		<footer>

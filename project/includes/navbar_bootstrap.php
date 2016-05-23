@@ -24,9 +24,9 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Overzicht <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="AllUsersList.php">Gebruikersoverzicht</a></li>
-							<li><a href="AllSubjectsList.php">Module overzicht</a></li>
+							<li><a href="AllSubjectsList.php">Modulesoverzicht</a></li>
 							<li><a href="AllRolesList.php">Rollenoverzicht</a></li>
-							<li><a href="#">Lesoverzicht*</a></li>
+							<li><a href="#">Lessenoverzicht*</a></li>
 							<li role="separator" class="divider"></li>
 						</ul>
 						</li>
@@ -45,9 +45,9 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Importeer CSV <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/CSV/userCSVupload.php">Gebruiker CSV uploaden</a></li>
-								<li><a href="/CSV/roleCSVupload.php">Rol CSV uploaden</a></li>
-								<li><a href="/CSV/subjectCSVupload.php">Modulen CSV uploaden</a></li>
+								<li><a href="../view/CSV/userCSVupload.php">Gebruiker CSV uploaden</a></li>
+								<li><a href="../view/CSV/roleCSVupload.php">Rol CSV uploaden</a></li>
+								<li><a href="../view/CSV/subjectCSVupload.php">Modulen CSV uploaden</a></li>
 								<li role="separator" class="divider"></li>
 							</ul>
 						</li>

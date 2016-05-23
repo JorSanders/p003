@@ -13,7 +13,7 @@
         <?php require_once("../includes/navbar_bootstrap.php"); ?>
 		<div class="container">
             <div class="page-header">
-                <h3>Gebruikers lijst </h3>
+                <h3>Gebruikersoverzicht</h3>
             </div>
 			<?php
 			require_once("../classes/model/userclass.php");
@@ -24,18 +24,18 @@
             echo '<div class="col-sm-8">';
 			
 				echo "<table class='table table-striped'> ";
-					echo "<tr><th>Naam</th><th>E-mail</th><th>Identificatiecode</th><th>Actief</th><th>Aanpassen</th></tr>";
+					echo "<tr><th>Naam</th><th>E-mail</th><th>Identificatiecode</th><th>Actief</th><th></th></tr>";
 					foreach ($AllUsersList as $User) {
 						echo "<tr><td><a href='../controller/usercontroller.php?action=findOneUser&id=".$User->getId()."'>".$User->getName()."</a></td>";
 							echo "<td>".$User->getEmail() . "</td>";
 							echo "<td>".$User->getCode() . "</td>";
 							echo "<td>".$User->getActive() . "</td>";
-							echo "<td><a href='../view/updateUser.php?id=".$User->getId()."'>aanpassen</a><td></tr>";
+							echo "<td><a href='../view/updateUser.php?id=".$User->getId()."'>Wijzigen</a><td></tr>";
 				
 				}              
 			?>
 				</table>
-				<a class="btn btn-default" href="../view/CSV/UserCSV.php" role="button">CSV file</a>
+				<a class="btn btn-default" href="../view/CSV/UserCSV.php" role="button">CSV bestand exporteren</a>
 			
 			</div>  
 		</div>
