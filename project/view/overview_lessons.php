@@ -23,7 +23,7 @@ $lessonList = $q->getLessonsFromSubject($subject_id);
         
         	<div class="container">
         		<div class="page-header">
-            		<h3>Voeg nieuwe les toe: </h3>
+            		<h3>Les toevoegen</h3>
             	</div>
            		<form class="form-horizontal" role="form" action="../controller/subjectcontroller.php" method="post">
                 	<div class="form-group">
@@ -34,12 +34,13 @@ $lessonList = $q->getLessonsFromSubject($subject_id);
 echo"
  <br>
 	<div class='form-group has-feedback'>
+		<label class='col-sm-3 control-label'>Les naam:</label>
     	<div class='col-sm-6'>
-			<input class='form-control' id='focusedInput' type='text' name='lesson_name' placeholder='lesnaam' required>
+			<input class='form-control' id='focusedInput' type='text' name='lesson_name' placeholder='College 1' required>
 		</div>
 	</div>
 	<div class='form-group has-feedback'>
-        <div class='col-sm-6'>
+        <div class='col-sm-9'>
 			<button class='btn btn-default glyphicon glyphicon-plus pull-right' type='submit' value='+'>Toevoegen</button>
 		</div>
 	</div>

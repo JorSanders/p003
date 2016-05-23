@@ -11,8 +11,14 @@ session_start();
 
 	<div class="container">
 			<div class="page-header">
-				<h3>Lijst lessen</h3>
+				<h3>Les toevoegen</h3>
 			</div>
+			<div class="form-group">
+      			<div class="col-sm-10">
+			
+					Selecteer een module waarvoor u een les wil toevoegen.
+				<br></br>
+
 <?php include_once("../includes/navbar_bootstrap.html"); ?> 
 
 <?php
@@ -41,6 +47,8 @@ if (isset($subjectList)){
 
 
 ?>
+</div>
+</div>
 </div>
 	<footer>
 	<?php include_once("../includes/footer_bootstrap.html"); ?> 

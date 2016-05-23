@@ -27,7 +27,7 @@ $subjectList = $q->getSubjectsFromDocent($_SESSION['user_id']);
        
         	<div class="container">
         		<div class="page-header">
-            	<h3>Voeg nieuw vak toe: </h3>
+            	<h3>Module toevoegen</h3>
            		</div>
 				<form class="form-horizontal" role="form" action="../controller/subjectcontroller.php" method="post">
                 	<div class="form-group">
@@ -38,13 +38,14 @@ $subjectList = $q->getSubjectsFromDocent($_SESSION['user_id']);
 // allow teacher to input subjectname and send that too the subjectcontroller to addSubject()
 echo"<br>
 	 <div class='form-group has-feedback'>
+	 <label class='col-sm-3 control-label'>Module naam:</label>
         <div class='col-sm-6'>
-			<input class='form-control' id='focusedInput' type='text' name='subject_name' placeholder='vaknaam' required>
+			<input class='form-control' id='focusedInput' type='text' name='subject_name' placeholder='Webdevelopment 1' required>
 		</div>
 	</div>
 		<div class='form-group has-feedback'>
-        	<div class='col-sm-8'>
-				<button class='btn btn-default glyphicon glyphicon-plus' type='submit' value='+'>Toevoegen</button>
+        	<div class='col-sm-9'>
+				<button class='btn btn-default glyphicon glyphicon-plus pull-right' type='submit' value='+'>Toevoegen</button>
 			</div>
 		</div>
 		

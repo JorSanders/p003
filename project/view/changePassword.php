@@ -48,11 +48,16 @@
 			<input type="hidden" name="id" value=" <?php echo $id; ?> "/>
 			<input type="hidden" name="action" value="change_password"/>
 			<div class="form-group has-feedback">
-				<div class="col-sm-8">
+				<div class="col-sm-10">
 					<button type="submit" class="btn btn-default btn pull-right">Wachtwoord wijzigen</button>
 				</div>
 			</div>
-			<span class="help-block pull-left">Velden met * dienen ingevuld te worden</span>
+			<div class="form-group has-feedback">
+				<label class="col-sm-4 control-label"></label>
+				<div class="col-sm-6">
+					<span class="help-block pull-left">Velden met * dienen ingevuld te worden</span>
+				</div>
+			</div>
 
 		</form>
 	</div>
