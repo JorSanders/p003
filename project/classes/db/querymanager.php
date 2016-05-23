@@ -224,7 +224,7 @@ class QueryManager {
         $result = $this->dbconn->query("SELECT * FROM user");
         
         while ($row = mysqli_fetch_array($result)) {
-        $AllUsersList[] = new User($row['name'], $row['email'], $row['code'], $row['active']);
+        $AllUsersList[] = new User($row['id'],$row['name'], $row['password'], $row['email'], $row['code'], $row['active']);
         }
 		return $AllUsersList;
     } 
@@ -234,7 +234,7 @@ class QueryManager {
         $result = $this->dbconn->query("SELECT * FROM subject");
         
         while ($row = mysqli_fetch_array($result)) {
-        $AllSubjectsList[] = new Subject($row['subject_name'], $row['active']);
+        $AllSubjectsList[] = new Subject($row['subject_id'], $row['subject_name'], $row['owner_id'], $row['active']);
         }
 		return $AllSubjectsList;
     } 
@@ -244,7 +244,7 @@ class QueryManager {
         $result = $this->dbconn->query("SELECT * FROM role");
         
         while ($row = mysqli_fetch_array($result)) {
-        $AllRolesList[] = new Role($row['name'], $row['active']);
+        $AllRolesList[] = new Role($row['id'], $row['name'], $row['active']);
         }
 		return $AllRolesList;
 	}
@@ -358,19 +358,8 @@ class QueryManager {
 
 		return $user_lesson;
 	}
-
-
-	//Update Role
-	public function updateRole($id,$role){
-		$result = $this->dbconn->query("UPDATE role SET name='$role' WHERE id='$id'");
-			/*
-		$this->__construct();
-
-		$updateRole['role'] = "$role";
-		$this->pdomodel->where("id", $id);
-		$this->pdomodel->update("name", $updateRole);*/
-	}
-		// User getten
+	
+	// VAN MIJ
 	
 	public function getUser($id) {
         
@@ -387,10 +376,12 @@ class QueryManager {
 		echo "$id, $name, $password, $email, $code, $active";
 		$this->dbconn->query("UPDATE user SET name='$name', password='$password', email='$email', code='$code', active='$active' WHERE id=$id"); 
     }   
-
-	
-	
-
+	//login user
+	public function loginUser($name, $password) {  //checkuser
+     $result = $this->dbconn->query("SELECT * FROM user WHERE name ='$name' AND password = '$password'");
+	 $row = mysqli_num_rows($result);
+	 return $row;
+    }
 }
 
 	

@@ -14,7 +14,8 @@
 	
 	//delete user fail
 	if (isset($_GET['id'])&&($_GET['action']=='NEE')) {
-		header('Location: ../index.php');      	
+		header('Location: ../index.php'); 
+       	
 	}
 
 	//Change user password
@@ -24,31 +25,37 @@
 		&&($_POST['action']=='change_password')) {
  		$studentnummer = 1;
  		$old_password =	$_POST['old_password'];
-		$old_password = md5($old_password_);
  		$check = $q->check_password($studentnummer,$old_password);
  		$_SESSION['check'] = serialize($check); 
- 	} elseif ($row == 1){
+ 	}
+ 		elseif ($row == 1){
+
 		if ($_POST['new_password1'] == $_POST['new_password2']){
-			$studentnummer = 1;
-			$new_password = $_POST['new_password1'];
-			$new_password = md5($new_password);
-			$user = $q->change_password($studentnummer,$new_password);
-			$_SESSION['user'] = serialize($user);    
-			header('Location: ../index.php');   
-		} else {
-			header('Location: ../change_password'); 
-		}
+ 		$studentnummer = 1;
+    	$new_password = $_POST['new_password1'];
+		$user = $q->change_password($studentnummer,$new_password);
+		$_SESSION['user'] = serialize($user);    
+		header('Location: ../index.php');   
+    	}
+    	else {
+    		header('Location: ../change_password'); 
+    	}
     }
 	
-	//User toevoegen	
-	if (($_POST['action']=='saveUser')) {
+	//User toevoegen
+	
+	if (($_POST['action']=='saveUser')) {        
+		
+
 		$name=$_POST['name'];
 		$password=$_POST['password'];
-		$password = md5($password);
 		$email=$_POST['email'];
 		$code=$_POST['code'];
 
+
 		$q->saveUser($name, $password, $email, $code);
+		
+
 		
 		header('location: ../view/index.php');
     }	
@@ -88,7 +95,8 @@
 
 	}
 	
-	//AllUsersList
+		//AllUsersList
+	
 	if ($_GET['action']=='findAllUsers') {
 		$AllUsersList = $q->findAllUsers();
 		$_SESSION['AllUsersList'] = serialize($AllUsersList);
@@ -112,16 +120,7 @@
         $_SESSION['user_lesson'] = serialize($user_lesson);
         header('Location: ../view/UserList.php');
     }
-
-	//Update Role
-    if ($_POST['action']=='updateRole'){
-    	$id = $_POST['id'];
-    	$Role = $_POST['Role'];
-    	$updateRole = $q ->updateRole($id,$Role);
-    	$_SESSION['updateRole'] = serialize($updateRole);
-    	header('location: ../view/userList.php?action=UserList');
-    }
-
+	
 	//update user Lisanne
 	if (isset($_POST['id'])&&($_POST['action']=='update')) {
 
@@ -145,4 +144,27 @@
 	$_SESSION['User'] =serialize($User);
 	header('Location: ../view/updateUser.php'); 
 	}
+	
+	//inloggen
+	if (isset($_POST['name']) && isset($_POST['password'])&&($_POST['action']=='login')) {
+		$name = $_POST['name']; 
+		$password = $_POST['password'];
+		$login = $q->loginUser($name, $password);
+		$_SESSION['login'] = serialize($login);
+		$_SESSION['name'] = $name;
+		$_SESSION['password'] = $password;
+		if ($login<1){
+			header('Location:../view/login.php');}
+		else {
+			header('Location: ../view/index.php'); 		
+			 }
+	}
+	//uitloggen
+	if (($_GET['submit']=="submit")&&($_GET['action']=='logout')) {
+	 $_SESSION['name'] = $name;
+	 $_SESSION['password'] = $password;	
+	 session_destroy();	
+     header('Location: ../view/logout.php');
+	}
+	 
 ?>
