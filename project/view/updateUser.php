@@ -6,19 +6,20 @@ session_start();
     <head>
 	<?php include_once("../includes/head_bootstrap.html"); ?> 
     </head>
-		<body>
-            <?php include_once("../includes/navbar_bootstrap.html"); ?> 
+
+    <body>
+            <?php include_once("../includes/navbar_bootstrap.html"); ?>
         <div class="container">
 			<div class="page-header">
 				<h3>Gebruiker aanpassen</h3>
 			</div>
 			<div class="form-group">
       				<div class="col-sm-6">
-				
 			
 			<form action="../controller/usercontroller.php" method="post" class="form-horizontal" role="form">
 			
              <?php 
+
 			 require_once("../classes/model/userclass.php");
 			 //als in de sessie de user is gezet haal dan de user op
 				if (isset($_SESSION['User'])){
@@ -28,6 +29,7 @@ session_start();
 					}    else { //zo niet stuur door naar de controller om de user op te halen
 					header("Location: ../controller/usercontroller.php?action=getUser&id={$_GET['id']}");
 					}
+
 			 ?>			     
 
                   <input type="hidden" name="id" value=<?php echo $User->getId(); ?>>
@@ -71,9 +73,8 @@ session_start();
             </form>
 			
         </div>
-    </div>
-	</div>
-
+</div>
+</div>
 	</div>
 	<footer>
 	<?php include_once("../includes/footer_bootstrap.html"); ?> 

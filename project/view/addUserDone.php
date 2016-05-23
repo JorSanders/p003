@@ -35,6 +35,12 @@
         </div>
     </div>
 </div>
+
+    </div>
+    <footer>
+    <?php include_once("../includes/footer_bootstrap.html"); ?> 
+    </footer>
+    <?php include_once("../includes/test_bootstrap.html"); ?>
 		
     </body>
 </html>
