@@ -1,23 +1,14 @@
 <?php session_start(); ?>
 <html>
-<head>
-<title>Uitgelogd</title>
+	<head>
+	<title>Uitgelogd</title>
 
-</head>
+	</head>
 
-		<body>
-		<div id="header">
+	<body>
 
-
-
-		</div>
-		<div id="menu">
-
-		</div>
 		<?php session_destroy(); ?>
-				<div id="content">
-				<h2>U bent uitgelogd, u kunt <a href="../view/login.php">hier</a> weer terug inloggen. </h2>
+		<h2>U bent uitgelogd, u kunt <a href="../view/login.php">hier</a> weer terug inloggen. </h2>
 
-				</div>
-		</body>
+	</body>
 </html>

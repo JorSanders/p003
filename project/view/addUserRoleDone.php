@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<?php include_once("../includes/head_bootstrap.html"); ?> 
+		<?php include_once("../includes/head_bootstrap.html"); ?> 
     </head>
 
     <body>
@@ -9,10 +9,8 @@
 			<div class= "page-header">
 				<h3>Gebruiker aan rol koppelen</h3>
 			</div>
-		<?php include_once("../includes/navbar_bootstrap.html"); ?> 
+			<?php include_once("../includes/navbar_bootstrap.php"); ?> 
 			<div id="content">
-				
-
 				<form method="post" action='../controller/roleController.php?action=findAllRole' class="form-horizontal" role="form">
 					<div class="form-group">
 						<div class="col-sm-10">
@@ -23,12 +21,12 @@
 				</form>
 
 				<form method="post" action='../view/AllRolesList.php' class="form-horizontal" role="form">
-				<div class="form-group">
-					<div class="col-sm-10">
+					<div class="form-group">
+						<div class="col-sm-10">
 							<label class="col-sm-6 control-label">Klik hier voor het rollenoverzicht:</label>
 							<button class="btn btn-default" name="submit" type="submit">Rollenoverzicht</button>
+						</div>
 					</div>
-				</div>
 				</form>
 			</div>
 		</div>

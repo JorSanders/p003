@@ -1,20 +1,18 @@
 <!DOCTYPE html><?php session_start(); ?>
 <html>
 
-<head>
-	<title>Eén les</title>
-	 <?php include_once("../includes/head_bootstrap.html"); ?> 
-</head>
+	<head>
+		<title>Eén les</title>
+		<?php include_once("../includes/head_bootstrap.html"); ?> 
+	</head>
 	
 	<body>
-		<?php include_once("../includes/navbar_bootstrap.html"); ?> 
+		<?php include_once("../includes/navbar_bootstrap.php"); ?> 
 		<div class="container">
 			<div class="page-header">
 				<h3>Eén les</h3>
-			</div>
-			
-			<?php
-			
+			</div>			
+			<?php			
 			if (isset($_SESSION['lessonList'])){
 				$lessonList= unserialize($_SESSION['lessonList']);
 				foreach($lessonList as $lesson){
@@ -74,22 +72,9 @@
 			
 
 		</div>
-	</div>
-</div>
-
-	<footer>
-	<?php include_once("../includes/footer_bootstrap.html"); ?> 
-    </footer>
-	<?php include_once("../includes/test_bootstrap.html"); ?> 
-		
-
+		<footer>
+			<?php include_once("../includes/footer_bootstrap.html"); ?> 
+		</footer>
+		<?php include_once("../includes/test_bootstrap.html"); ?> 
 	</body>
-
-
-
-
-
-
-
-
 </html>
