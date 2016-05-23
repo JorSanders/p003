@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['name'])||!isset($_SESSION['password'])) {
+if(!isset($_SESSION['id'])||!isset($_SESSION['password'])) {
 
-die (header('Location: ../view/login.php')); 
+	die (header('Location: ../view/login.php')); 
 
 }
 
@@ -14,22 +14,16 @@ else {
 	
     $q = new querymanager();
 
-   	 if (isset($_SESSION['name']) && isset($_SESSION['password'])) {
-	 $name = $_SESSION['name']; 
-	 $password = $_SESSION['password'];
-     $login = $q->loginUser(name, $password);
-	 $_SESSION['login'] = serialize($login);
-	 $_SESSION['name'] = $name;
-	 $_SESSION['password'] = $password;
-	 $password = md5($password);
+	$userDetails = $q->loginUser($_SESSION['code'], $_SESSION['password']);
+	if($_SESSION['id']==$userDetails->getId() &&
+	   $_SESSION['password']==$userDetails->getPassword()){
+		//header('Location: ../view/index.php');
+		}
+	else {
+		//header('Location:../view/login.php'); 		
+	}
 	
-	 }
 }
 
-$login = unserialize($_SESSION['login']);
-if ($login!=1||$login>1){
-session_destroy();
-die (header('Location: ../view/login.php')); 
-} 
 
 ?>

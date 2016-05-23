@@ -487,10 +487,11 @@ class QueryManager {
 	
 
 	//login user
-	public function loginUser($name, $password) {  //checkuser
-     $result = $this->dbconn->query("SELECT * FROM user WHERE name ='$name' AND password = '$password'");
-	 $row = mysqli_num_rows($result);
-	 return $row;
+	public function loginUser($code, $password) {  //checkuser
+     $result = $this->dbconn->query("SELECT * FROM user WHERE code ='$code' AND password = '$password'");
+		$row = mysqli_fetch_array($result);
+	    return (new User($row['id'], $row['name'],$row['password'], $row['email'], $row['code'], $row['active']));
+
     }
 }
 

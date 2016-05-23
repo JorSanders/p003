@@ -188,24 +188,27 @@
 	
 
 
-	//inloggen
-	if (isset($_POST['name']) && isset($_POST['password'])&&($_POST['action']=='login')) {
-		$name = $_POST['name']; 
-		$password = $_POST['password'];
-		$login = $q->loginUser($name, $password);
-		$_SESSION['login'] = serialize($login);
-		$_SESSION['name'] = $name;
-		$_SESSION['password'] = $password;
-		if ($login<1){
-			header('Location:../view/login.php');}
+		//inloggen
+	if (isset($_POST['code']) && isset($_POST['password'])&&($_POST['action']=='login')) {
+		$code = $_POST['code']; 
+		$password = md5($_POST['password']);
+		$userDetails = $q->loginUser($code, $password);
+		$_SESSION['id'] = $userDetails->getId();
+		$_SESSION['code'] = $userDetails->getCode();
+		$_SESSION['username'] = $userDetails->getName();
+		$_SESSION['password'] = $userDetails->getPassword();
+		echo "$code ".$userDetails->getCode() ."
+			$password ".$userDetails->getPassword();
+		if($code==$userDetails->getCode() &&
+			$password==$userDetails->getPassword()){
+			header('Location: ../view/index.php');
+			}
 		else {
-			header('Location: ../view/index.php'); 		
-			 }
+			header('Location:../view/login.php'); 		
+		}
 	}
 	//uitloggen
 	if (($_GET['submit']=="submit")&&($_GET['action']=='logout')) {
-	 $_SESSION['name'] = $name;
-	 $_SESSION['password'] = $password;	
 	 session_destroy();	
      header('Location: ../view/logout.php');
 	}
