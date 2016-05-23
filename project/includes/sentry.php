@@ -21,6 +21,7 @@ else {
 	 $_SESSION['login'] = serialize($login);
 	 $_SESSION['name'] = $name;
 	 $_SESSION['password'] = $password;
+	 $password = md5($password);
 	
 	 }
 }
