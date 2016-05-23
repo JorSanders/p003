@@ -8,7 +8,7 @@
 	
     <body>
 	
-        <?php require_once("../includes/navbar_bootstrap.php"); ?>
+        <?php require_once("../includes/navbar_bootstrap.html"); ?>
 		<div class="container">
             <div class="page-header">
                 <h3>Gebruikers lijst </h3>
