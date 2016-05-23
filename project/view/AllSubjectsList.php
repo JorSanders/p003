@@ -36,9 +36,8 @@
             }
             ?>
         </table>
+		<a class="btn btn-default" href="../view/CSV/SubjectCSV.php" role="button">CSV file</a>
       </div>
-	  
-	<a class="btn btn-default" href="../view/SubjectCSV.php" role="button">CSV file</a>
   </div>
 </div>
 

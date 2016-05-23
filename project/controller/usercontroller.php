@@ -169,6 +169,25 @@
 		header('Location: ../view/oneuser.php');
 	}
 
+	//Update Role
+    if ($_POST['action']=='updateRole'){
+    	$id = $_POST['id'];
+    	$Role = $_POST['Role'];
+    	$updateRole = $q ->updateRole($id,$Role);
+    	$_SESSION['updateRole'] = serialize($updateRole);
+    	header('location: ../view/userList.php?action=UserList');
+    }
+	
+	    if ($_GET['action']=='findAllDocent') {
+        $docentList = $q->findAllDocent();
+        $_SESSION['docentList'] = serialize($docentList);
+
+        //header('Location: ../view/overview_subjects.php');
+		
+		
+    }
+	
+
 
 	//inloggen
 	if (isset($_POST['name']) && isset($_POST['password'])&&($_POST['action']=='login')) {

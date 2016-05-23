@@ -8,7 +8,7 @@ class QueryManager {
     private $dbconn;
     
     public function __construct() {
-      // OOP: instantieer een MySQLConnection-object en geef deze als resultaat 
+       //OOP: instantieer een MySQLConnection-object en geef deze als resultaat 
 		$this->dbconn = new MySQLConnection();  
 
 		$this->pdomodel = new PDOModel();
@@ -108,6 +108,17 @@ class QueryManager {
 		
 	}
 
+	// search user Id by whatever
+	public function getUserIdByWhatever($search, $name) {
+	
+		$result = $this->dbconn->query("SELECT * FROM user WHERE $search = '$name' ");
+		
+		while ($row = mysqli_fetch_array($result)) {
+        $userList[] = new User($row['id'],$row['name'],$row['password'],$row['email'],$row['code'],$row['active']);
+        }
+        return $userList;
+		
+	}
 	
 	// add a user to a class
 	public function addUser_Lesson($lesson_id, $user_id){
@@ -415,6 +426,7 @@ class QueryManager {
 		return $result;
 	}
 	
+
 	// find the subjects which belong to a user id
 	public function findSubjectsByUserId($user_id){
 		
@@ -456,6 +468,22 @@ class QueryManager {
 
 		return $result;
 	}
+
+	//find all users
+			public function findAllDocent() {
+        $result = $this->dbconn->query("SELECT user_id 
+										 FROM user_role
+										 WHERE role_id = '29'");
+		
+		//$result2 = $this->
+        
+        while ($row = mysqli_fetch_array($result)) {
+        $docentList[] = new User($row['id'],$row['name'],$row['password'],$row['email'],$row['code'],$row['active']);
+        }
+		print_r($docentList);
+        return $docentList;
+    }
+
 	
 
 	//login user

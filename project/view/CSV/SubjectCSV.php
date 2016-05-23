@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-	include_once("../classes/db/mysqlconnection.php");
-	include_once("../includes/script/PDOModel.php");		
-    require_once("../classes/model/subjectClass.php");
+	include_once("../../classes/db/mysqlconnection.php");
+	include_once("../../includes/script/PDOModel.php");		
+    require_once("../../classes/model/subjectClass.php");
 
 
 		$pdomodel = new PDOModel();
