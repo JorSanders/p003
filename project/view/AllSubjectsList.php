@@ -14,6 +14,7 @@
             if (isset($_SESSION['AllSubjectsList'])) { 
                 
                 $AllSubjectsList = unserialize($_SESSION['AllSubjectsList']);
+				unset($_SESSION["AllSubjectsList"]);
                 ?>
                 
                     <div class="container">
