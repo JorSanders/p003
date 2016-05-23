@@ -14,6 +14,8 @@
             if (isset($_SESSION['AllRolesList'])) { 
                 
                 $AllRolesList = unserialize($_SESSION['AllRolesList']);
+				unset ($_SESSION['AllRolesList']);
+
                 ?>
                 
                     
@@ -29,7 +31,7 @@
                 <?php
 				
                 foreach ($AllRolesList as $Role) {
-                    echo "<tr><td>".$Role->getName() . "</td>";
+                    echo "<tr><td><a href='../controller/roleController.php?action=findOneRole&id=".$Role->getId()."'>".$Role->getName() . "</a></td>";
 					echo "<td>".$Role->getActive() . "</td></tr>";
                 
                 }    
@@ -38,7 +40,8 @@
             }
             ?>
         </table>
-      </div>    
+		<a class="btn btn-default" href="../view/CSV/RolesCSV.php" role="button">CSV file</a>
+      </div> 
     </div>
 </div>
 

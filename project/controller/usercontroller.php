@@ -56,8 +56,7 @@
 		$q->saveUser($name, $password, $email, $code);
 		
 
-		
-		header('location: ../view/index.php');
+		header('location: ../view/addUserDone.php');
     }	
 
 	if($_GET['action'] == "test"){
@@ -127,6 +126,7 @@
 	$id = $_POST['id'];
 	$name = $_POST['name'];
 	$password = $_POST['password'];
+	$password = md5($password);
 	$email = $_POST['email'];
 	$code= $_POST['code'];
 	$active= $_POST['active'];
@@ -145,6 +145,49 @@
 	header('Location: ../view/updateUser.php'); 
 	}
 	
+
+	//one user and its subjects and roles and its lessons
+	if($_GET['action'] == 'findOneUser'){
+		$userList = $q->findAllFromTableWhere("id",$_GET['id'],"user");
+		$_SESSION['userList'] = serialize($userList);
+		
+		$roleList = $q->findRolesByUserId($_GET['id']);
+		$_SESSION['roleList'] = serialize($roleList);
+		
+		$subjectList = $q->findSubjectsByUserId($_GET['id']);
+		$_SESSION['subjectList'] = serialize($subjectList);
+		
+		$lessonList = $q->findLessonsByUserId($_GET['id']);
+		for ($i = 0; $i < count($lessonList); $i++){
+			$subject = $q->findAllFromTableWhere("subject_id",$lessonList[$i]["subject_id"],"subject");
+			$lessonList[$i]['subject_name'] = $subject[0]["subject_name"];
+		}
+		$_SESSION['lessonList'] = serialize($lessonList);
+
+		
+		header('Location: ../view/oneuser.php');
+	}
+
+	//Update Role
+    if ($_POST['action']=='updateRole'){
+    	$id = $_POST['id'];
+    	$Role = $_POST['Role'];
+    	$updateRole = $q ->updateRole($id,$Role);
+    	$_SESSION['updateRole'] = serialize($updateRole);
+    	header('location: ../view/userList.php?action=UserList');
+    }
+	
+	    if ($_GET['action']=='findAllDocent') {
+        $docentList = $q->findAllDocent();
+        $_SESSION['docentList'] = serialize($docentList);
+
+        //header('Location: ../view/overview_subjects.php');
+		
+		
+    }
+	
+
+
 	//inloggen
 	if (isset($_POST['name']) && isset($_POST['password'])&&($_POST['action']=='login')) {
 		$name = $_POST['name']; 
@@ -166,5 +209,5 @@
 	 session_destroy();	
      header('Location: ../view/logout.php');
 	}
-	 
+
 ?>

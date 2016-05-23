@@ -46,6 +46,17 @@
 		$_SESSION['AllRolesList'] = serialize($AllRolesList);
 		header('Location: ../view/AllRolesList.php');
 	}
+	
+	//one Role and its users
+	if($_GET['action'] == 'findOneRole'){
+		$roleList = $q->findAllFromTableWhere("id",$_GET['id'],"role");
+		$_SESSION['roleList'] = serialize($roleList);
+		
+		$userList = $q->findUsersByRoleId($_GET['id']);
+		$_SESSION['userList'] = serialize($userList);
+		
+		header('Location: ../view/oneRole.php');
+	}
 
 
 

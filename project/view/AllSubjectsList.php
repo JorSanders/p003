@@ -14,11 +14,12 @@
             if (isset($_SESSION['AllSubjectsList'])) { 
                 
                 $AllSubjectsList = unserialize($_SESSION['AllSubjectsList']);
+				unset($_SESSION["AllSubjectsList"]);
                 ?>
                 
                     <div class="container">
                         <div class="page-header">
-                            <h3>Rol lijst </h3>
+                            <h3>Module lijst</h3>
                         </div>
                             <div class="col-sm-8">
                                 
@@ -26,7 +27,7 @@
 				<tr><th>Vak</th><th>Actief</th></tr>
                 <?php
                 foreach ($AllSubjectsList as $Subject) {
-                    echo "<tr><td>".$Subject->getName() . "</td>";
+                    echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneSubject&id=".$Subject->getId()."'>".$Subject->getName() . "</a></td>";
 					echo "<td>".$Subject->getActive() . "</td></tr>";
 					
                     
@@ -36,9 +37,8 @@
             }
             ?>
         </table>
+		<a class="btn btn-default" href="../view/CSV/SubjectCSV.php" role="button">CSV file</a>
       </div>
-	  
-	<a class="btn btn-default" href="../view/SubjectCSV.php" role="button">CSV file</a>
   </div>
 </div>
 

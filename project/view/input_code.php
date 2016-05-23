@@ -1,8 +1,7 @@
 <?php 
 session_start();
 
-//when login function works remove this, now kevin is always the one signing in to lessons.
-$_SESSION['user_id']=3;
+
 ?>
 
 <html>
@@ -32,8 +31,20 @@ $_SESSION['user_id']=3;
 			<input class="form-control" id="focusedInput" type="number" placeholder="Code" name="code">
 		</div>
 	</div>
+	<br>
+	Wat vul je in om je aan te melden:
+	<select name="search">
+		<option value = "name">naam</option>
+		<option value = "email">emailadres</option>
+		<option value = "code">code</option>
+	</select>
+	<br><br>
+	
+	Typ het hier:
+	<input type = "text" name = "name" >
+	<br><br>
+	
 	<input type="hidden" name="action" value="add_user_lesson">
-	<input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
 
 	<div class="form-group has-feedback">
         <div class="col-sm-7">

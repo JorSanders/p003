@@ -43,7 +43,7 @@ if (isset($subjectList)){
 
 ?>
 
-</div>
+	</div>
 	<footer>
 	<?php include_once("../includes/footer_bootstrap.html"); ?> 
     </footer>

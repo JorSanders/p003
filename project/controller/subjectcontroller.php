@@ -3,6 +3,7 @@ session_start();
 
 include_once("../classes/db/querymanager.php");
 include_once("../classes/model/subjectClass.php");
+include_once("../classes/model/userclass.php");
 
 $q = new Querymanager();
 
@@ -49,7 +50,11 @@ if ($_POST['action']=="generate_code" &&
 	// add a user to a lesson
 if ($_POST['action']=="add_user_lesson" && 
 	isset($_POST['code']) &&
-	isset($_POST['user_id'])){
+	isset($_POST['search']) &&
+	isset($_POST['name'])){
+		
+	$search = $_POST['search'];
+	$name = $_POST['name'];
 	
 	//checks if code is valid
 	$codeList = $q->getAllCodes();
@@ -65,14 +70,19 @@ if ($_POST['action']=="add_user_lesson" &&
 	//if code is valid write to database. afterwards send the user back to the view
 	if($validCode){
 		$lesson_id = $q->getLessonIdByCode($_POST['code']);
+		$userList = $q->getUserIdByWhatever($search, $name);
+		foreach($userList as $user) {
+			$user_id = $user->getId();
+		}
 		
-		$q->addUser_Lesson($lesson_id, $_POST['user_id']);
+		echo "$user_id";
+		$q->addUser_Lesson($lesson_id, $user_id);
 		
 		//$q->getLessonIdByCode2(12608);
 		$lesson_name = $q->getLessonNameById($lesson_id);
 		$_SESSION['lesson_name'] = $lesson_name;
 
-		header("location: ../view/input_code.php");		
+		//header("location: ../view/input_code.php");		
 	}else{
 		$_SESSION['code'] = $_POST['code'];
 		header("location: ../view/input_code.php");	
@@ -191,8 +201,50 @@ if ($_POST['action']=="add_user_lesson_manual" &&
 		header("Location: ../view/overview_combination.php?tableGoal={$_POST["tableGoal"]}&tableOrigin={$_POST["tableOrigin"]}&column={$_POST["column"]}&value={$_POST["value"]}");
 	}
 
-
+	//one subject and its users and its lessons
+	if($_GET['action'] == 'findOneSubject'){
+		$subjectList = $q->findAllFromTableWhere("subject_id",$_GET['id'],"subject");
+		$_SESSION['subjectList'] = serialize($subjectList);
+		
+		$userList = $q->findAllFromTableWhere("id",$subjectList[0]["owner_id"],"user");
+		$_SESSION['userList'] = serialize($userList);
+		
+		$lessonList = $q->findAllFromTableWhere("subject_id",$_GET['id'],"lesson");
+		$_SESSION['lessonList'] = serialize($lessonList);
+		
+		header('Location: ../view/oneSubject.php');
+	}
 	
+		//one subject and its users and its lessons
+	if($_GET['action'] == 'findOneSubject'){
+		$subjectList = $q->findAllFromTableWhere("subject_id",$_GET['id'],"subject");
+		$_SESSION['subjectList'] = serialize($subjectList);
+		
+		$userList = $q->findAllFromTableWhere("id",$subjectList[0]["owner_id"],"user");
+		$_SESSION['userList'] = serialize($userList);
+		
+		$lessonList = $q->findAllFromTableWhere("subject_id",$_GET['id'],"lesson");
+		$_SESSION['lessonList'] = serialize($lessonList);
+		
+		header('Location: ../view/oneSubject.php');
+	}
+	
+	//one one lesson and its users
+	if($_GET['action'] == 'findOneLesson'){
+		$lessonList = $q->findAllFromTableWhere("lesson_id",$_GET['id'],"lesson");
+
+		for ($i = 0; $i < count($lessonList); $i++){
+			$subject = $q->findAllFromTableWhere("subject_id",$lessonList[$i]["subject_id"],"subject");
+			$lessonList[$i]['subject_name'] = $subject[0]["subject_name"];
+		}
+		
+		$_SESSION['lessonList'] = serialize($lessonList);
+		
+		$userList = $q->findUsersByLessonID($_GET['id']);
+		$_SESSION['userList'] = serialize($userList);
+		
+		header('Location: ../view/oneLesson.php');
+	}
 	
 	
 	

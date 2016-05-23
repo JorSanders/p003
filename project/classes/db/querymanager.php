@@ -8,7 +8,7 @@ class QueryManager {
     private $dbconn;
     
     public function __construct() {
-      // OOP: instantieer een MySQLConnection-object en geef deze als resultaat 
+       //OOP: instantieer een MySQLConnection-object en geef deze als resultaat 
 		$this->dbconn = new MySQLConnection();  
 
 		$this->pdomodel = new PDOModel();
@@ -108,6 +108,17 @@ class QueryManager {
 		
 	}
 
+	// search user Id by whatever
+	public function getUserIdByWhatever($search, $name) {
+	
+		$result = $this->dbconn->query("SELECT * FROM user WHERE $search = '$name' ");
+		
+		while ($row = mysqli_fetch_array($result)) {
+        $userList[] = new User($row['id'],$row['name'],$row['password'],$row['email'],$row['code'],$row['active']);
+        }
+        return $userList;
+		
+	}
 	
 	// add a user to a class
 	public function addUser_Lesson($lesson_id, $user_id){
@@ -219,7 +230,7 @@ class QueryManager {
 			(NULL, '$role', 'true');"); 
     }
 
-		//AllUsersList
+	//AllUsersList
     public function findAllUsers() {
         $result = $this->dbconn->query("SELECT * FROM user");
         
@@ -247,7 +258,7 @@ class QueryManager {
         $AllRolesList[] = new Role($row['id'], $row['name'], $row['active']);
         }
 		return $AllRolesList;
-	}
+    } 
 	
 	//Password check
 	// TODO make PDO
@@ -376,6 +387,105 @@ class QueryManager {
 		echo "$id, $name, $password, $email, $code, $active";
 		$this->dbconn->query("UPDATE user SET name='$name', password='$password', email='$email', code='$code', active='$active' WHERE id=$id"); 
     }   
+
+	//find all from a table where the condition matches the colname
+	public function findAllFromTableWhere($colName,$condition,$table){
+		$this->__construct();	
+		
+		$this->pdomodel->where($colName, $condition, "=");
+		$result =  $this->pdomodel->select("$table");			
+
+		echo $this->pdomodel->getLastQuery() ."<br>";		
+		return $result;
+	}
+	
+	// find the users which belong to a role id
+	public function findUsersByRoleId($role_id){
+		$this->pdomodel->joinTables("user_role", "role.id = user_role.role_id","INNER JOIN");
+		$this->pdomodel->joinTables("user", "user.id = user_role.user_id","INNER JOIN");
+		
+		$this->pdomodel->where("role.id", $role_id, "=");
+		
+		$this->pdomodel->columns = array("user.id", "user.name", "user.email", "user.code", "user.active");
+		
+		$result =  $this->pdomodel->select("role");
+		return $result;
+	}
+	
+	// find the roles which belong to a user id
+	public function findRolesByUserId($user_id){
+		$this->pdomodel->joinTables("user_role", "user.id = user_role.user_id", "INNER JOIN");
+		$this->pdomodel->joinTables("role", "role.id = user_role.role_id", "INNER JOIN");
+		
+		$this->pdomodel->where("user.id", $user_id, "=");
+		
+		$this->pdomodel->columns = array("role.id", "role.name", "user.active");
+		
+		$result =  $this->pdomodel->select("user");
+
+		return $result;
+	}
+	
+
+	// find the subjects which belong to a user id
+	public function findSubjectsByUserId($user_id){
+		
+		$this->pdomodel->joinTables("subject", "user.id = subject.owner_id", "INNER JOIN");
+		
+		$this->pdomodel->where("user.id", $user_id, "=");
+		
+		$this->pdomodel->columns = array("subject.subject_id", "subject.subject_name", "subject.owner_id", "subject.active");
+		
+		$result =  $this->pdomodel->select("user");
+		return $result;
+	}
+		
+	// find the users which belong to a lesson id
+	public function findUsersByLessonID($lesson_id){
+		
+		$this->pdomodel->joinTables("user_lesson", "lesson.lesson_id = user_lesson.lesson_id", "INNER JOIN");
+		$this->pdomodel->joinTables("user", "user.id = user_lesson.user_id", "INNER JOIN");
+		
+		$this->pdomodel->where("lesson.lesson_id", $lesson_id, "=");
+		
+		$this->pdomodel->columns =  array("user.id", "user.name", "user.email", "user.code", "user.active");
+		
+		$result =  $this->pdomodel->select("lesson");
+
+		return $result;
+	}
+	
+		// find the lessons which belong to a user id
+	public function findLessonsByUserId($user_id){
+		$this->pdomodel->joinTables("user_lesson", "user.id = user_lesson.user_id", "INNER JOIN");
+		$this->pdomodel->joinTables("lesson", "lesson.lesson_id = user_lesson.lesson_id", "INNER JOIN");
+		
+		$this->pdomodel->where("user.id", $user_id, "=");
+		
+		$this->pdomodel->columns = array("lesson.lesson_id", "lesson.lesson_name", "lesson.code", "lesson.subject_id", "lesson.active");
+		
+		$result =  $this->pdomodel->select("user");
+
+		return $result;
+	}
+
+	//find all users
+			public function findAllDocent() {
+        $result = $this->dbconn->query("SELECT user_id 
+										 FROM user_role
+										 WHERE role_id = '29'");
+		
+		//$result2 = $this->
+        
+        while ($row = mysqli_fetch_array($result)) {
+        $docentList[] = new User($row['id'],$row['name'],$row['password'],$row['email'],$row['code'],$row['active']);
+        }
+		print_r($docentList);
+        return $docentList;
+    }
+
+	
+
 	//login user
 	public function loginUser($name, $password) {  //checkuser
      $result = $this->dbconn->query("SELECT * FROM user WHERE name ='$name' AND password = '$password'");
