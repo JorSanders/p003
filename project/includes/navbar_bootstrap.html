@@ -25,10 +25,7 @@
 				  	<li><a href="AllUsersList.php">Gebruikersoverzicht</a></li>
 				  	<li><a href="AllSubjectsList.php">Module overzicht</a></li>
 				  	<li><a href="AllRolesList.php">Rollenoverzicht</a></li>
-				  	<li><a href="#">Lesoverzicht</a></li>
-				  	<li><a href="deleteUser.php">Gebruiker verwijderen</a></li>
-					
-					<li><a href="updateUser.php">Gebruiker wijzigen</a></li>
+				  	<li><a href="#">Lesoverzicht*</a></li>
 				  	<li role="separator" class="divider"></li>
 				  </ul>
 				</li>
@@ -45,7 +42,17 @@
 				</li>
 
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Koppelen <span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Importeer CSV <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/CSV/userCSVupload.php">Gebruiker CSV uploaden</a></li>
+						<li><a href="/CSV/roleCSVupload.php">Rol CSV uploaden</a></li>
+						<li><a href="/CSV/subjectCSVupload.php">Modulen CSV uploaden</a></li>
+						<li role="separator" class="divider"></li>
+					</ul>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Koppel <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="addUserLesson.php">Gebruiker aan les koppelen</a></li>
 						<li><a href="../controller/roleController.php?action=findAllRole">Gebruiker aan rol koppelen</a></li>
@@ -60,13 +67,14 @@
 				<li>
 					<a href="input_code.php" role="button">Aanwezig melden</a>
 				</li>
+				
 				<?php 
 				$_SESSION['username'] = "Kevin";
 				?>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle pull-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['username']; ?> <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="addUserLesson.php">Profiel</a></li>
+						<li><a href="<a href='../controller/usercontroller.php?action=findOneUser&id=".$_SESSION['id'].>Profiel</a></li>
 						<li><a href="changePassword.php">Wachtwoord wijzigen</a></li>
 						<li><a href="logout.php">Uitloggen</a></li>
 						<li role="separator" class="divider"></li>
@@ -80,6 +88,7 @@
 
 
 			</div><!--/.nav-collapse -->
+
 		  </div>
 		</nav>
 	
