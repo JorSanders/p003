@@ -9,13 +9,15 @@
         <?php include_once("../includes/navbar_bootstrap.html"); ?>		
         
 
-        <div id="content">
+      
             <div class="container">
-                <h2>Gebruiker verwijderen</h2>
+                <div class="page-header">
+                <h3>Gebruiker verwijderen</h3>
+                </div>
                 <form class="form-inline" role="form" action="../controller/usercontroller.php" method="get">
                        <div class="form-group">
-                           <div class="col-sm-6">
-                               <br><br>
+                           <div class="col-sm-12">
+                               
                    
 	                           <div class="form-group has-feedback">
                                    <div class="col-sm-0">
@@ -28,9 +30,14 @@
                                        <button class="btn btn-default submit pull-right" type="submit" name="action" value="NEE">Nee</button>
                                    </div>
                                </div>
+                               </div> 
+                               <div class="form-group has-feedback">
+                                   <div class="col-sm-12">
                                        <span class="help-block">Weet je zeker dat je deze gebruiker wil verwijderen?</span>
+                                    </div>
+                               </div>
                 </form>
-            </div> 
+            
         </div> 
     </div>
 </div>

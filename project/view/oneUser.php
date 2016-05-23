@@ -70,9 +70,9 @@
 					foreach($lessonList as $lesson){
 
 							
-							echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneLesson&id=".$lesson['lesson_id']."'>". $lesson["lesson_name"] ."</a></td>";
-							echo "<td>". $lesson["code"] ."</td>";
-							echo "<td>". $lesson["active"] ."</td></tr>";
+						echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneLesson&id=".$lesson['lesson_id']."'>". $lesson["lesson_name"] ."</a></td>";
+						echo "<td>". $lesson["code"] ."</td>";
+						echo "<td>". $lesson["active"] ."</td></tr>";
 												
 					}
 					echo "</table>";

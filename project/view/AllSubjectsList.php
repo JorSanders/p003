@@ -14,11 +14,12 @@
             if (isset($_SESSION['AllSubjectsList'])) { 
                 
                 $AllSubjectsList = unserialize($_SESSION['AllSubjectsList']);
+				unset($_SESSION["AllSubjectsList"]);
                 ?>
                 
                     <div class="container">
                         <div class="page-header">
-                            <h3>Rol lijst </h3>
+                            <h3>Module lijst</h3>
                         </div>
                             <div class="col-sm-8">
                                 

@@ -14,19 +14,25 @@
 		  <div class="page-header">
 			<h3> Startpagina / index <h3>
 		  </div>
-			<li><a href="overview_subjects.php">Vakken en lessen toevoegen (overview_subjects.php)*</a></li>
-			<li><a href="addUser.php">Gebruikers toevoegen (addUser.php)*</a></li>
-			<li><a href="../controller/roleController.php?action=findAllRole">Gebruiker aan rol toevoegen (/controller/roleController.php)*</a></li>
-			<li><a href="input_code.php">Aanwezig melden (input_code.php)*</a></li>
-			<li><a href="../controller/usercontroller.php?action=UserList">Rol lijst en Rol id (/controller/usercontroller.php)*</a></li>
-			<li><a href="addUserLesson.php">user aan les koppelen (addUserLesson.php)*</a></li>
-			<li><a href="AddRole.php">rol toevoegen (AddRole.php)</a></li>
-			<li><a href="AllRolesList.php">rol lijst (AllRolesList.php)</a></li>
-			<li><a href="AllSubjectsList.php">les lijst (AllSubjectsList.php)</a></li>
-			<li><a href="AllUsersList.php">user lijst (AllUsersList.php)</a></li>
-			<li><a href="UserList.php">rol en gebruiker lijst (is hetzelfde als "Rol lijst en Rol id")</a></li> 
+				<li><a href="addUser.php">Gebruikers toevoegen</a></li>
+				<li><a href="overview_subjects.php">Vakken toevoegen</a></li>
+				<li><a href="overview_lessons_select.php">Lessen toevoegen</a></li>
+				<li><a href="../controller/roleController.php?action=findAllRole">Gebruiker aan rol toevoegen</a></li>
+				<li><a href="input_code.php">Aanwezig melden</a></li>
+				<li><a href="addUserLesson.php">User aan les koppelen</a></li>
+				<li><a href="AddRole.php">Rol toevoegen</a></li>
+				<li><a href="changeRole.php">Rol veranderen</a></li>
+				<li><a href="AllRolesList.php">Rollenoverzicht</a></li>
+				<li><a href="AllSubjectsList.php">Module lijst</a></li>
+				<li><a href="AllUsersList.php">Gebruikersoverzicht</a></li>
+				<li><a href="CodeGeneratorSelect.php">Lescode genereren</a></li>
+				<li><a href="deleteUser.php">Gebruiker verwijderen</a></li>
+				<li><a href="changePassword.php">Wachtwoord veranderen</a></li>
+				<li><a href="updateUser.php">Gebruiker wijzigen</a></li>
+				<li><a href="addUserRole.php">Rol toevoegen aan gebruiker</a></li>
+
 		</div> 
-		
+	
 			 <?php include_once("../includes/footer_bootstrap.html"); ?>
 			<?php include_once("../includes/test_bootstrap.html"); ?> 
 		
