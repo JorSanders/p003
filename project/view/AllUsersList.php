@@ -14,6 +14,7 @@
             if (isset($_SESSION['AllUsersList'])) { 
                 
                 $AllUsersList = unserialize($_SESSION['AllUsersList']);
+				unset($_SESSION["AllUsersList"]);
 				?>
 
              
@@ -26,21 +27,21 @@
              
 
                 <table class='table table-striped'> 
+				<tr><th>Naam</th><th>E-mail</th><th>Identificatiecode</th><th>Actief</th><th>Aanpassen</th></tr>
                 <?php
                 foreach ($AllUsersList as $User) {
-                    echo "<tr><td>". $User->getId() . "</td>";
-                    echo "<td>".$User->getName() . "</td>";
-					echo "<td>".$User->getPassword() . "</td>";
+					echo "<tr><td><a href='../controller/usercontroller.php?action=findOneUser&id=".$User->getId()."'>".$User->getName()."</a></td>";
 					echo "<td>".$User->getEmail() . "</td>";
 					echo "<td>".$User->getCode() . "</td>";
-					echo "<td>".$User->getActive() . "</td></tr>";
-                    
+					echo "<td>".$User->getActive() . "</td>";
+					echo "<td><a href='../view/updateUser.php?id=".$User->getId()."'>aanpassen</a><td></tr>";
                 }              
             } else {
 				header('Location: ../controller/usercontroller.php?action=findAllUsers');
 			}
             ?>
         </table>
+		<a class="btn btn-default" href="../view/CSV/UserCSV.php" role="button">CSV file</a>
       </div>  
     </div>
 </div>  

@@ -56,7 +56,6 @@
 		$q->saveUser($name, $password, $email, $code);
 		
 
-		
 		header('location: ../view/addUserDone.php');
     }	
 
@@ -120,6 +119,54 @@
         $_SESSION['user_lesson'] = serialize($user_lesson);
         header('Location: ../view/UserList.php');
     }
+	
+	//update user Lisanne
+	if (isset($_POST['id'])&&($_POST['action']=='update')) {
+
+	$id = $_POST['id'];
+	$name = $_POST['name'];
+	$password = $_POST['password'];
+	$password = md5($password);
+	$email = $_POST['email'];
+	$code= $_POST['code'];
+	$active= $_POST['active'];
+	$q->updateUser($id, $name, $password, $email, $code, $active);
+	$User = $q->getUser($id);
+	$_SESSION['User'] =serialize($User);
+	header('Location: ../view/AllUsersList.php');
+
+	}	
+
+	//haal een user op uit de database
+	if ($_GET['action']=='getUser') {
+	$id = $_GET['id'];
+	$User = $q->getUser($id);
+	$_SESSION['User'] =serialize($User);
+	header('Location: ../view/updateUser.php'); 
+	}
+	
+
+	//one user and its subjects and roles and its lessons
+	if($_GET['action'] == 'findOneUser'){
+		$userList = $q->findAllFromTableWhere("id",$_GET['id'],"user");
+		$_SESSION['userList'] = serialize($userList);
+		
+		$roleList = $q->findRolesByUserId($_GET['id']);
+		$_SESSION['roleList'] = serialize($roleList);
+		
+		$subjectList = $q->findSubjectsByUserId($_GET['id']);
+		$_SESSION['subjectList'] = serialize($subjectList);
+		
+		$lessonList = $q->findLessonsByUserId($_GET['id']);
+		for ($i = 0; $i < count($lessonList); $i++){
+			$subject = $q->findAllFromTableWhere("subject_id",$lessonList[$i]["subject_id"],"subject");
+			$lessonList[$i]['subject_name'] = $subject[0]["subject_name"];
+		}
+		$_SESSION['lessonList'] = serialize($lessonList);
+
+		
+		header('Location: ../view/oneuser.php');
+	}
 
 	//Update Role
     if ($_POST['action']=='updateRole'){
@@ -129,7 +176,38 @@
     	$_SESSION['updateRole'] = serialize($updateRole);
     	header('location: ../view/userList.php?action=UserList');
     }
+	
+	    if ($_GET['action']=='findAllDocent') {
+        $docentList = $q->findAllDocent();
+        $_SESSION['docentList'] = serialize($docentList);
+
+        //header('Location: ../view/overview_subjects.php');
+		
+		
+    }
+	
 
 
+	//inloggen
+	if (isset($_POST['name']) && isset($_POST['password'])&&($_POST['action']=='login')) {
+		$name = $_POST['name']; 
+		$password = $_POST['password'];
+		$login = $q->loginUser($name, $password);
+		$_SESSION['login'] = serialize($login);
+		$_SESSION['name'] = $name;
+		$_SESSION['password'] = $password;
+		if ($login<1){
+			header('Location:../view/login.php');}
+		else {
+			header('Location: ../view/index.php'); 		
+			 }
+	}
+	//uitloggen
+	if (($_GET['submit']=="submit")&&($_GET['action']=='logout')) {
+	 $_SESSION['name'] = $name;
+	 $_SESSION['password'] = $password;	
+	 session_destroy();	
+     header('Location: ../view/logout.php');
+	}
 
 ?>

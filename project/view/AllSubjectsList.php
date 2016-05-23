@@ -14,6 +14,7 @@
             if (isset($_SESSION['AllSubjectsList'])) { 
                 
                 $AllSubjectsList = unserialize($_SESSION['AllSubjectsList']);
+				unset($_SESSION["AllSubjectsList"]);
                 ?>
                 
                     <div class="container">
@@ -22,13 +23,13 @@
                         </div>
                             <div class="col-sm-8">
                                 
-                                <table class='table table-striped'> 
+                <table class='table table-striped'> 
+				<tr><th>Vak</th><th>Actief</th></tr>
                 <?php
                 foreach ($AllSubjectsList as $Subject) {
-                    echo "<tr><td>".$Subject->getId() . "</td>";
-                    echo "<td>".$Subject->getName() . "</td>";
-					echo "<td>".$Subject->getOwner_id() . "</td>";
+                    echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneSubject&id=".$Subject->getId()."'>".$Subject->getName() . "</a></td>";
 					echo "<td>".$Subject->getActive() . "</td></tr>";
+					
                     
                 }    
             } else {
@@ -36,9 +37,11 @@
             }
             ?>
         </table>
-      </div>   
+		<a class="btn btn-default" href="../view/CSV/SubjectCSV.php" role="button">CSV file</a>
+      </div>
   </div>
 </div>
+
     <footer>
     <?php include_once("../includes/footer_bootstrap.html"); ?> 
     </footer>

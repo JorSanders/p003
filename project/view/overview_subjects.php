@@ -55,16 +55,6 @@ echo"<br>
 
 ";
 
-//shows all subject names as links to show all the lessons from that subject
-if (isset($subjectList)){
-	foreach ($subjectList as $subject) {
-		echo "<a href='overview_lessons.php?subject_id={$subject->getId()}'> ".$subject->getName() ."</a><br>";
-	}   
-}
-
-
-
-
 ?>
 </div>
 </div>

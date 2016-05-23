@@ -12,7 +12,7 @@
 			<div class="page-header">
 				<h3>Rol toevoegen</h3>
 			</div>
-			<form class="form-horizontal" role="form" action="../controller/RoleController.php" method="post">
+			<form class="form-horizontal" role="form" action="../controller/roleController.php" method="post">
     			<div class="form-group">
       				<div class="col-sm-6">
 	

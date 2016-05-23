@@ -24,7 +24,7 @@
 		
             </form>
 			
-            <form method="post" class="form-horizontal" role="form" action='../view/overview_combination.php' >
+            <form method="post" class="form-horizontal" role="form" action='../view/AllUsersList.php' >
                 
                 <div class="form-group has-feedback">
                     <div class="col-sm-2">

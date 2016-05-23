@@ -21,7 +21,7 @@
     if ($_POST['action']=='insertRole' && isset($_POST['role'])){
         $role = $_POST['role'];
         $addRole = $q->addRole($role);
-        header('location: ../view/menu.php');
+        header('location: ../view/AddRole.php');
     }
 	
 	if (($_POST['action']=='saveUserRole')) {        
@@ -45,6 +45,17 @@
 		$AllRolesList = $q->findAllRoles();
 		$_SESSION['AllRolesList'] = serialize($AllRolesList);
 		header('Location: ../view/AllRolesList.php');
+	}
+	
+	//one Role and its users
+	if($_GET['action'] == 'findOneRole'){
+		$roleList = $q->findAllFromTableWhere("id",$_GET['id'],"role");
+		$_SESSION['roleList'] = serialize($roleList);
+		
+		$userList = $q->findUsersByRoleId($_GET['id']);
+		$_SESSION['userList'] = serialize($userList);
+		
+		header('Location: ../view/oneRole.php');
 	}
 
 
