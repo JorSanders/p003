@@ -31,7 +31,7 @@
 								<select name="search" class="form-control" id="focusedInput">
 									<option value = "name">Naam</option>
 									<option value = "email">E-mailadres</option>
-									<option value = "code">Identificatiecode</option>
+									<option value = "code" selected>Identificatiecode</option>
 								</select>
 							</div>
 						</div>
@@ -39,7 +39,7 @@
 						<div class="form-group has-feedback">
 							<label class="col-sm-6 control-label">Typ uw bijbehorende gegeven bij de bovenstaande keuze in:</label>
 							<div class="col-sm-6">
-								<input type = "text" name = "name" class="form-control" id="focusedInput">
+								<input type = "text" name = "name" class="form-control" value="<?php echo $_SESSION['code']; ?>" id="focusedInput" required>
 							</div>
 						</div>
 

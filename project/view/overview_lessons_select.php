@@ -19,23 +19,21 @@
 					include_once("../classes/db/querymanager.php");  
 					include_once("../classes/model/subjectClass.php"); 
 
-					//change this when login function works
-					$_SESSION['user_id'] = 1;
-					echo"dit moet veranderd";
-
 					$q = new Querymanager();
 
 
-					$subjectList = $q->getSubjectsFromDocent($_SESSION['user_id']);
+					$subjectList = $q->getSubjectsFromDocent($_SESSION['id']);
 
 					//shows all subject names as links to show all the lessons from that subject
 					if (isset($subjectList)){
 						foreach ($subjectList as $subject) {
 							echo "<a href='overview_lessons.php?subject_id={$subject->getId()}'> ".$subject->getName() ."</a><br>";
-						}   
+						}  
+						echo "<br><br><br>";						
 					} else {
 						echo "U heeft nog geen vakken aangemaakt waarvoor lessen toegevoegd kunnen worden.";
 					}
+					echo "Klik <a href='overview_subjects.php'> hier </a>om modules toe te voegen <br>";
 					?>
 				</div>
 			</div>

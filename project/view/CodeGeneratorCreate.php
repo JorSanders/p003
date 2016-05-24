@@ -37,7 +37,7 @@
 								<input type='hidden' name='action' value='generate_code'>
 								</form>";		
 							}else if($lesson->getCode() == 1){
-								echo "Deze les is al gesloten.";
+								echo "Deze les is al gesloten.<br>";
 							}else{
 								echo $lesson->getCode();
 							}	
@@ -45,8 +45,9 @@
 						   echo "<br>";
 						}
 					} else {
-						echo "U heeft voor dit vak nog geen lessen aangemaakt.";
+						echo "U heeft voor dit vak nog geen lessen aangemaakt.<br>";
 					}
+					echo "Klik <a href='overview_lessons.php?subject_id=".$subject_id."'> hier </a>om lessen toe te voegen <br>";
 					?>
 
 				</div>

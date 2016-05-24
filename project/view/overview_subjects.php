@@ -10,9 +10,6 @@
 		include_once("../classes/db/querymanager.php");  
 		include_once("../classes/model/subjectClass.php"); 
 
-		//change this when login function works
-		$_SESSION['user_id'] = 1;
-		echo"dit moet veranderd";
 
 		$q = new Querymanager();
 		$subjectList = $q->getSubjectsFromDocent($_SESSION['user_id']);
@@ -37,7 +34,7 @@
 							</div>
 						</div>
 						<input type='hidden' name='action' value='addSubject'>
-						<input type='hidden' name='owner_id' value='<?php echo $_SESSION['user_id']; ?>'>				
+						<input type='hidden' name='owner_id' value='<?php echo $_SESSION['id']; ?>'>				
 					</div>
 				</div>
 			</form>	

@@ -27,10 +27,12 @@
 				foreach ($subjectList as $subject) {
 					echo "<a href='CodeGeneratorCreate.php?subject_id={$subject->getId()}'> ".$subject->getName() ."</a><br>";
 				}   
+				echo "<br><br><br>";
 			} else {
-				echo "U heeft nog geen modules aangemaakt.";
+				echo "U heeft nog geen modules aangemaakt.<br>";
 			}
-			
+			echo "Klik <a href='overview_subjects.php'> hier </a>om modules toe te voegen <br>";
+
 			?>
 		</div>
 		<footer>
