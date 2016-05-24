@@ -26,8 +26,8 @@ mysql_query($deleterecords);
 //Upload File
 if (isset($_POST['submit'])) {
     if (is_uploaded_file($_FILES['filename']['tmp_name'])) {
-        echo "<div class=\"lead\">" . "File ". $_FILES['filename']['name'] ." Met succes geupload." . "</div>";
-        echo "<span class=\"lead\">Toegevoegde Modules:</span>";
+        echo "<div>" . "File ". $_FILES['filename']['name'] ." Met succes geupload." . "</div><br>";
+        echo "<span>Toegevoegde Modules:</span>";
         
     }
  
