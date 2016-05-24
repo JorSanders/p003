@@ -1,4 +1,6 @@
-<?php include("../includes/sentry.php"); ?>
+<?php 
+session_start();
+?>
 <html>
 
 	<head>
@@ -64,7 +66,6 @@
 					echo "<span class=\"help-block pull-left\"> De code {$_SESSION['code']} is incorrect, probeer opnieuw. <br>
 					Denk eraan dat de code uit 5 cijfers bestaat.</span>";
 				}
-				unset($_SESSION['validCode']);
 			}
 			?>
 

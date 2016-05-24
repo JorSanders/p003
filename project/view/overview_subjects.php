@@ -1,4 +1,6 @@
-<?php include("../includes/sentry.php"); ?>
+<?php
+session_start();
+?>
 <html>
 	<head>
 		<?php include_once("../includes/head_bootstrap.html"); ?> 
@@ -12,8 +14,7 @@
 
 		//change this when login function works
 		$_SESSION['user_id'] = 1;
-		echo"dit moet veranderd";
-
+		
 		$q = new Querymanager();
 		$subjectList = $q->getSubjectsFromDocent($_SESSION['user_id']);
 		?>

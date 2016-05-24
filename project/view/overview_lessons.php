@@ -1,4 +1,6 @@
-<?php include("../includes/sentry.php"); ?>
+<?php
+session_start();
+?>
 <html>
 	<head>
 		<?php include_once("../includes/head_bootstrap.html"); ?> 

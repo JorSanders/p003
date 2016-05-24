@@ -1,7 +1,6 @@
-<?php include("../includes/sentry.php"); ?>
 <html>
     <head>
-        <?php
+        <?php   session_start();
 		$_SESSION['userName']="Kevin";
 		require_once("../includes/head_bootstrap.html"); 
 		if (!isset($_SESSION['AllRolesList'])) {

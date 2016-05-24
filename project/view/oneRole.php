@@ -1,5 +1,4 @@
-<?php include("../includes/sentry.php"); ?>
-<!DOCTYPE html>
+<!DOCTYPE html><?php session_start(); ?>
 <html>
 
 	<head>
@@ -17,7 +16,6 @@
 			<?php			
 			if (isset($_SESSION['roleList'])){
 				$roleList= unserialize($_SESSION['roleList']);
-				unset($_SESSION['roleList']);
 				foreach($roleList as $role){
 			?>
 					<table class='table table-striped'> 
@@ -32,7 +30,6 @@
 				
 				if (isset($_SESSION['userList'])){
 					$userList= unserialize($_SESSION['userList']);
-					unset($_SESSION['userList']);
 					echo "<table class='table table-striped'> ";
 						echo "<tr><th>Naam</th><th>Email</th><th>Code</th><th>Actief</th></tr>";
 						foreach($userList as $user){

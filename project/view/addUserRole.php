@@ -1,4 +1,6 @@
-<?php include("../includes/sentry.php"); ?>
+<?php
+	session_start();  
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,7 +34,7 @@
 								<?php
 								require_once("../classes/model/userclass.php");								
 								$userList = unserialize ($_SESSION['userList']);
-								unset($_SESSION['userList']);
+								
 								foreach ($userList as $user) {
 									echo "<option value = ' ";
 									echo $user->getId();
@@ -53,7 +55,7 @@
 									<?php
 									require_once("../classes/model/roleClass.php");
 									$roleList = unserialize ($_SESSION['roleList']);
-									unset($_SESSION['roleList']);	
+										
 									foreach ($roleList as $role) {
 										echo "<option value = ' ";
 										echo $role->getId();

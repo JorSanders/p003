@@ -36,8 +36,8 @@
 							<ul class="dropdown-menu">
 								<li><a href="addUser.php">Gebruiker toevoegen</a></li>
 								<li><a href="overview_subjects.php">Module toevoegen</a></li>
-								<li><a href="overview_lessons_select.php">Les toevoegen</a></li>
 								<li><a href="addRole.php">Rol toevoegen</a></li>
+								<li><a href="overview_lessons_select.php">Les toevoegen</a></li>
 								<li role="separator" class="divider"></li>
 							</ul>
 						</li>
@@ -45,9 +45,9 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Importeer CSV <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="../view/CSV/userCSVupload.php">Gebruiker CSV uploaden</a></li>
-								<li><a href="../view/CSV/roleCSVupload.php">Rol CSV uploaden</a></li>
-								<li><a href="../view/CSV/subjectCSVupload.php">Modulen CSV uploaden</a></li>
+								<li><a href="../view/CSVUploadUser.php">Gebruiker CSV uploaden</a></li>
+								<li><a href="../view/CSVUploadSubject.php">Modulen CSV uploaden</a></li>
+								<li><a href="../view/CSVUploadRole.php">Rol CSV uploaden</a></li>
 								<li role="separator" class="divider"></li>
 							</ul>
 						</li>
@@ -70,9 +70,9 @@
 						</li>
 						
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle pull-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['username'];?> <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle pull-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">kevin <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="../controller/usercontroller.php?action=findOneUser&id=<?php echo $_SESSION['id']; ?>">Profiel</a></li>
+								<li><a href="../controller/usercontroller.php?action=findOneUser&id=5">Profiel</a></li>
 								<li><a href="changePassword.php">Wachtwoord wijzigen</a></li>
 								<li><a href="logout.php">Uitloggen</a></li>
 								<li role="separator" class="divider"></li>

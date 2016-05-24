@@ -1,5 +1,4 @@
-<?php include("../includes/sentry.php"); ?>
-<!DOCTYPE html>
+<!DOCTYPE html><?php session_start(); ?>
 <html>
 
 	<head>
@@ -16,7 +15,6 @@
 			<?php			
 			if (isset($_SESSION['lessonList'])){
 				$lessonList= unserialize($_SESSION['lessonList']);
-				unset($_SESSION['lessonList']);
 				foreach($lessonList as $lesson){
 			?>
 					<table class='table table-striped'> 
@@ -35,7 +33,6 @@
 				//vak lijst
 				if (isset($_SESSION['subjectList'])){
 					$subjectList= unserialize($_SESSION['subjectList']);
-					unset($_SESSION['subjectList']);
 					echo "<table class='table table-striped'> ";
 					echo "<tr><th>Vaknaam</th><th>Actief</th></tr>";
 					
@@ -51,7 +48,6 @@
 				//userlist
 				if (isset($_SESSION['userList'])){
 					$userList= unserialize($_SESSION['userList']);
-					unset($_SESSION['userList']);
 					echo "<table class='table table-striped'> ";
 					echo "<tr><th>Naam</th><th>Email</th><th>Code</th><th>Actief</th></tr>";
 					foreach($userList as $user){

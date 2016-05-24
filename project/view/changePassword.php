@@ -1,4 +1,3 @@
-<?php include("../includes/sentry.php"); ?>
 <!DOCTYPE html>
 <html>
 

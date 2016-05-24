@@ -9,7 +9,7 @@
  
 <?php
  
-include "connection.php"; //Connect to Database
+include "CSVConnection.php"; //Connect to Database
  
 $deleterecords = "TRUNCATE TABLE user"; //empty the table of its current records
 mysql_query($deleterecords);
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
  
     print "Upload new csv by browsing to file and clicking on Upload<br />\n";
  
-    print "<form enctype='multipart/form-data' action='userCSVupload.php' method='post'>";
+    print "<form enctype='multipart/form-data' action='CSVUploadUser.php' method='post'>";
  
     print "File name to import:<br />\n";
  
