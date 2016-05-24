@@ -197,14 +197,14 @@
 		$_SESSION['code'] = $userDetails->getCode();
 		$_SESSION['username'] = $userDetails->getName();
 		$_SESSION['password'] = $userDetails->getPassword();
-		echo " code: $code code:".$userDetails->getCode() ."
-			pw: $password pw:".$userDetails->getPassword();
+		echo "$code ".$userDetails->getCode() ."
+			$password ".$userDetails->getPassword();
 		if($code==$userDetails->getCode() &&
 			$password==$userDetails->getPassword()){
 			header('Location: ../view/index.php');
 			}
 		else {
-			//header('Location:../view/login.php'); 		
+			header('Location:../view/login.php'); 		
 		}
 	}
 	//uitloggen

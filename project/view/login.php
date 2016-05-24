@@ -1,21 +1,50 @@
 <?php session_start(); ?>
+<!doctype html>
+
 <html>
-	<head>
-	<title>Login</title>
 
-	</head>
+<head>
+    <title>Inloggen</title>
+    <?php include_once("../includes/head_bootstrap.html"); ?>
+</head>
+<body>
 
-	<body>
-		<h2>Login:</h2>
-		<table >
-			<form action="../controller/usercontroller.php" method="post">
+    <div class="container">
+        <div class="page-header">
+            <h3>Login</h3>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-10">
+                <?php include_once("../includes/navbar_bootstrap.php"); ?> 
+
+			<form action="../controller/usercontroller.php" method="post" class="form-horizontal" role="form">
 				<input name="action" type="hidden" value="login"/>
-				<tr><td> <p>Leerlingnummer of Docentcode: </td>
-					<td><input name="code" type="text" /> </td></tr>
-				<tr><td><p>Wachtwoord: </td>
-					<td><input name="password" type="password" /></td></tr>
-				<tr><td></td><td><button class="submit" type="submit">Inloggen</button></td></tr>
+					<div class="form-group has-feedback">	
+						<label class="col-sm-2 control-label">Voornaam:</label>
+						<div class="col-sm-4">
+				  			<input name="code" type="text" class="form-control" id="focusedInput" />
+				  		</div>
+				  	</div>
+				  	<div class="form-group has-feedback">	
+						<label class="col-sm-2 control-label">Wachtwoord:</label>
+						<div class="col-sm-4">
+				 			<input name="password" type="password" class="form-control" id="focusedInput" />
+				 		</div>
+				 	</div>
+				 <div class="form-group has-feedback">
+					<div class="col-sm-6">
+				 		<button class="submit btn btn-default pull-right" type="submit">Inloggen</button>
+				 	</div>
+				 </div>
 			</form>
-		</table>
+		
+			</div>
+		</div>
+	</div>
+
+		<footer>
+			<?php include_once("../includes/footer_bootstrap.html"); ?> 
+		</footer>
+		<?php include_once("../includes/test_bootstrap.html"); ?> 
 	</body>
 </html>
