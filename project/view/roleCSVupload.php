@@ -1,15 +1,24 @@
-<html>
-<head>
-<title>Upload page</title>
+<!doctype html>
 
+<html>
+
+<head>
+    <title>Upload page</title>
+    <?php include_once("../includes/head_bootstrap.html"); ?>
 </head>
 <body>
-<div>
-<div>
+
+    <div class="container">
+        <div class="page-header">
+            <h3>Upload CSV bestand van gebruikers</h3>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-10">
+                <?php include_once("../includes/navbar_bootstrap.php"); ?> 
  
 <?php
  
-include "connection.php"; //Connect to Database
+include "CSVConnection.php"; //Connect to Database
  
 $deleterecords = "TRUNCATE TABLE role"; //empty the table of its current records
 mysql_query($deleterecords);
@@ -40,7 +49,7 @@ if (isset($_POST['submit'])) {
  
     print "Upload new csv by browsing to file and clicking on Upload<br />\n";
  
-    print "<form enctype='multipart/form-data' action='roleCSVupload.php' method='post'>";
+    print "<form enctype='multipart/form-data' action='CSVUploadRole.php' method='post'>";
  
     print "File name to import:<br />\n";
  
@@ -54,5 +63,10 @@ if (isset($_POST['submit'])) {
  
 </div>
 </div>
+</div>
+<footer>
+    <?php include_once("../includes/footer_bootstrap.html"); ?> 
+</footer>
+<?php include_once("../includes/test_bootstrap.html"); ?> 
 </body>
 </html>

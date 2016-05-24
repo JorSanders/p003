@@ -20,7 +20,7 @@
  
 include "CSVConnection.php"; //Connect to Database
  
-$deleterecords = "TRUNCATE TABLE user"; //empty the table of its current records
+$deleterecords = "TRUNCATE TABLE subject"; //empty the table of its current records
 mysql_query($deleterecords);
  
 //Upload File
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
     $handle = fopen($_FILES['filename']['tmp_name'], "r");
  
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-        $import="INSERT into user(id,name,password,email, code,active) values('NULL','$data[1]','".md5($data[2])."','$data[3]','$data[4]','$data[5]')";
+        $import="INSERT into subject(subject_id,subject_name,owner_id,active) values('NULL','$data[1]','$data[2]','$data[3]')";
 
         mysql_query($import) or die(mysql_error());
     }
@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
  
     print "Upload new csv by browsing to file and clicking on Upload<br />\n";
  
-    print "<form enctype='multipart/form-data' action='CSVUploadUser.php' method='post'>";
+    print "<form enctype='multipart/form-data' action='CSVUploadSubject.php' method='post'>";
  
     print "File name to import:<br />\n";
  
@@ -64,7 +64,6 @@ if (isset($_POST['submit'])) {
 </div>
 </div>
 </div>
-
 <footer>
     <?php include_once("../includes/footer_bootstrap.html"); ?> 
 </footer>
