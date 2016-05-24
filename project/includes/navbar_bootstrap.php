@@ -70,9 +70,9 @@
 						</li>
 						
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle pull-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">kevin <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle pull-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['username'];?> <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="../controller/usercontroller.php?action=findOneUser&id=5">Profiel</a></li>
+								<li><a href="../controller/usercontroller.php?action=findOneUser&id=<?php echo $_SESSION['id']; ?>">Profiel</a></li>
 								<li><a href="changePassword.php">Wachtwoord wijzigen</a></li>
 								<li><a href="logout.php">Uitloggen</a></li>
 								<li role="separator" class="divider"></li>

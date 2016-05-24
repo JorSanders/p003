@@ -1,6 +1,7 @@
+<?php include("../includes/sentry.php"); ?>
 <html>
     <head>
-        <?php   session_start();
+        <?php  
 		$_SESSION['userName']="Kevin";
 		require_once("../includes/head_bootstrap.html"); 
 		if (!isset($_SESSION['AllSubjectsList'])) {

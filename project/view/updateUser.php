@@ -1,6 +1,4 @@
-<?php 
-session_start(); 
-?>
+<?php include("../includes/sentry.php"); ?>
 <!DOCTYPE html>
 <html>
     <head>
