@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Upload page</title>
+    <title>Rol CSV uploaden</title>
     <?php include_once("../includes/head_bootstrap.html"); ?>
 </head>
 <body>
@@ -22,13 +22,26 @@ include "CSVConnection.php"; //Connect to Database
  
 $deleterecords = "TRUNCATE TABLE role"; //empty the table of its current records
 mysql_query($deleterecords);
- 
+
+//CSV filetypes array to check upload (Kevin)
+$csv_mimetypes = array(
+    'text/csv',
+    'text/plain',
+    'application/csv',
+    'text/comma-separated-values',
+    'application/excel',
+    'application/vnd.ms-excel',
+    'application/vnd.msexcel',
+    'text/anytext',
+    'application/octet-stream',
+    'application/txt',
+);
+
 //Upload File
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])&&(in_array($_FILES["filename"]["type"], $csv_mimetypes))) {
     if (is_uploaded_file($_FILES['filename']['tmp_name'])) {
-        echo "<div class=\"lead\">" . "File ". $_FILES['filename']['name'] ." Met succes geupload." . "</div>";
-        echo "<span class=\"lead\">Toegevoegde Rollen:</span>";
-        
+        echo "Het bestand ". $_FILES['filename']['name'] ." is met succes geüpload.<br><br>";
+        echo "Toegevoegde Rol(len):";        
     }
  
     //Import uploaded file to Database
@@ -47,26 +60,12 @@ if (isset($_POST['submit'])) {
  
     //view upload form
 }else {
-    echo"
  
-    <div class='form-group'>
-        <div class='col-sm-10'>
-            <form enctype='multipart/form-data' action='CSVUploadRole.php' method='post' class='form-horizontal' role='form'>
-                <div class='form-group'>
-                    <label class='col-sm-3 control-label'>Bestand naam:</label>
-                        <div class='col-sm-6'>
-                            <div class='form-group has-feedback'>
-                                <input type='file' name='filename' class='form-control' id='focusedInput'>
-                            </div>
-                        </div>
-                <div class='form-group has-feedback'>
-                    <div class='col-sm-9'>
-                        <button class='btn btn-default pull-right' name='submit' type='submit'>Uploaden</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>";
+    print "Kies een lokaal .CSV bestand en klik op \"Upload\".<br><br>";
+    print "<form enctype='multipart/form-data' action='CSVUploadRole.php' method='post'>";
+    print "<input size='50' type='file' name='filename'><br>";
+    print "<input type='submit' name='submit' value='Upload'></form>";
+
  
 }
  

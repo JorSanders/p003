@@ -10,7 +10,9 @@
 
     <div class="container">
         <div class="page-header">
+
             <h3>Modulen CSV uploaden</h3>
+
         </div>
         <div class="form-group">
             <div class="col-sm-10">
@@ -19,6 +21,7 @@
 <?php
  
 include "CSVConnection.php"; //Connect to Database
+
 
 $deleterecords = "TRUNCATE TABLE subject"; //empty the table of its current records
 mysql_query($deleterecords);
@@ -63,7 +66,7 @@ if (isset($_POST['submit'])&&(in_array($_FILES["filename"]["type"], $csv_mimetyp
     //view upload form
 }else{
  
-    print "Kies een lokaal .csv bestand en klik op \"Upload\".<br />\n";
+    print "Kies een lokaal .CSV bestand en klik op \"Upload\".<br />\n";
     print "<form enctype='multipart/form-data' action='CSVUploadSubject.php' method='post'>";
 	print "</br>";
     print "<input size='50' type='file' name='filename'><br />\n";
