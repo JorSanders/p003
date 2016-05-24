@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php include("../includes/sentry.php"); ?>
 <html>
 	<head>
 	<title>Uitgelogd</title>
