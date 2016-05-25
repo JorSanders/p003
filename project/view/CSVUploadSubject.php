@@ -3,14 +3,16 @@
 <html>
 
 <head>
-    <title>Upload page</title>
+    <title>Modulen CSV uploaden</title>
     <?php include_once("../includes/head_bootstrap.html"); ?>
 </head>
 <body>
 
     <div class="container">
         <div class="page-header">
-            <h3>Module CSV uploaden</h3>
+
+            <h3>Modulen CSV uploaden</h3>
+
         </div>
         <div class="form-group">
             <div class="col-sm-10">
@@ -19,15 +21,31 @@
 <?php
  
 include "CSVConnection.php"; //Connect to Database
- 
+
+
 $deleterecords = "TRUNCATE TABLE subject"; //empty the table of its current records
 mysql_query($deleterecords);
- 
-//Upload File
-if (isset($_POST['submit'])) {
+
+//CSV filetypes array to check upload (Kevin)
+$csv_mimetypes = array(
+    'text/csv',
+    'text/plain',
+    'application/csv',
+    'text/comma-separated-values',
+    'application/excel',
+    'application/vnd.ms-excel',
+    'application/vnd.msexcel',
+    'text/anytext',
+    'application/octet-stream',
+    'application/txt',
+);
+
+
+//Upload File if submitted and .csv file
+if (isset($_POST['submit'])&&(in_array($_FILES["filename"]["type"], $csv_mimetypes))) {
     if (is_uploaded_file($_FILES['filename']['tmp_name'])) {
-        echo "<div>" . "File ". $_FILES['filename']['name'] ." Met succes geupload." . "</div><br>";
-        echo "<span>Toegevoegde Modules:</span>";
+        echo "Het bestand ". $_FILES['filename']['name'] ." is met succes geüpload.<br><br>";
+        echo "Toegevoegde Module(s):";
         
     }
  
@@ -46,14 +64,12 @@ if (isset($_POST['submit'])) {
     
  
     //view upload form
-}else {
+}else{
  
-    print "Kies een lokaal .CSV bestand en klik op \"Upload\"<br><br>";
- 
+    print "Kies een lokaal .CSV bestand en klik op \"Upload\".<br />\n";
     print "<form enctype='multipart/form-data' action='CSVUploadSubject.php' method='post'>";
- 
-    print "<input size='50' type='file' name='filename'><br>";
- 
+	print "</br>";
+    print "<input size='50' type='file' name='filename'><br />\n";
     print "<input type='submit' name='submit' value='Upload'></form>";
  
 }
