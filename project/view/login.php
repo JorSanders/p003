@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-10">
-                <?php include_once("../includes/navbar_bootstrap.php"); ?> 
+                <?php //include_once("../includes/navbar_bootstrap.php"); ?> 
 
 			<form action="../controller/usercontroller.php" method="post" class="form-horizontal" role="form">
 				<input name="action" type="hidden" value="login"/>
