@@ -9,16 +9,17 @@
 	
 	<body>
 		<?php include_once("../includes/navbar_bootstrap.php"); ?> 
-		<div class="container">
-			<div class="page-header">
-				<h3>Eén les</h3>
-			</div>			
+		<div class="container">		
 			<?php			
 			if (isset($_SESSION['lessonList'])){
 				$lessonList= unserialize($_SESSION['lessonList']);
 				unset($_SESSION['lessonList']);
 				foreach($lessonList as $lesson){
 			?>
+					<div class="page-header">
+						<h3>Gegevens van: <?php echo $lesson["lesson_name"]; ?></h3>
+					</div>	
+					
 					<table class='table table-striped'> 
 						<tr><th>Les</th><th>Code</th><th>Vaknaam</th><th>Actief</th></tr>
 						<?php
@@ -38,14 +39,11 @@
 					unset($_SESSION['userList']);
 					echo "<table class='table table-striped'> ";
 					echo "<tr><th>Naam</th><th>Email</th><th>Code</th><th>Actief</th></tr>";
-					foreach($userList as $user){
-
-							
+					foreach($userList as $user){							
 							echo "<tr><td><a href='../controller/usercontroller.php?action=findOneUser&id=".$user['id']."'>". $user["name"] ."</a></td>";
 							echo "<td>". $user["email"] ."</td>";
 							echo "<td>". $user["code"] ."</td>";
-							echo "<td>". $user["active"] ."</td></tr>";
-												
+							echo "<td>". $user["active"] ."</td></tr>";												
 					}
 					echo "</table>";
 				}else{

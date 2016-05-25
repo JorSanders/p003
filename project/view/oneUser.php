@@ -10,15 +10,16 @@
 	<body>
 		<?php include_once("../includes/navbar_bootstrap.php"); ?> 
 		<div class="container">
-			<div class="page-header">
-				<h3>Eén gebruiker</h3>
-			</div>			
 			<?php			
 			if (isset($_SESSION['userList'])){
-				$userList= unserialize($_SESSION['userList']);
+				$userList = unserialize($_SESSION['userList']);
 				unset($_SESSION['userList']);
 				foreach($userList as $user){
 			?>
+					<div class="page-header">
+						<h3>Gegevens van: <?php echo $user["name"]; ?></h3>
+					</div>			
+
 					<table class='table table-striped'> 
 						<tr><th>Naam</th><th>Email</th><th>Code</th><th>Actief</th></tr>
 						<?php				
@@ -67,13 +68,10 @@
 					unset($_SESSION['lessonList']);
 					echo "<table class='table table-striped'> ";
 						echo "<tr><th>LesNaam</th><th>Code</th><th>Actief</th></tr>";
-						foreach($lessonList as $lesson){
-
-								
+						foreach($lessonList as $lesson){								
 							echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneLesson&id=".$lesson['lesson_id']."'>". $lesson["lesson_name"] ."</a></td>";
 							echo "<td>". $lesson["code"] ."</td>";
-							echo "<td>". $lesson["active"] ."</td></tr>";
-													
+							echo "<td>". $lesson["active"] ."</td></tr>";													
 						}
 					echo "</table>";
 				}else{

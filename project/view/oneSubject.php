@@ -10,24 +10,24 @@
 	<body>
 		<?php include_once("../includes/navbar_bootstrap.php"); ?> 
 		<div class="container">
-			<div class="page-header">
-				<h3>Eén vak</h3>
-			</div>
-			
 			<?php			
 			if (isset($_SESSION['subjectList'])){
 				$subjectList= unserialize($_SESSION['subjectList']);
 				unset($_SESSION['subjectList']);
 				foreach($subjectList as $subject){
 			?>
-				<table class='table table-striped'> 
-					<tr><th>Vak</th><th>Actief</th></tr>
-					<?php
-					echo "<tr><td>". $subject["subject_name"] ."</td>";
-					echo "<td>". $subject["active"] ."</td></tr>";
-					?>
-				</table><br>
-				<?php						
+					<div class="page-header">
+						<h3>Gegevens van: <?php echo $subject["subject_name"]; ?></h3>
+					</div>			
+
+					<table class='table table-striped'> 
+						<tr><th>Vak</th><th>Actief</th></tr>
+						<?php
+						echo "<tr><td>". $subject["subject_name"] ."</td>";
+						echo "<td>". $subject["active"] ."</td></tr>";
+						?>
+					</table><br>
+					<?php						
 				}
 				
 				//userlist
@@ -36,14 +36,11 @@
 					unset($_SESSION['userList']);
 					echo "<table class='table table-striped'> ";
 						echo "<tr><th>Naam</th><th>Email</th><th>Code</th><th>Actief</th></tr>";
-						foreach($userList as $user){
-
-								
+						foreach($userList as $user){								
 								echo "<tr><td><a href='../controller/usercontroller.php?action=findOneUser&id=".$user['id']."'>". $user["name"] ."</a></td>";
 								echo "<td>". $user["email"] ."</td>";
 								echo "<td>". $user["code"] ."</td>";
-								echo "<td>". $user["active"] ."</td></tr>";
-													
+								echo "<td>". $user["active"] ."</td></tr>";													
 						}
 					echo "</table>";
 				}else{
