@@ -44,7 +44,7 @@ if ($_POST['action']=="generate_code" &&
 	}
 	while($duplicate);
 	$q->updateLessonCode($_POST['lesson_id'], $code);
-	header("location: ../view/overview_lessons.php?subject_id={$_POST['subject_id']}");			
+	header("location: ../view/CodeGeneratorCreate.php?subject_id={$_POST['subject_id']}");			
 	
 }
 	// add a user to a lesson
