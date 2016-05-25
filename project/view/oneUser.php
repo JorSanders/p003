@@ -21,6 +21,7 @@
 					</div>			
 
 					<table class='table table-striped'> 
+						<tr><th><?php echo $user["name"]; ?></th></tr>
 						<tr><th>Naam</th><th>Email</th><th>Code</th><th>Actief</th></tr>
 						<?php				
 						echo "<tr><td>". $user["name"] ."</td>";
@@ -35,6 +36,7 @@
 					$roleList= unserialize($_SESSION['roleList']);
 					unset($_SESSION['roleList']);
 					echo "<table class='table table-striped'> ";
+						echo "<tr><th>Rollen bij deze gebruiker:</th><tr>";
 						echo "<tr><th>Rol</th><th>Actief</th></tr>";
 						
 						foreach($roleList as $role){						
@@ -51,8 +53,8 @@
 					$subjectList= unserialize($_SESSION['subjectList']);
 					unset($_SESSION['subjectList']);
 					echo "<table class='table table-striped'> ";
-						echo "<tr><th>Vaknaam</th><th>Actief</th></tr>";
-						
+						echo "<tr><th>Vakken van deze gebruiker:</th></tr>";
+						echo "<tr><th>Vaknaam</th><th>Actief</th></tr>";						
 						foreach($subjectList as $subject){						
 							echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneSubject&id=".$subject["subject_id"]."'>". $subject["subject_name"] ."</a></td>";
 							echo "<td>". $subject["active"] ."</td></tr>";												
@@ -67,6 +69,7 @@
 					$lessonList= unserialize($_SESSION['lessonList']);
 					unset($_SESSION['lessonList']);
 					echo "<table class='table table-striped'> ";
+						echo "<tr><th>Lessen die deze gebruiker heeft gevolgd:</th></tr>";
 						echo "<tr><th>LesNaam</th><th>Code</th><th>Actief</th></tr>";
 						foreach($lessonList as $lesson){								
 							echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneLesson&id=".$lesson['lesson_id']."'>". $lesson["lesson_name"] ."</a></td>";

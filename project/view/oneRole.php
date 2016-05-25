@@ -21,6 +21,7 @@
 					</div>
 					
 					<table class='table table-striped'> 
+						<tr><th><?php echo $role["name"]; ?></th></tr>
 						<tr><th>Rol</th><th>Actief</th></tr>
 						<?php						
 						echo "<tr><td>". $role["name"] ."</td>";
@@ -34,6 +35,7 @@
 					$userList= unserialize($_SESSION['userList']);
 					unset($_SESSION['userList']);
 					echo "<table class='table table-striped'> ";
+						echo "<tr><th>Gebruikers met deze rol:</th></tr>";
 						echo "<tr><th>Naam</th><th>Email</th><th>Code</th><th>Actief</th></tr>";
 						foreach($userList as $user){								
 								echo "<tr><td><a href='../controller/usercontroller.php?action=findOneUser&id=".$user['id']."'>". $user["name"] ."</a></td>";

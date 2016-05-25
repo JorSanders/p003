@@ -21,6 +21,7 @@
 					</div>	
 					
 					<table class='table table-striped'> 
+						<tr><th>Gegevens van: <?php echo $lesson["lesson_name"]; ?></th><tr>
 						<tr><th>Les</th><th>Code</th><th>Vaknaam</th><th>Actief</th></tr>
 						<?php
 						
@@ -38,6 +39,7 @@
 					$userList= unserialize($_SESSION['userList']);
 					unset($_SESSION['userList']);
 					echo "<table class='table table-striped'> ";
+					echo "<tr><th>Aanwezige bij de les:</th></tr>";
 					echo "<tr><th>Naam</th><th>Email</th><th>Code</th><th>Actief</th></tr>";
 					foreach($userList as $user){							
 							echo "<tr><td><a href='../controller/usercontroller.php?action=findOneUser&id=".$user['id']."'>". $user["name"] ."</a></td>";
