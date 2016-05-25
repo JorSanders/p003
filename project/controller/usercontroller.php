@@ -165,7 +165,7 @@
 		$_SESSION['lessonList'] = serialize($lessonList);
 
 		
-		header('Location: ../view/oneuser.php');
+		header('Location: ../view/oneUser.php');
 	}
 
 	//Update Role

@@ -25,28 +25,12 @@
 						
 						echo "<tr><td>". $lesson["lesson_name"] ."</td>";
 						echo "<td>". $lesson["code"] ."</td>";
-						echo "<td>". $lesson["subject_name"] ."</td>";
+						echo "<td><a href='../controller/subjectcontroller.php?action=findOneSubject&id=".$lesson['subject_id']."'>". $lesson["subject_name"] ."</a></td>";
 						echo "<td>". $lesson["active"] ."</td></tr>";
 						?>
 					</table><br>
 				<?php						
 				}
-				
-				//vak lijst
-				if (isset($_SESSION['subjectList'])){
-					$subjectList= unserialize($_SESSION['subjectList']);
-					unset($_SESSION['subjectList']);
-					echo "<table class='table table-striped'> ";
-					echo "<tr><th>Vaknaam</th><th>Actief</th></tr>";
-					
-					foreach($subjectList as $subject){						
-						echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneSubject&id=".$subject["subject_id"]."'>". $subject["subject_name"] ."</a></td>";
-						echo "<td>". $subject["active"] ."</td></tr>";												
-					}
-					echo "</table>";
-				}else{
-					echo"vaklijst niet gevonden";
-				}	
 				
 				//userlist
 				if (isset($_SESSION['userList'])){
