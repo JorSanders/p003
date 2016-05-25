@@ -41,7 +41,7 @@
 					<ul class="dropdown-menu">
 						<li><a href="addUser.php">Gebruiker toevoegen</a></li>
 						<li><a href="overview_subjects.php">Module toevoegen</a></li>
-						<li><a href="addRole.php">Rol toevoegen</a></li>
+						<li><a href="AddRole.php">Rol toevoegen</a></li>
 						<li><a href="overview_lessons_select.php">Les toevoegen</a></li>
 						<li role="separator" class="divider"></li>
 					</ul>
