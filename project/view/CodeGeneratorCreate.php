@@ -31,7 +31,7 @@
 							echo /*"<a href='overview_lessons.php?vakcode={$lesson->get_id()}'> ".*/$lesson->getName() ."</a> ";
 							if ($lesson->getCode() == 0){
 								echo "<form style='display:inline-block;' action='../controller/subjectcontroller.php' method='POST'>
-								<input type='submit' value='Genereer lescode'>
+								<input class='btn btn-default' type='submit' value='Genereer lescode'>
 								<input type='hidden' name='lesson_id' value='{$lesson->getId()}'> 
 								<input type='hidden' name='subject_id' value='$subject_id'> 
 								<input type='hidden' name='action' value='generate_code'>
