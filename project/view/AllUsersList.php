@@ -21,7 +21,7 @@
             $AllUsersList = unserialize($_SESSION['AllUsersList']);
 			unset($_SESSION["AllUsersList"]);
 		
-            echo '<div class="col-sm-8">';
+            echo '<div class="col-sm-10">';
 			
 				echo "<table class='table table-striped'> ";
 					echo "<tr><th>Naam</th><th>E-mail</th><th>Identificatiecode</th><th>Actief</th><th></th></tr>";
