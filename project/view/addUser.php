@@ -36,7 +36,7 @@
 							</div>
 						</div>
 						<div class="form-group has-feedback">
-							<label class="col-sm-2 control-label">Identificatiecode:</label>
+							<label class="col-sm-2 control-label">Code:</label>
 							<div class="col-sm-3">
 								<input class="form-control" id="focusedInput" type="text" name="code" placeholder="S1091199" required/>
 							</div>

@@ -33,31 +33,39 @@
 						<div class="form-group has-feedback">
 							<label class="col-sm-3 control-label">Naam:</label>
 							<div class="col-sm-6">
-								<input class="form-control" id="focusedInput" name="name" type="text" value="<?php echo $User->getName(); ?>"/>
+								<input class="form-control" id="focusedInput" name="name" type="text" required value="<?php echo $User->getName(); ?>"/>
 							</div>
 						</div>
 						<div class="form-group has-feedback">
 							<label class="col-sm-3 control-label">Wachtwoord:</label>
 							<div class="col-sm-6">
-								<input class="form-control" id="focusedInput" name="password" type="password" value="<?php echo $User->getPassword(); ?>"/>
+								<input class="form-control" id="focusedInput" name="passwordd" type="password" required value="<?php echo $User->getPassword(); ?>"/>
 							</div>
 						</div>
 						<div class="form-group has-feedback">
 							<label class="col-sm-3 control-label">E-mail:</label>
 							<div class="col-sm-6">
-								<input class="form-control" id="focusedInput" name="email" type="text" value="<?php echo $User->getEmail(); ?>"/>
+								<input class="form-control" id="focusedInput" name="email" type="text" required value="<?php echo $User->getEmail(); ?>"/>
 							</div>
 						</div>
 						<div class="form-group has-feedback">
 							<label class="col-sm-3 control-label">Code:</label>
 							<div class="col-sm-6">
-								<input class="form-control" id="focusedInput" name="code" type="text" value="<?php echo $User->getCode(); ?>"/>
+								<input class="form-control" id="focusedInput" name="code" type="text" required value="<?php echo $User->getCode(); ?>"/>
 							</div>
 						</div>
 						<div class="form-group has-feedback">
-							<label class="col-sm-3 control-label">Active:</label>
+							<label class="col-sm-3 control-label">Actief:</label>
 							<div class="col-sm-6">
-								<input class="form-control" id="focusedInput" name="active" type="text" value="<?php echo $User->getActive(); ?>"/>
+								<?php 
+								if($User->getActive() == 'true'){
+									echo "<label><input name=\"active\" type=\"checkbox\" checked value=\"true\"></label>";
+								}else{
+									echo "<label><input name=\"active\" type=\"checkbox\" value=\"true\"></label>";
+									
+								}
+								?> 
+								
 							</div>
 						</div>
 						<div class="form-group has-feedback">

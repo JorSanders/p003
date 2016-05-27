@@ -25,12 +25,17 @@
             echo '<div class="col-sm-10">';
 			
 				echo "<table class='table table-striped'> ";
-					echo "<tr><th>Naam</th><th>E-mail</th><th>Identificatiecode</th><th>Actief</th><th></th></tr>";
+					echo "<tr><th>Naam</th><th>E-mail</th><th>Code</th><th>Actief</th><th></th></tr>";
 					foreach ($AllUsersList as $User) {
 						echo "<tr><td><a href='../controller/usercontroller.php?action=findOneUser&id=".$User->getId()."'>".$User->getName()."</a></td>";
 							echo "<td>".$User->getEmail() . "</td>";
 							echo "<td>".$User->getCode() . "</td>";
-							echo "<td>".$User->getActive() . "</td>";
+							if($User->getActive() == 'true'){
+								echo "<td>". "<label class='glyphicon glyphicon-ok'></label> "."</td>";
+							}
+							else{
+								echo "<td>". "<label class='glyphicon glyphicon-remove'></label> "."</td>";
+							}
 							echo "<td><a href='../view/updateUser.php?id=".$User->getId()."'>Wijzigen</a><td></tr>";
 				
 				}              

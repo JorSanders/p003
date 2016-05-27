@@ -29,20 +29,20 @@
 				<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Overzicht <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="AllUsersList.php">Gebruikersoverzicht</a></li>
-					<li><a href="AllSubjectsList.php">Modulesoverzicht</a></li>
-					<li><a href="AllRolesList.php">Rollenoverzicht</a></li>
+					<li><a href="AllUsersList.php">Gebruikers</a></li>
+					<li><a href="AllSubjectsList.php">Modules</a></li>
+					<li><a href="AllRolesList.php">Rollen</a></li>
 					<li role="separator" class="divider"></li>
 				</ul>
 				</li>
 					
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Creëer <span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Toevoegen <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="addUser.php">Gebruiker toevoegen</a></li>
-						<li><a href="overview_subjects.php">Module toevoegen</a></li>
-						<li><a href="AddRole.php">Rol toevoegen</a></li>
-						<li><a href="overview_lessons_select.php">Les toevoegen</a></li>
+						<li><a href="addUser.php">Gebruiker</a></li>
+						<li><a href="overview_subjects.php">Module</a></li>
+						<li><a href="AddRole.php">Rol</a></li>
+						<li><a href="overview_lessons_select.php">Les</a></li>
 						<li role="separator" class="divider"></li>
 					</ul>
 				</li>

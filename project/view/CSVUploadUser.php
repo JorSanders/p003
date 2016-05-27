@@ -47,7 +47,7 @@ if (isset($_POST['submit'])&&(in_array($_FILES["filename"]["type"], $csv_mimetyp
  
     //Import uploaded file to Database
     $handle = fopen($_FILES['filename']['tmp_name'], "r");
-    echo "<Table class='table table-striped'> <tr><th>Naam</th><th>E-Mail</th><th>Identificatiecode</th><th>Actief</th></tr>";
+    echo "<Table class='table table-striped'> <tr><th>Naam</th><th>E-Mail</th><th>Code</th><th>Actief</th></tr>";
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         $import="INSERT into user(id,name,password,email,code,active) values('NULL','$data[1]','".md5($data[2])."','$data[3]','$data[4]','$data[5]')";
         echo "<tr><td>$data[1]</td><td>$data[3]</td><td>$data[4]</td><td>$data[5]</td></tr>";

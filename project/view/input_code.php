@@ -31,7 +31,7 @@
 								<select name="search" class="form-control" id="focusedInput">
 									<option value = "name">Naam</option>
 									<option value = "email">E-mailadres</option>
-									<option value = "code" selected>Identificatiecode</option>
+									<option value = "code" selected>Code</option>
 								</select>
 							</div>
 						</div>

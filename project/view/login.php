@@ -36,6 +36,7 @@
 				 		<button class="submit btn btn-default pull-right" type="submit">Inloggen</button>
 				 	</div>
 				 </div>
+				 <span class='help-block'>Wachtwoord vergeten? Neem dan contact op met de beheerder.</span>
 			</form>
 		
 			</div>

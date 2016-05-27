@@ -27,7 +27,12 @@
 						echo "<tr><td>". $user["name"] ."</td>";
 						echo "<td>". $user["email"] ."</td>";
 						echo "<td>". $user["code"] ."</td>";
-						echo "<td>". $user["active"] ."</td></tr>";
+						if($user["active"] == 'true'){
+								echo "<td>". "<label class='glyphicon glyphicon-ok'></label> "."</td>";
+							}
+							else{
+								echo "<td>". "<label class='glyphicon glyphicon-remove'></label> "."</td>";
+							}		
 					echo "</table><br>";
 				}
 				
@@ -41,7 +46,12 @@
 						
 						foreach($roleList as $role){						
 							echo "<tr><td><a href='../controller/roleController.php?action=findOneRole&id=".$role["id"]."'>". $role["name"] ."</a></td>";
-							echo "<td>". $role["active"] ."</td></tr>";												
+							if($role["active"] == 'true'){
+								echo "<td>". "<label class='glyphicon glyphicon-ok'></label> "."</td>";
+							}
+							else{
+								echo "<td>". "<label class='glyphicon glyphicon-remove'></label> "."</td>";
+							}											
 						}
 					echo "</table>";
 				}else{
@@ -57,7 +67,12 @@
 						echo "<tr><th>Vaknaam</th><th>Actief</th></tr>";						
 						foreach($subjectList as $subject){						
 							echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneSubject&id=".$subject["subject_id"]."'>". $subject["subject_name"] ."</a></td>";
-							echo "<td>". $subject["active"] ."</td></tr>";												
+							if($subject["active"] == 'true'){
+								echo "<td>". "<label class='glyphicon glyphicon-ok'></label> "."</td>";
+							}
+							else{
+								echo "<td>". "<label class='glyphicon glyphicon-remove'></label> "."</td>";
+							}													
 						}
 					echo "</table>";
 				}else{
@@ -74,7 +89,12 @@
 						foreach($lessonList as $lesson){								
 							echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneLesson&id=".$lesson['lesson_id']."'>". $lesson["lesson_name"] ."</a></td>";
 							echo "<td>". $lesson["code"] ."</td>";
-							echo "<td>". $lesson["active"] ."</td></tr>";													
+							if($lesson["active"] == 'true'){
+								echo "<td>". "<label class='glyphicon glyphicon-ok'></label> "."</td>";
+							}
+							else{
+								echo "<td>". "<label class='glyphicon glyphicon-remove'></label> "."</td>";
+							}														
 						}
 					echo "</table>";
 				}else{

@@ -151,11 +151,13 @@
 	$email = $_POST['email'];
 	$code= $_POST['code'];
 	$active= $_POST['active'];
+	if(!isset($active)){
+		$active = "false";
+	}
 	$q->updateUser($id, $name, $password, $email, $code, $active);
 	$User = $q->getUser($id);
 	$_SESSION['User'] =serialize($User);
 	header('Location: ../view/AllUsersList.php');
-
 	}	
 
 	//haal een user op uit de database
