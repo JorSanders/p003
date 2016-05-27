@@ -1,4 +1,5 @@
-<!DOCTYPE html><?php session_start(); ?>
+<?php include("../includes/sentry.php"); ?>
+<!DOCTYPE html>
 <html>
 
 	<head>
@@ -8,56 +9,43 @@
 	
 	<body>
 		<?php include_once("../includes/navbar_bootstrap.php"); ?> 
-		<div class="container">
-			<div class="page-header">
-				<h3>Eén les</h3>
-			</div>			
+		<div class="container">		
 			<?php			
 			if (isset($_SESSION['lessonList'])){
 				$lessonList= unserialize($_SESSION['lessonList']);
+				unset($_SESSION['lessonList']);
 				foreach($lessonList as $lesson){
 			?>
+					<div class="page-header">
+						<h3>Gegevens van: <?php echo $lesson["lesson_name"]; ?></h3>
+					</div>	
+					
 					<table class='table table-striped'> 
+						<tr><th>Gegevens van: <?php echo $lesson["lesson_name"]; ?></th><tr>
 						<tr><th>Les</th><th>Code</th><th>Vaknaam</th><th>Actief</th></tr>
 						<?php
 						
 						echo "<tr><td>". $lesson["lesson_name"] ."</td>";
 						echo "<td>". $lesson["code"] ."</td>";
-						echo "<td>". $lesson["subject_name"] ."</td>";
+						echo "<td><a href='../controller/subjectcontroller.php?action=findOneSubject&id=".$lesson['subject_id']."'>". $lesson["subject_name"] ."</a></td>";
 						echo "<td>". $lesson["active"] ."</td></tr>";
 						?>
 					</table><br>
 				<?php						
 				}
 				
-				//vak lijst
-				if (isset($_SESSION['subjectList'])){
-					$subjectList= unserialize($_SESSION['subjectList']);
-					echo "<table class='table table-striped'> ";
-					echo "<tr><th>Vaknaam</th><th>Actief</th></tr>";
-					
-					foreach($subjectList as $subject){						
-						echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneSubject&id=".$subject["subject_id"]."'>". $subject["subject_name"] ."</a></td>";
-						echo "<td>". $subject["active"] ."</td></tr>";												
-					}
-					echo "</table>";
-				}else{
-					echo"vaklijst niet gevonden";
-				}	
-				
 				//userlist
 				if (isset($_SESSION['userList'])){
 					$userList= unserialize($_SESSION['userList']);
+					unset($_SESSION['userList']);
 					echo "<table class='table table-striped'> ";
+					echo "<tr><th>Aanwezige bij de les:</th></tr>";
 					echo "<tr><th>Naam</th><th>Email</th><th>Code</th><th>Actief</th></tr>";
-					foreach($userList as $user){
-
-							
+					foreach($userList as $user){							
 							echo "<tr><td><a href='../controller/usercontroller.php?action=findOneUser&id=".$user['id']."'>". $user["name"] ."</a></td>";
 							echo "<td>". $user["email"] ."</td>";
 							echo "<td>". $user["code"] ."</td>";
-							echo "<td>". $user["active"] ."</td></tr>";
-												
+							echo "<td>". $user["active"] ."</td></tr>";												
 					}
 					echo "</table>";
 				}else{

@@ -75,14 +75,13 @@ if ($_POST['action']=="add_user_lesson" &&
 			$user_id = $user->getId();
 		}
 		
-		echo "$user_id";
 		$q->addUser_Lesson($lesson_id, $user_id);
 		
 		//$q->getLessonIdByCode2(12608);
 		$lesson_name = $q->getLessonNameById($lesson_id);
 		$_SESSION['lesson_name'] = $lesson_name;
 
-		//header("location: ../view/input_code.php");		
+		header("location: ../view/input_code.php");		
 	}else{
 		$_SESSION['code'] = $_POST['code'];
 		header("location: ../view/input_code.php");	

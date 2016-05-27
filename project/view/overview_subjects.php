@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php include("../includes/sentry.php"); ?>
 <html>
 	<head>
 		<?php include_once("../includes/head_bootstrap.html"); ?> 
@@ -12,9 +10,7 @@ session_start();
 		include_once("../classes/db/querymanager.php");  
 		include_once("../classes/model/subjectClass.php"); 
 
-		//change this when login function works
-		$_SESSION['user_id'] = 1;
-		
+
 		$q = new Querymanager();
 		$subjectList = $q->getSubjectsFromDocent($_SESSION['user_id']);
 		?>
@@ -38,7 +34,7 @@ session_start();
 							</div>
 						</div>
 						<input type='hidden' name='action' value='addSubject'>
-						<input type='hidden' name='owner_id' value='<?php echo $_SESSION['user_id']; ?>'>				
+						<input type='hidden' name='owner_id' value='<?php echo $_SESSION['id']; ?>'>				
 					</div>
 				</div>
 			</form>	

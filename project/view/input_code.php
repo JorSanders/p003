@@ -1,6 +1,4 @@
-<?php 
-session_start();
-?>
+<?php include("../includes/sentry.php"); ?>
 <html>
 
 	<head>
@@ -33,7 +31,7 @@ session_start();
 								<select name="search" class="form-control" id="focusedInput">
 									<option value = "name">Naam</option>
 									<option value = "email">E-mailadres</option>
-									<option value = "code">Identificatiecode</option>
+									<option value = "code" selected>Identificatiecode</option>
 								</select>
 							</div>
 						</div>
@@ -41,7 +39,7 @@ session_start();
 						<div class="form-group has-feedback">
 							<label class="col-sm-6 control-label">Typ uw bijbehorende gegeven bij de bovenstaande keuze in:</label>
 							<div class="col-sm-6">
-								<input type = "text" name = "name" class="form-control" id="focusedInput">
+								<input type = "text" name = "name" class="form-control" value="<?php echo $_SESSION['code']; ?>" id="focusedInput" required>
 							</div>
 						</div>
 
@@ -66,6 +64,7 @@ session_start();
 					echo "<span class=\"help-block pull-left\"> De code {$_SESSION['code']} is incorrect, probeer opnieuw. <br>
 					Denk eraan dat de code uit 5 cijfers bestaat.</span>";
 				}
+				unset($_SESSION['validCode']);
 			}
 			?>
 

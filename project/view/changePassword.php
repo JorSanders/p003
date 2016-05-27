@@ -1,3 +1,4 @@
+<?php include("../includes/sentry.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -16,7 +17,7 @@
 				<div class="form-group">
 					<div class="col-sm-6">
 						<?php
-						$id = 1;
+						$id = $_SESSION['id'];
 						?>			
 						<div class="form-group has-feedback">
 							<label class="col-sm-4 control-label">Oude wachtwoord:</label>
@@ -44,6 +45,7 @@
 
 						<input type="hidden" name="id" value=" <?php echo $id; ?> "/>
 						<input type="hidden" name="action" value="change_password"/>
+						<input type="hidden" name="user_id" value="<?php echo $_SESSION["id"];?>"/>
 						<div class="form-group has-feedback">
 							<div class="col-sm-10">
 								<button type="submit" class="btn btn-default btn pull-right">Wachtwoord wijzigen</button>
