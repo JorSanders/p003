@@ -21,26 +21,47 @@
 	//Change user password
 	/*Wachtwoord van de user veranderen, new_password1 en 2 moeten met elkaar vergeleken worden en er moet gecontroleerd worden 
 	of het wachtwoord nog beschikbaar is */
- 	if (isset($_POST['studentnummer']) && isset($_POST['old_password']) && isset($_POST['new_password1'])&& isset($_POST['new_password2'])
-		&&($_POST['action']=='change_password')) {
- 		$studentnummer = 1;
- 		$old_password =	$_POST['old_password'];
- 		$check = $q->check_password($studentnummer,$old_password);
- 		$_SESSION['check'] = serialize($check); 
+ 	if (
+		$_POST['action']=='change_password' && 
+		isset($_POST['old_password']) && 
+		isset($_POST['new_password1']) && 
+		isset($_POST['new_password2']) && 
+		isset($_POST['user_id'])
+	) {
+		//encript the old password so its unhackable
+		$oldPassWord = md5($_POST['old_password']);
+		
+		//check if the old password is correct 
+		$columnToGetFrom = "password";
+		$whereColumnIs = "id";
+		$whereValue = $_POST['user_id'];
+		$table = "user";
+		$password = $q->getValueFromColumn($columnToGetFrom, $whereColumnIs, $whereValue, $table);		
+		$password = $password[0]['password'];
+		
+		//if the oldpassword isnt correct send the user back
+		if($oldPassWord != $password){		
+			header("location: ../view/changePassword.php");
+		}
+		
+		//check if both new passwords match
+		if($_POST['new_password1'] != $_POST['new_password2']){
+			header("location: ../view/changePassword.php");
+		}
+		$newPass = md5($_POST['new_password1']);
+		
+		//update the password
+		$columnToUpdate = "password";
+		$value = $newPass;
+		$whereColumnIs = "id";
+		$whereValue = $_POST['user_id'];
+		$table = "user";
+		$q->updateColumn($columnToUpdate, $value, $whereColumnIs, $whereValue, $table);
+		
+		header("Location: ../view/index.php");
+ 
  	}
- 		elseif ($row == 1){
-
-		if ($_POST['new_password1'] == $_POST['new_password2']){
- 		$studentnummer = 1;
-    	$new_password = $_POST['new_password1'];
-		$user = $q->change_password($studentnummer,$new_password);
-		$_SESSION['user'] = serialize($user);    
-		header('Location: ../index.php');   
-    	}
-    	else {
-    		header('Location: ../change_password'); 
-    	}
-    }
+ 
 	
 	//User toevoegen
 	
@@ -165,7 +186,7 @@
 		$_SESSION['lessonList'] = serialize($lessonList);
 
 		
-		header('Location: ../view/oneuser.php');
+		header('Location: ../view/oneUser.php');
 	}
 
 	//Update Role

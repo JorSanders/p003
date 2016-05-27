@@ -493,6 +493,24 @@ class QueryManager {
 	    return (new User($row['id'], $row['name'],$row['password'], $row['email'], $row['code'], $row['active']));
 
     }
+	
+	//get password by id
+	public function getValueFromColumn($columnToGetFrom, $whereColumnIs, $whereValue, $table){
+		$this->__construct();
+		
+		$this->pdomodel->where($whereColumnIs, $whereValue);
+		$this->pdomodel->columns = array($columnToGetFrom);
+		$result =  $this->pdomodel->select($table);
+		return $result;
+	}
+	
+	public function updateColumn($columnToUpdate, $value, $whereColumnIs, $whereValue, $table){
+		$updateData["$columnToUpdate"] = $value;
+		$this->pdomodel->where("$whereColumnIs", $whereValue);
+		$this->pdomodel->update("$table", $updateData);
+	}
+	
+
 }
 
 	

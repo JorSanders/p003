@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php include("../includes/sentry.php"); ?>
 <html>
 	<head>
 		<?php include_once("../includes/head_bootstrap.html"); ?> 
@@ -38,6 +36,8 @@ session_start();
 					</div>
 				</div>		
 			</form>
+			Klik <a href="CodeGeneratorCreate.php?subject_id=<?php echo $_GET['subject_id']; ?>">hier</a> om lescodes te genereren <br>
+			Klik <a href="../controller/subjectcontroller.php?action=findOneSubject&id=<?php echo $_GET['subject_id']; ?>">hier</a> om een overzicht van de lessen te zien <br>
 
 		</div>
 		<footer>

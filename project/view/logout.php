@@ -8,7 +8,7 @@
     <?php include_once("../includes/head_bootstrap.html"); ?>
 </head>
 <body>
-	<?php include_once("../includes/navbar_bootstrap.php"); ?>
+	<?php //include_once("../includes/navbar_bootstrap.php"); ?>
     <div class="container">
         <div class="page-header">
             <h3>Uitgelogd</h3>
