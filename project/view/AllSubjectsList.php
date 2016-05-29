@@ -27,7 +27,13 @@
 					<?php
 					foreach ($AllSubjectsList as $Subject) {
 						echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneSubject&id=".$Subject->getId()."'>".$Subject->getName() . "</a></td>";
-						echo "<td>".$Subject->getActive() . "</td></tr>";                    
+						if($Subject->getActive() == 'true'){
+								echo "<td>". "<label class='glyphicon glyphicon-ok'></label> "."</td>";
+							}
+							else{
+								echo "<td>". "<label class='glyphicon glyphicon-remove'></label> "."</td>";
+							}
+					                  
 					}    
 				?>
 				</table>

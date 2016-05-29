@@ -29,7 +29,13 @@
 					<?php
 					foreach ($AllRolesList as $Role) {
 						echo "<tr><td><a href='../controller/roleController.php?action=findOneRole&id=".$Role->getId()."'>".$Role->getName() . "</a></td>";
-						echo "<td>".$Role->getActive() . "</td></tr>";
+						if($Role->getActive() == 'true'){
+								echo "<td>". "<label class='glyphicon glyphicon-ok'></label> "."</td>";
+							}
+							else{
+								echo "<td>". "<label class='glyphicon glyphicon-remove'></label> "."</td>";
+							}
+						
                     }    
 					?>
 				</table>

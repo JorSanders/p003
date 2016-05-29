@@ -25,7 +25,13 @@
 						<tr><th>Vak</th><th>Actief</th></tr>
 						<?php
 						echo "<tr><td>". $subject["subject_name"] ."</td>";
-						echo "<td>". $subject["active"] ."</td></tr>";
+						if($subject["active"] == 'true'){
+								echo "<td>". "<label class='glyphicon glyphicon-ok'></label> "."</td>";
+							}
+							else{
+								echo "<td>". "<label class='glyphicon glyphicon-remove'></label> "."</td>";
+							}
+					
 						?>
 					</table><br>
 					<?php						
@@ -42,7 +48,12 @@
 								echo "<tr><td><a href='../controller/usercontroller.php?action=findOneUser&id=".$user['id']."'>". $user["name"] ."</a></td>";
 								echo "<td>". $user["email"] ."</td>";
 								echo "<td>". $user["code"] ."</td>";
-								echo "<td>". $user["active"] ."</td></tr>";													
+								if($user["active"] == 'true'){
+									echo "<td>". "<label class='glyphicon glyphicon-ok'></label> "."</td>";
+								}else{
+									echo "<td>". "<label class='glyphicon glyphicon-remove'></label> "."</td>";
+								}
+												
 						}
 					echo "</table>";
 				}else{
@@ -59,7 +70,12 @@
 						foreach($lessonList as $lesson){								
 								echo "<tr><td><a href='../controller/subjectcontroller.php?action=findOneLesson&id=".$lesson['lesson_id']."'>". $lesson["lesson_name"] ."</a></td>";
 								echo "<td>". $lesson["code"] ."</td>";
-								echo "<td>". $lesson["active"] ."</td></tr>";													
+								if($lesson["active"] == 'true'){
+									echo "<td>". "<label class='glyphicon glyphicon-ok'></label> "."</td>";
+								}else{
+									echo "<td>". "<label class='glyphicon glyphicon-remove'></label> "."</td>";
+								}
+																					
 						}
 					echo "</table>";
 				}else{
