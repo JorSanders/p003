@@ -39,7 +39,7 @@
 						<div class="form-group has-feedback">
 							<label class="col-sm-3 control-label">Wachtwoord:</label>
 							<div class="col-sm-6">
-								<input class="form-control" id="focusedInput" name="passwordd" type="password" required value="<?php echo $User->getPassword(); ?>"/>
+								<input class="form-control" id="focusedInput" name="password" type="password" required value="<?php echo $User->getPassword(); ?>"/>
 							</div>
 						</div>
 						<div class="form-group has-feedback">
