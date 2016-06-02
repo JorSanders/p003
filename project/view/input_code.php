@@ -53,7 +53,8 @@
 					</div>
 				</div>
 			</form>
-
+			</div>
+		</div>
 
 			<?php
 			if (isset($_SESSION['validCode'])){
