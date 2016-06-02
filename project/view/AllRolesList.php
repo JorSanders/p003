@@ -25,7 +25,7 @@
             </div>
 			<div class="col-sm-8">
                 <table class='table table-striped'> 
-					<tr><th>Rol</th><th>Actief</th></tr>
+					<tr><th>Rollen</th><th>Actief</th></tr>
 					<?php
 					foreach ($AllRolesList as $Role) {
 						echo "<tr><td><a href='../controller/roleController.php?action=findOneRole&id=".$Role->getId()."'>".$Role->getName() . "</a></td>";
