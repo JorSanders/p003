@@ -28,7 +28,12 @@
 						echo "<tr><td>". $lesson["lesson_name"] ."</td>";
 						echo "<td>". $lesson["code"] ."</td>";
 						echo "<td><a href='../controller/subjectcontroller.php?action=findOneSubject&id=".$lesson['subject_id']."'>". $lesson["subject_name"] ."</a></td>";
-						echo "<td>". $lesson["active"] ."</td></tr>";
+						if($lesson["active"] == 'true'){
+								echo "<td>". "<label class='glyphicon glyphicon-ok'></label> "."</td>";
+							}
+							else{
+								echo "<td>". "<label class='glyphicon glyphicon-remove'></label> "."</td>";
+							}		
 						?>
 					</table><br>
 				<?php						
@@ -44,8 +49,13 @@
 					foreach($userList as $user){							
 							echo "<tr><td><a href='../controller/usercontroller.php?action=findOneUser&id=".$user['id']."'>". $user["name"] ."</a></td>";
 							echo "<td>". $user["email"] ."</td>";
-							echo "<td>". $user["code"] ."</td>";
-							echo "<td>". $user["active"] ."</td></tr>";												
+							echo "<td>". $user["code"] ."</td>";	
+							if($user["active"] == 'true'){
+								echo "<td>". "<label class='glyphicon glyphicon-ok'></label> "."</td>";
+							}
+							else{
+								echo "<td>". "<label class='glyphicon glyphicon-remove'></label> "."</td>";
+							}													
 					}
 					echo "</table>";
 				}else{
