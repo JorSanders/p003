@@ -40,25 +40,33 @@
 		$password = $password[0]['password'];
 		
 		//if the oldpassword isnt correct send the user back
-		if($oldPassWord != $password){		
-			header("location: ../view/changePassword.php");
+		if($oldPassWord == $password){		
+			//header("location: ../view/changePassword.php");
+		
+			//check if both new passwords match
+			if($_POST['new_password1'] == $_POST['new_password2']){
+				//header("location: ../view/changePassword.php");
+			
+				$newPass = md5($_POST['new_password1']);
+				
+				//update the password
+				$columnToUpdate = "password";
+				$value = $newPass;
+				$whereColumnIs = "id";
+				$whereValue = $_POST['user_id'];
+				$table = "user";
+				$q->updateColumn($columnToUpdate, $value, $whereColumnIs, $whereValue, $table);
+				header("Location: ../view/index.php");
+
+			}
+			else{
+				header("Location: ../view/changePassword.php?error=wachtwoorden zijn niet gelijk");
+			}
+			
 		}
-		
-		//check if both new passwords match
-		if($_POST['new_password1'] != $_POST['new_password2']){
-			header("location: ../view/changePassword.php");
+		else{
+			header("Location: ../view/changePassword.php?error=oude wachtwoord klopt niet");
 		}
-		$newPass = md5($_POST['new_password1']);
-		
-		//update the password
-		$columnToUpdate = "password";
-		$value = $newPass;
-		$whereColumnIs = "id";
-		$whereValue = $_POST['user_id'];
-		$table = "user";
-		$q->updateColumn($columnToUpdate, $value, $whereColumnIs, $whereValue, $table);
-		
-		header("Location: ../view/index.php");
  
  	}
  
