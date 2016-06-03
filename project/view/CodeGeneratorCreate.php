@@ -41,7 +41,12 @@
 							}else{
 								echo $lesson->getCode();
 							}	
-							
+							echo "&nbsp&nbsp&nbsp&nbsp
+								<form style='display:inline-block;' action='../controller/subjectcontroller.php' method='GET'>
+									<input class='btn btn-default' type='submit' value='Bekijk overzicht'>
+									<input type='hidden' name='id' value='{$lesson->getId()}'> 
+									<input type='hidden' name='action' value='findOneLesson'>
+								</form>";	
 						   echo "<br>";
 						}
 					} else {
