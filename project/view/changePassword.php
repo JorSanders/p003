@@ -13,6 +13,7 @@
 			<div class="page-header">
 				<h3>Wachtwoord wijzigen</h3>
 			</div>
+			<?php if(isset($_GET['error'])){ echo $_GET['error'];}?>
 			<form class="form-horizontal" role="form" action="../controller/usercontroller.php" method="post">
 				<div class="form-group">
 					<div class="col-sm-6">
