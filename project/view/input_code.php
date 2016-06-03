@@ -50,8 +50,7 @@
 								<input class="btn btn-default pull-right" type="submit" value="Aanwezig melden">
 							</div>
 						</div>
-					</div>
-				</div>
+					
 			</form>
 			</div>
 		</div>
@@ -69,6 +68,8 @@
 			}
 			?>
 
+					</div>
+				</div>
 		<footer>
 			<?php include_once("../includes/footer_bootstrap.html"); ?> 
 		</footer>
